@@ -1,40 +1,35 @@
 "use client";
 import React, { useState } from "react";
-import GithubIcon from "../../../public/github-icon.svg";
-import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
-import Image from "next/image";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const data = {
+      name: e.target.name.value,
       email: e.target.email.value,
-      subject: e.target.subject.value,
       message: e.target.message.value,
     };
+
     const JSONdata = JSON.stringify(data);
     const endpoint = "/api/send";
 
-    // Form the request for sending data to the server.
     const options = {
-      // The method is POST because we are sending data.
       method: "POST",
-      // Tell the server we're sending JSON.
       headers: {
         "Content-Type": "application/json",
       },
-      // Body of the request is the JSON data we created above.
       body: JSONdata,
     };
 
     const response = await fetch(endpoint, options);
-    const resData = await response.json();
 
     if (response.status === 200) {
-      console.log("Message sent.");
+      console.log("Mensaje enviado.");
       setEmailSubmitted(true);
     }
   };
@@ -42,89 +37,120 @@ const EmailSection = () => {
   return (
     <section
       id="contact"
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
+      className="text-white scroll-mt-32 mt-4 mb-12 py-12 relative"
     >
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
-      <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">
-          Let&apos;s Connect
-        </h5>
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
-          {" "}
-          I&apos;m currently looking for new opportunities, my inbox is always
-          open. Whether you have a question or just want to say hi, I&apos;ll
-          try my best to get back to you!
-        </p>
-        <div className="socials flex flex-row gap-2">
-          <Link href="github.com">
-            <Image src={GithubIcon} alt="Github Icon" />
-          </Link>
-          <Link href="linkedin.com">
-            <Image src={LinkedinIcon} alt="Linkedin Icon" />
-          </Link>
-        </div>
-      </div>
-      <div>
-        {emailSubmitted ? (
-          <p className="text-green-500 text-sm mt-2">
-            Email sent successfully!
+      <h2 className="text-center text-4xl font-bold text-white mb-12">
+        Contacto
+      </h2>
+
+      <div className="grid md:grid-cols-2 gap-4 mt-4">
+        <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
+
+        <div className="z-10">
+          <h5 className="text-xl font-bold text-white my-2">
+            Contactame
+          </h5>
+
+          <p className="text-[#ADB7BE] mb-4 max-w-md text-justify leading-7">
+            Estoy abierto a nuevas oportunidades y proyectos. Si tenés alguna
+            consulta, propuesta de trabajo o simplemente querés ponerte en
+            contacto, no dudes en escribirme. Te responderé a la brevedad.
           </p>
-        ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
-            <div className="mb-6">
-              <label
-                htmlFor="email"
-                className="text-white block mb-2 text-sm font-medium"
-              >
-                Your email
-              </label>
-              <input
-                name="email"
-                type="email"
-                id="email"
-                required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="jacob@google.com"
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="subject"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Subject
-              </label>
-              <input
-                name="subject"
-                type="text"
-                id="subject"
-                required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Just saying hi"
-              />
-            </div>
-            <div className="mb-6">
-              <label
-                htmlFor="message"
-                className="text-white block text-sm mb-2 font-medium"
-              >
-                Message
-              </label>
-              <textarea
-                name="message"
-                id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="Let's talk about..."
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+
+          <div className="socials flex flex-row gap-5 mt-4 items-center">
+            <Link
+              href="https://github.com/leandrocalfin"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-primary-400 transition-colors"
             >
-              Send Message
-            </button>
-          </form>
-        )}
+              <FaGithub size={36} />
+            </Link>
+
+            <Link
+              href="https://www.linkedin.com/in/leandro-calfin-954b7b352/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-primary-400 transition-colors"
+            >
+              <FaLinkedin size={36} />
+            </Link>
+
+            <a
+              href="mailto:lean.calfin@gmail.com"
+              className="text-white hover:text-primary-400 transition-colors"
+            >
+              <FaEnvelope size={34} />
+            </a>
+          </div>
+        </div>
+
+        <div>
+          {emailSubmitted ? (
+            <p className="text-green-500 text-sm mt-2">
+              Mensaje enviado correctamente.
+            </p>
+          ) : (
+            <form className="flex flex-col" onSubmit={handleSubmit}>
+              <div className="mb-6">
+                <label
+                  htmlFor="name"
+                  className="text-white block mb-2 text-sm font-medium"
+                >
+                  Nombre
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  id="name"
+                  required
+                  className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="Ingrese su nombre"
+                />
+              </div>
+
+              <div className="mb-6">
+                <label
+                  htmlFor="email"
+                  className="text-white block mb-2 text-sm font-medium"
+                >
+                  Correo
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  id="email"
+                  required
+                  className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="correo@ejemplo.com"
+                />
+              </div>
+
+              <div className="mb-6">
+                <label
+                  htmlFor="message"
+                  className="text-white block text-sm mb-2 font-medium"
+                >
+                  Mensaje
+                </label>
+                <textarea
+                  name="message"
+                  id="message"
+                  required
+                  className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 min-h-[120px]"
+                  placeholder="Escriba su mensaje..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
+              >
+                Enviar mensaje
+              </button>
+            </form>
+          )}
+        </div>
       </div>
     </section>
   );
