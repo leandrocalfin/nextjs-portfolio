@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
+import { useLanguage } from "../languageContext";
 
 const projectsData = [
   {
@@ -16,7 +17,7 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "Potography Portfolio Website",
+    title: "Photography Portfolio Website",
     description: "Project 2 description",
     image: "/images/projects/2.png",
     tag: ["All", "Web"],
@@ -62,6 +63,7 @@ const projectsData = [
 ];
 
 const ProjectsSection = () => {
+  const { t } = useLanguage();
   const [tag, setTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -81,37 +83,41 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="scroll-mt-32">
-      <h2 className="text-center text-4xl font-bold mt-20 mb-12">
-        Proyectos
+      <h2 className="text-center text-4xl font-bold mt-20 mb-12 text-[#1F2937] dark:text-white">
+        {t.projectsTitle}
       </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+
+      <div className="flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={handleTagChange}
           name="All"
+          label={t.filterAll}
           isSelected={tag === "All"}
         />
         <ProjectTag
           onClick={handleTagChange}
           name="Web"
+          label={t.filterWeb}
           isSelected={tag === "Web"}
         />
         <ProjectTag
           onClick={handleTagChange}
           name="Mobile"
+          label="Mobile"
           isSelected={tag === "Mobile"}
         />
       </div>
+
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
         {filteredProjects.map((project, index) => (
           <motion.li
-            key={index}
+            key={project.id}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ duration: 0.3, delay: index * 0.4 }}
           >
             <ProjectCard
-              key={project.id}
               title={project.title}
               description={project.description}
               imgUrl={project.image}

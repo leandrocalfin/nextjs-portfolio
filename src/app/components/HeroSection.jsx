@@ -3,10 +3,11 @@ import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { FaGithub, FaEnvelope } from "react-icons/fa";
+import { useLanguage } from "../languageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -16,14 +17,15 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
-          <h1 className="text-white mb-4 text-3xl sm:text-4xl lg:text-6xl leading-tight font-extrabold">
+          <h1 className="text-[#1F2937] dark:text-white mb-4 text-3xl sm:text-4xl lg:text-6xl leading-tight font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hola, soy Leandro Calfin.{" "}
+              {t.heroTitle}{" "}
             </span>
             <br></br>
             <TypeAnimation
+              key={t.heroSubtitle}
               sequence={[
-                "Estudiante avanzado en Desarrollo de Software.",
+                t.heroSubtitle,
                 1000,
               ]}
               wrapper="span"
@@ -31,8 +33,8 @@ const HeroSection = () => {
               repeat={Infinity}
             />
           </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Enfocado en el desarrollo web y en la construcción de APIs REST. 
+          <p className="text-[#4B5563] dark:text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
+            {t.heroText}
           </p>
           <div className="flex gap-4 mt-6 items-center">
             <a
@@ -46,17 +48,16 @@ const HeroSection = () => {
 
             <a
               href="mailto:lean.calfin@gmail.com"
-              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 text-white hover:scale-105 transition-transform"
-            >
+              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 text-white hover:scale-105 transition-transform">
               <FaEnvelope size={22} />
             </a>
 
             <a
               href="/cv.pdf"
               download
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full border-2 border-primary-500 hover:bg-slate-800 text-white"
+              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full border-2 border-primary-500 text-[#1F2937] dark:text-white hover:bg-primary-500 hover:text-white transition-colors"
             >
-              Descargar CV
+              {t.downloadCV}
             </a>
           </div>
         </motion.div>
@@ -66,7 +67,7 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-4 place-self-center mt-4 lg:mt-0"
         >
-          <div className="rounded-full bg-[#181818] w-[220px] h-[220px] lg:w-[320px] lg:h-[320px] relative overflow-hidden">
+          <div className="rounded-full bg-[#EDE7DB] dark:bg-[#181818] w-[220px] h-[220px] lg:w-[320px] lg:h-[320px] relative overflow-hidden">
             <Image
               src="/images/miaFormal.jpg"
               alt="Hero Image"

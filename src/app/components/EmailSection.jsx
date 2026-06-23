@@ -2,8 +2,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { useLanguage } from "../languageContext";
 
-const EmailSection = () => {
+const EmailSection = () => {const { t } = useLanguage();
   const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -37,24 +38,22 @@ const EmailSection = () => {
   return (
     <section
       id="contact"
-      className="text-white scroll-mt-32 mt-4 mb-12 py-12 relative"
+      className="text-white scroll-mt-32 mt-6 mb-12 py-12 relative"
     >
-      <h2 className="text-center text-4xl font-bold text-white mb-12">
-        Contacto
+      <h2 className="text-center text-4xl font-bold text-[#1F2937] dark:text-white mb-12">
+        {t.contactTitle}
       </h2>
 
       <div className="grid md:grid-cols-2 gap-4 mt-4">
         <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
 
         <div className="z-10">
-          <h5 className="text-xl font-bold text-white my-2">
-            Contactame
+          <h5 className="text-xl font-bold text-[#1F2937] dark:text-white my-2">
+            {t.contactSubtitle}
           </h5>
 
-          <p className="text-[#ADB7BE] mb-4 max-w-md text-justify leading-7">
-            Estoy abierto a nuevas oportunidades y proyectos. Si tenés alguna
-            consulta, propuesta de trabajo o simplemente querés ponerte en
-            contacto, no dudes en escribirme. Te responderé a la brevedad.
+          <p className="text-[#4B5563] dark:text-[#ADB7BE] mb-4 max-w-md text-justify leading-7">
+            {t.contactText}
           </p>
 
           <div className="socials flex flex-row gap-5 mt-4 items-center">
@@ -62,7 +61,7 @@ const EmailSection = () => {
               href="https://github.com/leandrocalfin"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-primary-400 transition-colors"
+              className="text-[#1F2937] dark:text-white hover:text-primary-400 transition-colors"
             >
               <FaGithub size={36} />
             </Link>
@@ -71,14 +70,14 @@ const EmailSection = () => {
               href="https://www.linkedin.com/in/leandro-calfin-954b7b352/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-primary-400 transition-colors"
+              className="text-[#1F2937] dark:text-white hover:text-primary-400 transition-colors"
             >
               <FaLinkedin size={36} />
             </Link>
 
             <a
               href="mailto:lean.calfin@gmail.com"
-              className="text-white hover:text-primary-400 transition-colors"
+              className="text-[#1F2937] dark:text-white hover:text-primary-400 transition-colors"
             >
               <FaEnvelope size={34} />
             </a>
@@ -95,9 +94,9 @@ const EmailSection = () => {
               <div className="mb-6">
                 <label
                   htmlFor="name"
-                  className="text-white block mb-2 text-sm font-medium"
+                  className="text-[#1F2937] dark:text-white block mb-2 text-sm font-medium"
                 >
-                  Nombre
+                  {t.formName}
                 </label>
                 <input
                   name="name"
@@ -105,16 +104,16 @@ const EmailSection = () => {
                   id="name"
                   required
                   className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                  placeholder="Ingrese su nombre"
+                  placeholder={t.placeholderName}
                 />
               </div>
 
               <div className="mb-6">
                 <label
                   htmlFor="email"
-                  className="text-white block mb-2 text-sm font-medium"
+                  className="text-[#1F2937] dark:text-white block mb-2 text-sm font-medium"
                 >
-                  Correo
+                  {t.formEmail}
                 </label>
                 <input
                   name="email"
@@ -122,23 +121,23 @@ const EmailSection = () => {
                   id="email"
                   required
                   className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                  placeholder="correo@ejemplo.com"
+                  placeholder={t.placeholderEmail}
                 />
               </div>
 
               <div className="mb-6">
                 <label
                   htmlFor="message"
-                  className="text-white block text-sm mb-2 font-medium"
+                  className="text-[#1F2937] dark:text-white block mb-2 text-sm font-medium"
                 >
-                  Mensaje
+                  {t.formMessage}
                 </label>
                 <textarea
                   name="message"
                   id="message"
                   required
                   className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 min-h-[120px]"
-                  placeholder="Escriba su mensaje..."
+                  placeholder={t.placeholderMessage}
                 />
               </div>
 
@@ -146,7 +145,7 @@ const EmailSection = () => {
                 type="submit"
                 className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
               >
-                Enviar mensaje
+                {t.sendMessage}
               </button>
             </form>
           )}

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { useLanguage } from "../languageContext";
 
 import {
   FaHtml5,
@@ -31,11 +32,11 @@ const technologies = [
   { name: "Express", icon: <SiExpress className="text-gray-300" /> },
 ];
 
-const AboutSection = () => {
+const AboutSection = () => {const { t } = useLanguage();
   return (
-    <section className="text-white scroll-mt-32" id="about">
-      <h2 className="section-title text-center text-4xl font-bold text-white mb-6">
-        Sobre mí
+    <section className="text-[#1F2937] dark:text-white scroll-mt-32" id="about">
+      <h2 className="text-center text-4xl font-bold text-[#1F2937] dark:text-white mb-6">
+        {t.aboutTitle}
       </h2>
 
       <div className="md:grid md:grid-cols-2 gap-8 items-start py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
@@ -48,33 +49,16 @@ const AboutSection = () => {
 
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <p className="text-base lg:text-lg text-justify">
-            Me encuentro cursando el último año de la Tecnicatura Universitaria
-            en Desarrollo de Aplicaciones Informáticas, con interés en el
-            desarrollo web, las APIs REST y las bases de datos.
-            <br />
-            <br />
-            Durante más de 14 años me desempeñé como Oficial de la Fuerza Aérea
-            Argentina, donde adquirí experiencia en liderazgo, trabajo en
-            equipo, gestión de recursos, planificación y resolución de
-            problemas en entornos de alta responsabilidad.
-            <br />
-            <br />
-            Actualmente me encuentro ampliando mi perfil profesional hacia el
-            sector tecnológico, desarrollando proyectos académicos y personales
-            utilizando tecnologías como HTML, CSS, JavaScript, React, Node.js,
-            MySQL, Git y herramientas de desarrollo web modernas.
-            <br />
-            <br />
-            Mi objetivo es continuar creciendo como desarrollador,
-            participando en proyectos que me permitan aplicar conocimientos
-            técnicos, aprender nuevas tecnologías y aportar soluciones de valor.
+            {t.aboutText1}
+            {t.aboutText2}
+            {t.aboutText3}
+            {t.aboutText4}
           </p>
         </div>
       </div>
 
       <div className="text-center mt-4 px-4">
-        <h3 className="text-3xl font-bold mb-8">Tecnologías</h3>
-
+        <h3 className="text-3xl font-bold mb-8 text-[#1F2937] dark:text-white">{t.technologiesTitle}</h3>
         <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
           {technologies.map((tech) => (
             <div
