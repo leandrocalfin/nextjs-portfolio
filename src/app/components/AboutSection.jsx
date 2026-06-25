@@ -47,7 +47,7 @@ const AboutSection = () => {
           width={500}
           height={500}
           alt="Desarrollador"
-          className="w-full max-w-[360px] mx-auto md:max-w-[500px]"
+          className="w-full max-w-[190px] sm:max-w-[260px] md:max-w-[420px] lg:max-w-[500px] mx-auto"
         />
 
         <div className="mt-6 md:mt-0 mx-auto md:mx-0 text-left flex flex-col h-full max-w-[620px] rounded-2xl border border-[#d6d0c5] dark:border-[#33353F] bg-[#F3EDE2] dark:bg-[#181818] px-5 py-5 shadow-[0_12px_30px_rgba(15,23,42,0.10)] transition-all duration-300 hover:border-[#007ACC] hover:shadow-[0_16px_36px_rgba(0,122,204,0.20)]">
@@ -76,7 +76,7 @@ const AboutSection = () => {
             <div
               key={tech.name}
               title={tech.name}
-              className="w-[145px] sm:w-[160px] flex flex-col items-center justify-center min-h-[110px] rounded-xl border border-[#d6d0c5] dark:border-[#33353F] bg-[#F3EDE2] dark:bg-[#181818] px-4 py-4 shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition-all duration-300 hover:scale-[1.04] hover:border-[#007ACC] hover:shadow-[0_0_22px_rgba(0,122,204,0.20)] cursor-pointer"
+              className="w-[125px] sm:w-[145px] md:w-[160px] flex flex-col items-center justify-center min-h-[95px] sm:min-h-[110px] rounded-xl border border-[#d6d0c5] dark:border-[#33353F] bg-[#F3EDE2] dark:bg-[#181818] px-3 py-3 sm:px-4 sm:py-4 shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition-all duration-300 hover:scale-[1.04] hover:border-[#007ACC] hover:shadow-[0_0_22px_rgba(0,122,204,0.20)] cursor-pointer"
             >
               <div className="text-5xl mb-3">{tech.icon}</div>
               <p className="text-sm font-bold text-[#1F2937] dark:text-white">
