@@ -41,22 +41,24 @@ const HeroSection = () => {
               href="https://github.com/leandrocalfin"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 text-white hover:scale-105 transition-transform"
+              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-gradient-to-r from-[#007ACC] via-[#00AEEF] to-[#0057D9] text-white shadow-[0_10px_26px_rgba(0,122,204,0.28)] hover:scale-105 transition-transform duration-300"
             >
               <FaGithub size={22} />
             </a>
 
             <a
               href="mailto:lean.calfin@gmail.com"
-              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 text-white hover:scale-105 transition-transform">
+              className="flex items-center justify-center w-[50px] h-[50px] rounded-full bg-gradient-to-r from-[#007ACC] via-[#00AEEF] to-[#0057D9] text-white shadow-[0_10px_26px_rgba(0,122,204,0.28)] hover:scale-105 transition-transform duration-300"
+            >
               <FaEnvelope size={22} />
             </a>
 
             <a
               href="/cv.pdf"
               download
-              className="px-6 inline-block py-3 w-full sm:w-fit rounded-full border-2 border-primary-500 text-[#1F2937] dark:text-white hover:bg-primary-500 hover:text-white transition-colors"
+              className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#007ACC] via-[#00AEEF] to-[#0057D9] px-6 py-2 text-base font-bold text-white shadow-[0_10px_26px_rgba(0,122,204,0.28)] transition-transform duration-300 hover:scale-105"
             >
+
               {t.downloadCV}
             </a>
           </div>

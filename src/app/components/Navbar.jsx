@@ -7,6 +7,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 import { FaHome, FaGlobe, FaMoon, FaSun } from "react-icons/fa";
 import { useLanguage } from "../languageContext";
+import Image from "next/image";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -15,19 +16,19 @@ const Navbar = () => {
   const { language, toggleLanguage, t } = useLanguage();
 
   const navLinks = [
-  {
-    title: t.navAbout,
-    path: "#about",
-  },
-  {
-    title: t.navProjects,
-    path: "#projects",
-  },
-  {
-    title: t.navContact,
-    path: "#contact",
-  },
-];
+    {
+      title: t.navAbout,
+      path: "#about",
+    },
+    {
+      title: t.navProjects,
+      path: "#projects",
+    },
+    {
+      title: t.navContact,
+      path: "#contact",
+    },
+  ];
 
   useEffect(() => {
     setMounted(true);
@@ -76,11 +77,17 @@ const Navbar = () => {
             <li>
               <button
                 type="button"
-                title="Cambiar idioma"
                 onClick={toggleLanguage}
-                className="w-8 flex items-center justify-center text-[#1F2937] dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                title="Cambiar idioma"
+                className="flex items-center justify-center transition-transform duration-300 hover:scale-110"
               >
-                {language === "es" ? "ES" : "EN"}
+                <Image
+                  src={language === "es" ? "/images/arg.png" : "/images/eng.png"}
+                  alt={language === "es" ? "Español" : "English"}
+                  width={28}
+                  height={28}
+                  className="rounded-sm"
+                />
               </button>
             </li>
 

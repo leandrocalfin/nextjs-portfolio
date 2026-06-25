@@ -44,6 +44,12 @@ export const translations = {
     messageSent: "Mensaje enviado correctamente.",
 
     footerText: "© 2026 Leandro Calfin. Todos los derechos reservados.",
+
+    projectStatus: "En proceso",
+    vetProjectTitle: "Sistema de Gestión Veterinaria",
+    vetProjectDescription:
+      "Actualmente me encuentro desarrollando un sistema de gestión veterinaria diseñado para optimizar la administración de turnos, pacientes, historiales clínicos y procesos internos del establecimiento. El proyecto se está construyendo con React, Next.js, Node.js, Express y MySQL, con el objetivo de centralizar la información y agilizar la operatoria diaria de una clínica veterinaria. Próximamente será publicado en esta sección con su correspondiente detalle funcional, técnico y visual.",
+
   },
 
   en: {
@@ -86,6 +92,10 @@ export const translations = {
     messageSent: "Message sent successfully.",
 
     footerText: "© 2026 Leandro Calfin. All rights reserved.",
+    projectStatus: "In progress",
+    vetProjectTitle: "Veterinary Management System",
+    vetProjectDescription:
+      "I am currently developing a veterinary management system designed to optimize appointment scheduling, patient records, clinical histories, and internal operational processes. The project is being built with React, Next.js, Node.js, Express, and MySQL, with the goal of centralizing information and streamlining the daily operations of a veterinary clinic. It will be published in this section soon, along with its corresponding functional, technical, and visual details.",
   },
 };
 

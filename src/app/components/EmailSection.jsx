@@ -4,8 +4,9 @@ import Link from "next/link";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import { useLanguage } from "../languageContext";
 
-const EmailSection = () => {const { t } = useLanguage();
+const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const { t } = useLanguage();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,18 +36,22 @@ const EmailSection = () => {const { t } = useLanguage();
     }
   };
 
+  const inputStyles =
+  "bg-[#F3EDE2] dark:bg-[#18191E] border border-[#d6d0c5] dark:border-[#33353F] text-[#1F2937] dark:text-gray-100 placeholder-[#6B7280] dark:placeholder-[#9CA2A9] text-base rounded-xl block w-full p-3 shadow-[0_8px_24px_rgba(15,23,42,0.08)] focus:outline-none focus:ring-2 focus:ring-[rgba(0,122,204,0.18)] focus:border-[#007ACC] focus:shadow-[0_0_20px_rgba(0,122,204,0.18)] transition-all duration-300";
+
+  const labelStyles =
+    "text-lg font-bold text-[#1F2937] dark:text-white mb-3 block";
+
   return (
     <section
       id="contact"
-      className="text-white scroll-mt-32 mt-6 mb-12 py-12 relative"
+      className="text-[#1F2937] dark:text-white scroll-mt-32 mt-4 mb-12 py-12 relative"
     >
       <h2 className="text-center text-4xl font-bold text-[#1F2937] dark:text-white mb-12">
         {t.contactTitle}
       </h2>
 
-      <div className="grid md:grid-cols-2 gap-4 mt-4">
-        <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
-
+      <div className="grid md:grid-cols-2 gap-10 mt-4">
         <div className="z-10">
           <h5 className="text-xl font-bold text-[#1F2937] dark:text-white my-2">
             {t.contactSubtitle}
@@ -61,7 +66,7 @@ const EmailSection = () => {const { t } = useLanguage();
               href="https://github.com/leandrocalfin"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#1F2937] dark:text-white hover:text-primary-400 transition-colors"
+              className="text-[#1F2937] dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
             >
               <FaGithub size={36} />
             </Link>
@@ -70,14 +75,14 @@ const EmailSection = () => {const { t } = useLanguage();
               href="https://www.linkedin.com/in/leandro-calfin-954b7b352/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#1F2937] dark:text-white hover:text-primary-400 transition-colors"
+              className="text-[#1F2937] dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
             >
               <FaLinkedin size={36} />
             </Link>
 
             <a
               href="mailto:lean.calfin@gmail.com"
-              className="text-[#1F2937] dark:text-white hover:text-primary-400 transition-colors"
+              className="text-[#1F2937] dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
             >
               <FaEnvelope size={34} />
             </a>
@@ -86,16 +91,11 @@ const EmailSection = () => {const { t } = useLanguage();
 
         <div>
           {emailSubmitted ? (
-            <p className="text-green-500 text-sm mt-2">
-              Mensaje enviado correctamente.
-            </p>
+            <p className="text-green-500 text-sm mt-2">{t.messageSent}</p>
           ) : (
             <form className="flex flex-col" onSubmit={handleSubmit}>
               <div className="mb-6">
-                <label
-                  htmlFor="name"
-                  className="text-[#1F2937] dark:text-white block mb-2 text-sm font-medium"
-                >
+                <label htmlFor="name" className={labelStyles}>
                   {t.formName}
                 </label>
                 <input
@@ -103,16 +103,13 @@ const EmailSection = () => {const { t } = useLanguage();
                   type="text"
                   id="name"
                   required
-                  className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                  className={inputStyles}
                   placeholder={t.placeholderName}
                 />
               </div>
 
               <div className="mb-6">
-                <label
-                  htmlFor="email"
-                  className="text-[#1F2937] dark:text-white block mb-2 text-sm font-medium"
-                >
+                <label htmlFor="email" className={labelStyles}>
                   {t.formEmail}
                 </label>
                 <input
@@ -120,31 +117,28 @@ const EmailSection = () => {const { t } = useLanguage();
                   type="email"
                   id="email"
                   required
-                  className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                  className={inputStyles}
                   placeholder={t.placeholderEmail}
                 />
               </div>
 
               <div className="mb-6">
-                <label
-                  htmlFor="message"
-                  className="text-[#1F2937] dark:text-white block mb-2 text-sm font-medium"
-                >
+                <label htmlFor="message" className={labelStyles}>
                   {t.formMessage}
                 </label>
                 <textarea
                   name="message"
                   id="message"
                   required
-                  className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5 min-h-[120px]"
+                  className={`${inputStyles} min-h-[140px]`}
                   placeholder={t.placeholderMessage}
                 />
               </div>
 
               <button
                 type="submit"
-                className="bg-primary-500 hover:bg-primary-600 text-white font-medium py-2.5 px-5 rounded-lg w-full"
-              >
+                className="w-full rounded-xl bg-gradient-to-r from-[#007ACC] via-[#00AEEF] to-[#0057D9] px-6 py-2 text-base font-bold text-white shadow-[0_10px_26px_rgba(0,122,204,0.28)] transition-all duration-300 hover:scale-[1.01]"
+                >
                 {t.sendMessage}
               </button>
             </form>
