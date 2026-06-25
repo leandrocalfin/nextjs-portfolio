@@ -24,16 +24,19 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="scroll-mt-32">
-      <h2 className="text-center text-4xl font-bold mt-20 mb-12 text-[#1F2937] dark:text-white">
+    <section
+      id="projects"
+      className="scroll-mt-20 pt-10 pb-8 text-[#1F2937] dark:text-white"
+    >
+      <h2 className="text-center text-4xl font-bold mb-10 text-[#1F2937] dark:text-white">
         {t.projectsTitle}
       </h2>
 
-      <div className="flex justify-center py-6">
+      <div className="flex justify-center mb-10">
         <ProjectTag label={t.projectStatus} />
       </div>
 
-      <ul ref={ref} className="max-w-4xl mx-auto">
+      <ul ref={ref} className="max-w-4xl mx-auto px-4">
         {projectsData.map((project, index) => (
           <motion.li
             key={project.id}

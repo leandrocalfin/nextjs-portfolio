@@ -9,13 +9,13 @@ import { useLanguage } from "../languageContext";
 const HeroSection = () => {
   const { t } = useLanguage();
   return (
-    <section className="lg:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-12">
+    <section id="home" className="pt-4 pb-10 lg:py-16">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
+          className="md:col-span-8 place-self-center text-center md:text-left justify-self-center md:justify-self-start"
         >
           <h1 className="text-[#1F2937] dark:text-white mb-4 text-3xl sm:text-4xl lg:text-6xl leading-tight font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
@@ -36,7 +36,7 @@ const HeroSection = () => {
           <p className="text-[#4B5563] dark:text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
             {t.heroText}
           </p>
-          <div className="flex gap-4 mt-6 items-center">
+          <div className="flex flex-wrap gap-4 mt-6 items-center justify-center sm:justify-start">
             <a
               href="https://github.com/leandrocalfin"
               target="_blank"
@@ -67,9 +67,9 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-4 place-self-center mt-4 lg:mt-0"
+          className="md:col-span-4 flex justify-center w-full mt-6 lg:mt-0"
         >
-          <div className="rounded-full bg-[#EDE7DB] dark:bg-[#181818] w-[220px] h-[220px] lg:w-[320px] lg:h-[320px] relative overflow-hidden">
+          <div className="rounded-full bg-[#EDE7DB] dark:bg-[#181818] w-[190px] h-[190px] sm:w-[220px] sm:h-[220px] lg:w-[320px] lg:h-[320px] relative overflow-hidden mx-auto">
             <Image
               src="/images/miaFormal.jpg"
               alt="Hero Image"
