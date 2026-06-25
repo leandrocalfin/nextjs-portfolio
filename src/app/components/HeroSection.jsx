@@ -54,7 +54,7 @@ const HeroSection = () => {
             </a>
 
             <a
-              href="/cv.pdf"
+              href="/CV_Calfin_Leandro.pdf"
               download
               className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-[#007ACC] via-[#00AEEF] to-[#0057D9] px-6 py-2 text-base font-bold text-white shadow-[0_10px_26px_rgba(0,122,204,0.28)] transition-transform duration-300 hover:scale-105"
             >
@@ -69,11 +69,12 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="md:col-span-4 flex justify-center w-full mt-6 lg:mt-0"
         >
-          <div className="rounded-full bg-[#EDE7DB] dark:bg-[#181818] w-[190px] h-[190px] sm:w-[220px] sm:h-[220px] lg:w-[320px] lg:h-[320px] relative overflow-hidden mx-auto">
+          <div className="rounded-full bg-[#EDE7DB] dark:bg-[#181818] w-[190px] h-[190px] min-w-[190px] min-h-[190px] sm:w-[220px] sm:h-[220px] sm:min-w-[220px] sm:min-h-[220px] lg:w-[320px] lg:h-[320px] lg:min-w-[320px] lg:min-h-[320px] relative overflow-hidden mx-auto shrink-0">
             <Image
               src="/images/miaFormal.jpg"
               alt="Hero Image"
               fill
+              sizes="(max-width: 640px) 190px, (max-width: 1024px) 220px, 320px"
               className="object-cover rounded-full"
             />
           </div>
