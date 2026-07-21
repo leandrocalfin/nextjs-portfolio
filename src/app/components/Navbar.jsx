@@ -107,7 +107,7 @@ const Navbar = () => {
               className="flex items-center justify-center w-8 h-8 transition-transform duration-300 hover:scale-110"
             >
               <Image
-                src={language === "es" ? "/images/arg.png" : "/images/eng.png"}
+                src={language === "es" ? "/images/arg.png" : "/images/usa.png"}
                 alt={language === "es" ? "Español" : "English"}
                 width={24}
                 height={24}

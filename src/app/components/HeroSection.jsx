@@ -9,7 +9,10 @@ import { useLanguage } from "../languageContext";
 const HeroSection = () => {
   const { t } = useLanguage();
   return (
-    <section id="home" className="pt-4 pb-10 lg:py-16">
+    <section
+      id="home"
+      className="scroll-mt-20 pt-20 pb-10 lg:pt-28 lg:pb-16"
+    >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
