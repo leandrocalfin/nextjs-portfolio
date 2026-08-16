@@ -75,6 +75,7 @@ export const translations = {
 
     footerRole: "Full Stack Developer",
     footerText: "© 2026 Leandro Calfin. Todos los derechos reservados.",
+    previewSoon: "Vista previa próximamente",
   },
 
   en: {
@@ -147,6 +148,7 @@ export const translations = {
 
     footerRole: "Full Stack Developer",
     footerText: "© 2026 Leandro Calfin. All rights reserved.",
+    previewSoon: "Preview coming soon",
   },
 };
 

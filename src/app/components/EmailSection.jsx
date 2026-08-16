@@ -93,7 +93,7 @@ const EmailSection = () => {
   return (
     <section
       id="contact"
-      className="relative py-24 sm:py-28"
+      className="relative scroll-mt-20 py-16 sm:py-20"
     >
       {/* HEADER */}
       <motion.div
@@ -218,40 +218,6 @@ const EmailSection = () => {
             >
               {t.contactText}
             </p>
-
-            {/* EMAIL */}
-            <a
-              href="mailto:lean.calfin@gmail.com"
-              className="
-                mt-8
-                inline-flex
-                items-center
-                gap-3
-                text-sm
-                font-semibold
-                text-[#151515]
-                transition-colors
-                hover:text-blue-500
-                dark:text-white
-              "
-            >
-              <span
-                className="
-                  flex
-                  h-10
-                  w-10
-                  items-center
-                  justify-center
-                  rounded-xl
-                  bg-black/[0.05]
-                  dark:bg-white/[0.07]
-                "
-              >
-                <FaEnvelope size={16} />
-              </span>
-
-              lean.calfin@gmail.com
-            </a>
 
             {/* REDES */}
             <div className="mt-8 flex gap-3">

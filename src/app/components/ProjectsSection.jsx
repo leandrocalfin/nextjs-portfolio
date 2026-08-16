@@ -56,7 +56,7 @@ const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="relative py-24 sm:py-28"
+      className="relative scroll-mt-20 py-16 sm:py-20"
     >
       {/* HEADER */}
       <motion.div
@@ -108,7 +108,7 @@ const ProjectsSection = () => {
       </motion.div>
 
       {/* PROJECTS */}
-      <div className="space-y-10">
+      <div className="mx-auto max-w-5xl space-y-8">
         {projectsData.map((project, index) => (
           <motion.div
             key={project.id}
@@ -133,6 +133,7 @@ const ProjectsSection = () => {
               {...project}
               reverse={index % 2 !== 0}
               viewProjectText={t.viewProject}
+              previewText={t.previewSoon}
             />
           </motion.div>
         ))}

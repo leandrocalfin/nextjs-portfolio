@@ -24,22 +24,15 @@ const technologies = [
   { name: "React", icon: <FaReact className="text-cyan-400" /> },
   { name: "Bootstrap", icon: <FaBootstrap className="text-purple-500" /> },
   { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-
   {
     name: "Express",
-    icon: (
-      <SiExpress className="text-gray-700 dark:text-gray-200" />
-    ),
+    icon: <SiExpress className="text-gray-700 dark:text-gray-200" />,
   },
-
   { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
   { name: "Git", icon: <FaGitAlt className="text-orange-600" /> },
-
   {
     name: "GitHub",
-    icon: (
-      <FaGithub className="text-[#151515] dark:text-white" />
-    ),
+    icon: <FaGithub className="text-[#151515] dark:text-white" />,
   },
 ];
 
@@ -49,107 +42,49 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="relative py-24 sm:py-28"
+      className="relative scroll-mt-20 py-16 sm:py-20 lg:py-24"
     >
-      {/* TITULO */}
       <motion.div
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6 }}
-        className="mx-auto mb-14 max-w-3xl text-center"
+        className="mx-auto mb-10 max-w-3xl text-center lg:mb-14"
       >
-        <p
-          className="
-            mb-3
-            text-xs
-            font-semibold
-            uppercase
-            tracking-[0.28em]
-            text-blue-500
-          "
-        >
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-blue-500">
           {t.aboutEyebrow}
         </p>
 
-        <h2
-          className="
-            text-4xl
-            font-black
-            tracking-[-0.03em]
-            text-[#151515]
-            dark:text-white
-            sm:text-5xl
-          "
-        >
+        <h2 className="text-4xl font-black tracking-[-0.03em] text-[#151515] dark:text-white sm:text-5xl md:text-4xl lg:text-5xl">
           {t.aboutTitle}
         </h2>
       </motion.div>
 
-      {/* ABOUT + CODE */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-
-        {/* TEXTO */}
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="glass rounded-[28px] p-6 sm:p-8"
+          className="glass rounded-[28px] p-5 lg:p-8"
         >
-          <p
-            className="
-              text-base
-              leading-8
-              text-gray-600
-              dark:text-gray-400
-              sm:text-lg
-            "
-          >
+          <p className="text-sm leading-7 text-gray-600 dark:text-gray-400 lg:text-lg lg:leading-8">
             {t.aboutText1}
           </p>
 
-          <p
-            className="
-              mt-5
-              text-base
-              leading-8
-              text-gray-600
-              dark:text-gray-400
-              sm:text-lg
-            "
-          >
+          <p className="mt-4 text-sm leading-7 text-gray-600 dark:text-gray-400 lg:mt-5 lg:text-lg lg:leading-8">
             {t.aboutText2}
           </p>
 
-          <p
-            className="
-              mt-5
-              text-base
-              leading-8
-              text-gray-600
-              dark:text-gray-400
-              sm:text-lg
-            "
-          >
+          <p className="mt-4 text-sm leading-7 text-gray-600 dark:text-gray-400 lg:mt-5 lg:text-lg lg:leading-8">
             {t.aboutText3}
           </p>
 
-          <p
-            className="
-              mt-5
-              text-base
-              leading-8
-              text-gray-600
-              dark:text-gray-400
-              sm:text-lg
-            "
-          >
+          <p className="mt-4 text-sm leading-7 text-gray-600 dark:text-gray-400 lg:mt-5 lg:text-lg lg:leading-8">
             {t.aboutText4}
           </p>
         </motion.div>
 
-        {/* EDITOR */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -165,18 +100,7 @@ const AboutSection = () => {
             dark:border-white/10
           "
         >
-          {/* BARRA EDITOR */}
-          <div
-            className="
-              flex
-              items-center
-              justify-between
-              border-b
-              border-white/10
-              px-5
-              py-4
-            "
-          >
+          <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
             <div className="flex items-center gap-2">
               <span className="h-3 w-3 rounded-full bg-red-400" />
               <span className="h-3 w-3 rounded-full bg-yellow-400" />
@@ -188,88 +112,43 @@ const AboutSection = () => {
             </span>
           </div>
 
-          {/* CODIGO */}
-          <div
-            className="
-              overflow-x-auto
-              p-6
-              font-mono
-              text-sm
-              leading-7
-              sm:p-8
-              sm:text-[15px]
-            "
-          >
+          <div className="overflow-x-auto p-5 font-mono text-[12px] leading-6 md:text-[11px] lg:p-8 lg:text-[15px] lg:leading-7">
             <p>
-              <span className="text-purple-400">
-                const
-              </span>{" "}
-
-              <span className="text-blue-300">
-                developer
-              </span>{" "}
-
-              <span className="text-white">
-                = {"{"}
-              </span>
+              <span className="text-purple-400">const</span>{" "}
+              <span className="text-blue-300">developer</span>{" "}
+              <span className="text-white">= {"{"}</span>
             </p>
 
             <p className="pl-5">
-              <span className="text-cyan-300">
-                name
-              </span>
-
-              <span className="text-white">
-                :{" "}
-              </span>
-
+              <span className="text-cyan-300">name</span>
+              <span className="text-white">: </span>
               <span className="text-green-300">
                 &quot;Leandro Calfin&quot;
               </span>
-
               <span className="text-white">,</span>
             </p>
 
             <p className="pl-5">
-              <span className="text-cyan-300">
-                role
-              </span>
-
-              <span className="text-white">
-                :{" "}
-              </span>
-
+              <span className="text-cyan-300">role</span>
+              <span className="text-white">: </span>
               <span className="text-green-300">
                 &quot;Full Stack Developer&quot;
               </span>
-
               <span className="text-white">,</span>
             </p>
 
             <p className="pl-5">
-              <span className="text-cyan-300">
-                location
-              </span>
-
-              <span className="text-white">
-                :{" "}
-              </span>
-
+              <span className="text-cyan-300">location</span>
+              <span className="text-white">: </span>
               <span className="text-green-300">
                 &quot;Argentina&quot;
               </span>
-
               <span className="text-white">,</span>
             </p>
 
             <p className="pl-5">
-              <span className="text-cyan-300">
-                stack
-              </span>
-
-              <span className="text-white">
-                : [
-              </span>
+              <span className="text-cyan-300">stack</span>
+              <span className="text-white">: [</span>
             </p>
 
             <p className="pl-10 text-green-300">
@@ -292,19 +171,11 @@ const AboutSection = () => {
               &quot;MySQL&quot;
             </p>
 
-            <p className="pl-5 text-white">
-              ],
-            </p>
+            <p className="pl-5 text-white">],</p>
 
             <p className="pl-5">
-              <span className="text-cyan-300">
-                learning
-              </span>
-
-              <span className="text-white">
-                :{" "}
-              </span>
-
+              <span className="text-cyan-300">learning</span>
+              <span className="text-white">: </span>
               <span className="text-green-300">
                 &quot;Always&quot;
               </span>
@@ -317,51 +188,24 @@ const AboutSection = () => {
         </motion.div>
       </div>
 
-      {/* TECNOLOGIAS */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.6 }}
-        className="mt-20"
+        className="mt-14 lg:mt-20"
       >
-        <div className="mb-10 text-center">
-          <h3
-            className="
-              text-3xl
-              font-bold
-              tracking-tight
-              text-[#151515]
-              dark:text-white
-            "
-          >
+        <div className="mb-8 text-center lg:mb-10">
+          <h3 className="text-2xl font-bold tracking-tight text-[#151515] dark:text-white lg:text-3xl">
             {t.technologiesTitle}
           </h3>
 
-          <p
-            className="
-              mx-auto
-              mt-3
-              max-w-xl
-              text-sm
-              text-gray-500
-              dark:text-gray-400
-            "
-          >
+          <p className="mx-auto mt-3 max-w-xl text-sm text-gray-500 dark:text-gray-400">
             {t.technologiesText}
           </p>
         </div>
 
-        {/* GRID TECNOLOGIAS */}
-        <div
-          className="
-            grid
-            grid-cols-2
-            gap-3
-            sm:grid-cols-3
-            md:grid-cols-5
-          "
-        >
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
           {technologies.map((tech, index) => (
             <motion.div
               key={tech.name}
@@ -379,27 +223,23 @@ const AboutSection = () => {
               className="
                 glass
                 flex
-                min-h-[120px]
+                min-h-[90px]
                 cursor-default
                 flex-col
                 items-center
                 justify-center
                 rounded-2xl
-                p-4
+                p-3
+                md:min-h-[100px]
+                lg:min-h-[120px]
+                lg:p-4
               "
             >
-              <div className="mb-3 text-4xl">
+              <div className="mb-2 text-3xl lg:mb-3 lg:text-4xl">
                 {tech.icon}
               </div>
 
-              <p
-                className="
-                  text-sm
-                  font-semibold
-                  text-[#151515]
-                  dark:text-white
-                "
-              >
+              <p className="text-xs font-semibold text-[#151515] dark:text-white lg:text-sm">
                 {tech.name}
               </p>
             </motion.div>
