@@ -7,15 +7,29 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#EDE7DB] dark:bg-[#121212] transition-colors duration-300">
+    <main
+      className="
+        min-h-screen
+        overflow-hidden
+        bg-[#f7f7f5]
+        text-[#151515]
+        transition-colors
+        duration-300
+        dark:bg-[#090909]
+        dark:text-white
+      "
+    >
       <Navbar />
-      <div className="container mt-24 mx-auto px-12 py-4">
-        <HeroSection />
+
+      <HeroSection />
+
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
         <AboutSection />
         <ProjectsSection />
         <EmailSection />
       </div>
-        <Footer />
+
+      <Footer />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
+
 import React from "react";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import { useLanguage } from "../languageContext";
 
 import {
@@ -23,10 +24,23 @@ const technologies = [
   { name: "React", icon: <FaReact className="text-cyan-400" /> },
   { name: "Bootstrap", icon: <FaBootstrap className="text-purple-500" /> },
   { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
-  { name: "Express", icon: <SiExpress className="text-gray-400 dark:text-gray-300" /> },
+
+  {
+    name: "Express",
+    icon: (
+      <SiExpress className="text-gray-700 dark:text-gray-200" />
+    ),
+  },
+
   { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
   { name: "Git", icon: <FaGitAlt className="text-orange-600" /> },
-  { name: "GitHub", icon: <FaGithub className="text-[#1F2937] dark:text-white" /> },
+
+  {
+    name: "GitHub",
+    icon: (
+      <FaGithub className="text-[#151515] dark:text-white" />
+    ),
+  },
 ];
 
 const AboutSection = () => {
@@ -35,57 +49,363 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="scroll-mt-20 pt-10 pb-8 text-[#1F2937] dark:text-white"
+      className="relative py-24 sm:py-28"
     >
-      <h2 className="text-center text-4xl font-bold text-[#1F2937] dark:text-white mb-14">
-        {t.aboutTitle}
-      </h2>
+      {/* TITULO */}
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto mb-14 max-w-3xl text-center"
+      >
+        <p
+          className="
+            mb-3
+            text-xs
+            font-semibold
+            uppercase
+            tracking-[0.28em]
+            text-blue-500
+          "
+        >
+          {t.aboutEyebrow}
+        </p>
 
-      <div className="md:grid md:grid-cols-2 gap-8 items-start px-4 xl:px-16 xl:gap-16">
-        <Image
-          src="/images/probando.png"
-          width={500}
-          height={500}
-          alt="Desarrollador"
-          className="w-full max-w-[190px] sm:max-w-[260px] md:max-w-[420px] lg:max-w-[500px] mx-auto"
-        />
+        <h2
+          className="
+            text-4xl
+            font-black
+            tracking-[-0.03em]
+            text-[#151515]
+            dark:text-white
+            sm:text-5xl
+          "
+        >
+          {t.aboutTitle}
+        </h2>
+      </motion.div>
 
-        <div className="mt-6 md:mt-0 mx-auto md:mx-0 text-left flex flex-col h-full max-w-[620px] rounded-2xl border border-[#d6d0c5] dark:border-[#33353F] bg-[#F3EDE2] dark:bg-[#181818] px-5 py-5 shadow-[0_12px_30px_rgba(15,23,42,0.10)] transition-all duration-300 hover:border-[#007ACC] hover:shadow-[0_16px_36px_rgba(0,122,204,0.20)]">
-          <p className="text-[#4B5563] dark:text-[#ADB7BE] text-base lg:text-lg text-justify leading-8">
+      {/* ABOUT + CODE */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+
+        {/* TEXTO */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="glass rounded-[28px] p-6 sm:p-8"
+        >
+          <p
+            className="
+              text-base
+              leading-8
+              text-gray-600
+              dark:text-gray-400
+              sm:text-lg
+            "
+          >
             {t.aboutText1}
-            <br />
-            <br />
+          </p>
+
+          <p
+            className="
+              mt-5
+              text-base
+              leading-8
+              text-gray-600
+              dark:text-gray-400
+              sm:text-lg
+            "
+          >
             {t.aboutText2}
-            <br />
-            <br />
+          </p>
+
+          <p
+            className="
+              mt-5
+              text-base
+              leading-8
+              text-gray-600
+              dark:text-gray-400
+              sm:text-lg
+            "
+          >
             {t.aboutText3}
-            <br />
-            <br />
+          </p>
+
+          <p
+            className="
+              mt-5
+              text-base
+              leading-8
+              text-gray-600
+              dark:text-gray-400
+              sm:text-lg
+            "
+          >
             {t.aboutText4}
           </p>
-        </div>
+        </motion.div>
+
+        {/* EDITOR */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="
+            overflow-hidden
+            rounded-[28px]
+            border
+            border-black/10
+            bg-[#111111]
+            shadow-2xl
+            dark:border-white/10
+          "
+        >
+          {/* BARRA EDITOR */}
+          <div
+            className="
+              flex
+              items-center
+              justify-between
+              border-b
+              border-white/10
+              px-5
+              py-4
+            "
+          >
+            <div className="flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-red-400" />
+              <span className="h-3 w-3 rounded-full bg-yellow-400" />
+              <span className="h-3 w-3 rounded-full bg-green-400" />
+            </div>
+
+            <span className="text-xs text-gray-500">
+              developer.js
+            </span>
+          </div>
+
+          {/* CODIGO */}
+          <div
+            className="
+              overflow-x-auto
+              p-6
+              font-mono
+              text-sm
+              leading-7
+              sm:p-8
+              sm:text-[15px]
+            "
+          >
+            <p>
+              <span className="text-purple-400">
+                const
+              </span>{" "}
+
+              <span className="text-blue-300">
+                developer
+              </span>{" "}
+
+              <span className="text-white">
+                = {"{"}
+              </span>
+            </p>
+
+            <p className="pl-5">
+              <span className="text-cyan-300">
+                name
+              </span>
+
+              <span className="text-white">
+                :{" "}
+              </span>
+
+              <span className="text-green-300">
+                &quot;Leandro Calfin&quot;
+              </span>
+
+              <span className="text-white">,</span>
+            </p>
+
+            <p className="pl-5">
+              <span className="text-cyan-300">
+                role
+              </span>
+
+              <span className="text-white">
+                :{" "}
+              </span>
+
+              <span className="text-green-300">
+                &quot;Full Stack Developer&quot;
+              </span>
+
+              <span className="text-white">,</span>
+            </p>
+
+            <p className="pl-5">
+              <span className="text-cyan-300">
+                location
+              </span>
+
+              <span className="text-white">
+                :{" "}
+              </span>
+
+              <span className="text-green-300">
+                &quot;Argentina&quot;
+              </span>
+
+              <span className="text-white">,</span>
+            </p>
+
+            <p className="pl-5">
+              <span className="text-cyan-300">
+                stack
+              </span>
+
+              <span className="text-white">
+                : [
+              </span>
+            </p>
+
+            <p className="pl-10 text-green-300">
+              &quot;React&quot;,
+            </p>
+
+            <p className="pl-10 text-green-300">
+              &quot;Next.js&quot;,
+            </p>
+
+            <p className="pl-10 text-green-300">
+              &quot;Node.js&quot;,
+            </p>
+
+            <p className="pl-10 text-green-300">
+              &quot;Express&quot;,
+            </p>
+
+            <p className="pl-10 text-green-300">
+              &quot;MySQL&quot;
+            </p>
+
+            <p className="pl-5 text-white">
+              ],
+            </p>
+
+            <p className="pl-5">
+              <span className="text-cyan-300">
+                learning
+              </span>
+
+              <span className="text-white">
+                :{" "}
+              </span>
+
+              <span className="text-green-300">
+                &quot;Always&quot;
+              </span>
+            </p>
+
+            <p className="text-white">
+              {"}"};
+            </p>
+          </div>
+        </motion.div>
       </div>
 
-      <div className="text-center mt-12 px-4">
-        <h3 className="text-3xl font-bold mb-10 text-[#1F2937] dark:text-white">
-          {t.technologiesTitle}
-        </h3>
+      {/* TECNOLOGIAS */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.6 }}
+        className="mt-20"
+      >
+        <div className="mb-10 text-center">
+          <h3
+            className="
+              text-3xl
+              font-bold
+              tracking-tight
+              text-[#151515]
+              dark:text-white
+            "
+          >
+            {t.technologiesTitle}
+          </h3>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 max-w-5xl mx-auto justify-items-center">
-          {technologies.map((tech) => (
-            <div
+          <p
+            className="
+              mx-auto
+              mt-3
+              max-w-xl
+              text-sm
+              text-gray-500
+              dark:text-gray-400
+            "
+          >
+            {t.technologiesText}
+          </p>
+        </div>
+
+        {/* GRID TECNOLOGIAS */}
+        <div
+          className="
+            grid
+            grid-cols-2
+            gap-3
+            sm:grid-cols-3
+            md:grid-cols-5
+          "
+        >
+          {technologies.map((tech, index) => (
+            <motion.div
               key={tech.name}
-              title={tech.name}
-              className="w-[125px] sm:w-[145px] md:w-[160px] flex flex-col items-center justify-center min-h-[95px] sm:min-h-[110px] rounded-xl border border-[#d6d0c5] dark:border-[#33353F] bg-[#F3EDE2] dark:bg-[#181818] px-3 py-3 sm:px-4 sm:py-4 shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition-all duration-300 hover:scale-[1.04] hover:border-[#007ACC] hover:shadow-[0_0_22px_rgba(0,122,204,0.20)] cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.04,
+              }}
+              whileHover={{
+                y: -5,
+                scale: 1.02,
+              }}
+              className="
+                glass
+                flex
+                min-h-[120px]
+                cursor-default
+                flex-col
+                items-center
+                justify-center
+                rounded-2xl
+                p-4
+              "
             >
-              <div className="text-5xl mb-3">{tech.icon}</div>
-              <p className="text-sm font-bold text-[#1F2937] dark:text-white">
+              <div className="mb-3 text-4xl">
+                {tech.icon}
+              </div>
+
+              <p
+                className="
+                  text-sm
+                  font-semibold
+                  text-[#151515]
+                  dark:text-white
+                "
+              >
                 {tech.name}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

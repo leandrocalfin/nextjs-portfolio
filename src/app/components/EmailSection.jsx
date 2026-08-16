@@ -1,15 +1,26 @@
 "use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaArrowRight,
+} from "react-icons/fa";
 import { useLanguage } from "../languageContext";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+
   const { t } = useLanguage();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setSending(true);
 
     const data = {
       name: e.target.name.value,
@@ -28,90 +39,409 @@ const EmailSection = () => {
       body: JSONdata,
     };
 
-    const response = await fetch(endpoint, options);
+    try {
+      const response = await fetch(endpoint, options);
 
-    if (response.status === 200) {
-      console.log("Mensaje enviado.");
-      setEmailSubmitted(true);
+      if (response.status === 200) {
+        console.log("Mensaje enviado.");
+        setEmailSubmitted(true);
+        e.target.reset();
+      }
+    } catch (error) {
+      console.error("Error al enviar mensaje:", error);
+    } finally {
+      setSending(false);
     }
   };
 
-  const inputStyles =
-    "bg-[#F3EDE2] dark:bg-[#18191E] border border-[#d6d0c5] dark:border-[#33353F] text-[#1F2937] dark:text-gray-100 placeholder-[#6B7280] dark:placeholder-[#9CA2A9] text-base rounded-xl block w-full p-3 shadow-[0_8px_24px_rgba(15,23,42,0.08)] focus:outline-none focus:ring-2 focus:ring-[rgba(0,122,204,0.18)] focus:border-[#007ACC] focus:shadow-[0_0_20px_rgba(0,122,204,0.18)] transition-all duration-300";
+  const inputStyles = `
+    w-full
+    rounded-2xl
+    border
+    border-black/10
+    bg-white/60
+    px-4
+    py-3.5
+    text-sm
+    text-[#151515]
+    outline-none
+    backdrop-blur-md
+    transition-all
+    duration-300
 
-  const labelStyles =
-    "text-lg font-bold text-[#1F2937] dark:text-white mb-3 block";
+    placeholder:text-gray-400
+
+    focus:border-blue-500/50
+    focus:ring-4
+    focus:ring-blue-500/10
+
+    dark:border-white/10
+    dark:bg-white/[0.04]
+    dark:text-white
+    dark:placeholder:text-gray-500
+  `;
+
+  const labelStyles = `
+    mb-2
+    block
+    text-sm
+    font-semibold
+    text-[#151515]
+    dark:text-white
+  `;
 
   return (
     <section
       id="contact"
-      className="scroll-mt-20 pt-10 pb-8 text-[#1F2937] dark:text-white relative"
+      className="relative py-24 sm:py-28"
     >
-      <h2 className="text-center text-4xl font-bold text-[#1F2937] dark:text-white mb-10">
-        {t.contactTitle}
-      </h2>
+      {/* HEADER */}
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto mb-16 max-w-3xl text-center"
+      >
+        <p
+          className="
+            mb-3
+            text-xs
+            font-semibold
+            uppercase
+            tracking-[0.28em]
+            text-blue-500
+          "
+        >
+          {t.contactEyebrow}
+        </p>
 
-      <div className="grid md:grid-cols-2 gap-10 px-4 xl:px-16">
-        <div className="z-10">
-          <h5 className="text-xl font-bold text-[#1F2937] dark:text-white my-2">
-            {t.contactSubtitle}
-          </h5>
+        <h2
+          className="
+            text-4xl
+            font-black
+            tracking-[-0.03em]
+            text-[#151515]
+            dark:text-white
+            sm:text-5xl
+          "
+        >
+          {t.contactTitle}
+        </h2>
 
-          <p className="text-[#4B5563] dark:text-[#ADB7BE] mb-4 max-w-md text-justify leading-7">
-            {t.contactText}
-          </p>
+        <p
+          className="
+            mx-auto
+            mt-4
+            max-w-2xl
+            text-base
+            leading-7
+            text-gray-500
+            dark:text-gray-400
+          "
+        >
+          ¿Tenés un proyecto, una idea o simplemente querés ponerte en contacto?
+          Escribime.
+        </p>
+      </motion.div>
 
-          <div className="socials flex flex-row gap-5 mt-4 items-center">
-            <Link
-              href="https://github.com/leandrocalfin"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#1F2937] dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+
+        {/* CONTACT INFO */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="
+            glass
+            relative
+            overflow-hidden
+            rounded-[30px]
+            p-7
+            sm:p-9
+            lg:col-span-5
+          "
+        >
+          {/* GLOW */}
+          <div
+            className="
+              pointer-events-none
+              absolute
+              -left-24
+              -top-24
+              h-64
+              w-64
+              rounded-full
+              bg-blue-500/10
+              blur-3xl
+            "
+          />
+
+          <div className="relative z-10">
+            <p
+              className="
+                text-sm
+                font-medium
+                uppercase
+                tracking-[0.2em]
+                text-blue-500
+              "
             >
-              <FaGithub size={36} />
-            </Link>
+              {t.contactWorkTogether}
+            </p>
 
-            <Link
-              href="https://www.linkedin.com/in/leandro-calfin-954b7b352/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#1F2937] dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+            <h3
+              className="
+                mt-4
+                max-w-md
+                text-3xl
+                font-black
+                tracking-[-0.03em]
+                text-[#151515]
+                dark:text-white
+                sm:text-4xl
+              "
             >
-              <FaLinkedin size={36} />
-            </Link>
+              {t.contactSubtitle}
+            </h3>
 
+            <p
+              className="
+                mt-6
+                max-w-md
+                text-base
+                leading-7
+                text-gray-600
+                dark:text-gray-400
+              "
+            >
+              {t.contactText}
+            </p>
+
+            {/* EMAIL */}
             <a
               href="mailto:lean.calfin@gmail.com"
-              className="text-[#1F2937] dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+              className="
+                mt-8
+                inline-flex
+                items-center
+                gap-3
+                text-sm
+                font-semibold
+                text-[#151515]
+                transition-colors
+                hover:text-blue-500
+                dark:text-white
+              "
             >
-              <FaEnvelope size={34} />
+              <span
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-xl
+                  bg-black/[0.05]
+                  dark:bg-white/[0.07]
+                "
+              >
+                <FaEnvelope size={16} />
+              </span>
+
+              lean.calfin@gmail.com
             </a>
+
+            {/* REDES */}
+            <div className="mt-8 flex gap-3">
+              <Link
+                href="https://github.com/leandrocalfin"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="
+                  flex
+                  h-11
+                  w-11
+                  items-center
+                  justify-center
+                  rounded-xl
+                  border
+                  border-black/10
+                  bg-white/40
+                  text-[#151515]
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-blue-500/40
+                  dark:border-white/10
+                  dark:bg-white/[0.04]
+                  dark:text-white
+                "
+              >
+                <FaGithub size={19} />
+              </Link>
+
+              <Link
+                href="https://www.linkedin.com/in/leandro-calfin-954b7b352/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="
+                  flex
+                  h-11
+                  w-11
+                  items-center
+                  justify-center
+                  rounded-xl
+                  border
+                  border-black/10
+                  bg-white/40
+                  text-[#151515]
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-blue-500/40
+                  dark:border-white/10
+                  dark:bg-white/[0.04]
+                  dark:text-white
+                "
+              >
+                <FaLinkedin size={19} />
+              </Link>
+
+              <a
+                href="mailto:lean.calfin@gmail.com"
+                aria-label="Email"
+                className="
+                  flex
+                  h-11
+                  w-11
+                  items-center
+                  justify-center
+                  rounded-xl
+                  border
+                  border-black/10
+                  bg-white/40
+                  text-[#151515]
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:border-blue-500/40
+                  dark:border-white/10
+                  dark:bg-white/[0.04]
+                  dark:text-white
+                "
+              >
+                <FaEnvelope size={17} />
+              </a>
+            </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div>
+        {/* FORM */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="
+            glass
+            rounded-[30px]
+            p-6
+            sm:p-8
+            lg:col-span-7
+          "
+        >
           {emailSubmitted ? (
-            <div className="rounded-2xl border border-[#22C55E]/40 bg-[#F3EDE2] dark:bg-[#181818] px-6 py-6 shadow-[0_12px_30px_rgba(34,197,94,0.12)] text-center">
-              <div className="flex items-center justify-center gap-3 mb-3">
-                <span className="text-[#22C55E] text-3xl font-bold leading-none">
-                  ✓
-                </span>
-
-                <h4 className="text-lg font-bold text-[#1F2937] dark:text-white">
-                  {t.messageSent}
-                </h4>
+            <div
+              className="
+                flex
+                min-h-[420px]
+                flex-col
+                items-center
+                justify-center
+                text-center
+              "
+            >
+              <div
+                className="
+                  flex
+                  h-16
+                  w-16
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-green-500/10
+                  text-3xl
+                  font-bold
+                  text-green-500
+                "
+              >
+                ✓
               </div>
 
-              <p className="text-[#4B5563] dark:text-[#ADB7BE] leading-7 max-w-md mx-auto">
+              <h4
+                className="
+                  mt-5
+                  text-2xl
+                  font-bold
+                  text-[#151515]
+                  dark:text-white
+                "
+              >
+                {t.messageSent}
+              </h4>
+
+              <p
+                className="
+                  mt-3
+                  max-w-md
+                  leading-7
+                  text-gray-500
+                  dark:text-gray-400
+                "
+              >
                 {t.messageSentText}
               </p>
+
+              <button
+                type="button"
+                onClick={() => setEmailSubmitted(false)}
+                className="
+                  mt-7
+                  rounded-xl
+                  border
+                  border-black/10
+                  px-4
+                  py-2.5
+                  text-sm
+                  font-semibold
+                  text-[#151515]
+                  transition
+                  hover:bg-black/[0.04]
+                  dark:border-white/10
+                  dark:text-white
+                  dark:hover:bg-white/[0.05]
+                "
+              >
+                Enviar otro mensaje
+              </button>
             </div>
           ) : (
-            <form className="flex flex-col" onSubmit={handleSubmit}>
-              <div className="mb-6">
-                <label htmlFor="name" className={labelStyles}>
+            <form
+              className="flex flex-col"
+              onSubmit={handleSubmit}
+            >
+              <div className="mb-5">
+                <label
+                  htmlFor="name"
+                  className={labelStyles}
+                >
                   {t.formName}
                 </label>
+
                 <input
                   name="name"
                   type="text"
@@ -122,10 +452,14 @@ const EmailSection = () => {
                 />
               </div>
 
-              <div className="mb-6">
-                <label htmlFor="email" className={labelStyles}>
+              <div className="mb-5">
+                <label
+                  htmlFor="email"
+                  className={labelStyles}
+                >
                   {t.formEmail}
                 </label>
+
                 <input
                   name="email"
                   type="email"
@@ -137,27 +471,66 @@ const EmailSection = () => {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className={labelStyles}>
+                <label
+                  htmlFor="message"
+                  className={labelStyles}
+                >
                   {t.formMessage}
                 </label>
+
                 <textarea
                   name="message"
                   id="message"
                   required
-                  className={`${inputStyles} min-h-[140px]`}
+                  rows={6}
+                  className={`${inputStyles} resize-none`}
                   placeholder={t.placeholderMessage}
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full rounded-xl bg-gradient-to-r from-[#007ACC] via-[#00AEEF] to-[#0057D9] px-6 py-2 text-base font-bold text-white shadow-[0_10px_26px_rgba(0,122,204,0.28)] transition-all duration-300 hover:scale-[1.01]"
+                disabled={sending}
+                className="
+                  group
+                  inline-flex
+                  w-full
+                  items-center
+                  justify-center
+                  gap-2
+                  rounded-2xl
+                  bg-[#151515]
+                  px-6
+                  py-3.5
+                  text-sm
+                  font-semibold
+                  text-white
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  hover:shadow-xl
+                  disabled:cursor-not-allowed
+                  disabled:opacity-60
+                  dark:bg-white
+                  dark:text-black
+                "
               >
-                {t.sendMessage}
+                {sending ? "Enviando..." : t.sendMessage}
+
+                {!sending && (
+                  <FaArrowRight
+                    size={13}
+                    className="
+                      transition-transform
+                      duration-300
+                      group-hover:translate-x-1
+                    "
+                  />
+                )}
               </button>
             </form>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
