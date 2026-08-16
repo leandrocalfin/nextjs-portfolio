@@ -5,8 +5,9 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Portfolio Leandro Calfin",
-  description: "Portfolio personal de Leandro Calfin",
+  title: "Leandro Calfin | Developer",
+  description:
+    "Portfolio personal de Leandro Calfin, desarrollador de software.",
 };
 
 export default function RootLayout({ children }) {

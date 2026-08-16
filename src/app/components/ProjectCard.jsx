@@ -23,35 +23,40 @@ const ProjectCard = ({
     <article
       className="
         glass
+        mx-2
         overflow-hidden
-        rounded-[26px]
-        p-3
+        rounded-[20px]
+        p-2
+        sm:mx-0
+        sm:rounded-[26px]
+        sm:p-3
       "
     >
       <div
         className={`
           grid
           items-center
-          gap-5
+          gap-4
           md:grid-cols-2
           lg:gap-6
           ${reverse ? "md:[&>*:first-child]:order-2" : ""}
         `}
       >
         {/* IMAGEN */}
-        <div className="flex w-full items-center justify-center py-3">
+        <div className="flex w-full items-center justify-center py-2 sm:py-3">
           <div
             className="
               group
               relative
-              h-[220px]
-              w-[220px]
+              h-[180px]
+              w-[180px]
               overflow-hidden
-              rounded-[20px]
+              rounded-[16px]
               bg-black/[0.03]
               dark:bg-white/[0.03]
               sm:h-[230px]
               sm:w-[230px]
+              sm:rounded-[20px]
               md:h-[210px]
               md:w-[210px]
               lg:h-[280px]
@@ -64,7 +69,7 @@ const ProjectCard = ({
                 alt={title}
                 fill
                 sizes="
-                  (max-width: 640px) 220px,
+                  (max-width: 640px) 180px,
                   (max-width: 1024px) 210px,
                   280px
                 "
@@ -86,8 +91,9 @@ const ProjectCard = ({
                   justify-center
                   px-4
                   text-center
-                  text-sm
+                  text-xs
                   text-gray-400
+                  sm:text-sm
                 "
               >
                 {previewText}
@@ -104,17 +110,20 @@ const ProjectCard = ({
             flex-col
             justify-center
             px-3
-            py-4
+            pb-4
+            pt-1
             sm:px-4
+            sm:py-4
             md:px-3
             lg:px-6
             lg:py-5
           "
         >
+          {/* ESTADO */}
           {status && (
             <div
               className="
-                mb-4
+                mb-3
                 inline-flex
                 w-fit
                 items-center
@@ -123,14 +132,18 @@ const ProjectCard = ({
                 border
                 border-black/10
                 bg-white/50
-                px-3
-                py-1.5
-                text-xs
+                px-2.5
+                py-1
+                text-[10px]
                 font-medium
                 text-gray-600
                 dark:border-white/10
                 dark:bg-white/5
                 dark:text-gray-300
+                sm:mb-4
+                sm:px-3
+                sm:py-1.5
+                sm:text-xs
                 lg:mb-5
               "
             >
@@ -151,6 +164,7 @@ const ProjectCard = ({
             </div>
           )}
 
+          {/* TITULO */}
           <h3
             className="
               text-xl
@@ -165,6 +179,7 @@ const ProjectCard = ({
             {title}
           </h3>
 
+          {/* DESCRIPCION */}
           <p
             className="
               mt-3
@@ -182,23 +197,27 @@ const ProjectCard = ({
             {description}
           </p>
 
-          <div className="mt-4 flex flex-wrap gap-2 lg:mt-5">
+          {/* TECNOLOGIAS */}
+          <div className="mt-4 flex flex-wrap gap-1.5 sm:gap-2 lg:mt-5">
             {technologies.map((tech) => (
               <span
                 key={tech}
                 className="
-                  rounded-lg
+                  rounded-md
                   border
                   border-black/10
                   bg-black/[0.03]
-                  px-2.5
+                  px-2
                   py-1
-                  text-[10px]
+                  text-[9px]
                   font-medium
                   text-gray-600
                   dark:border-white/10
                   dark:bg-white/[0.05]
                   dark:text-gray-300
+                  sm:rounded-lg
+                  sm:px-2.5
+                  sm:text-[10px]
                   lg:px-3
                   lg:py-1.5
                   lg:text-xs
@@ -209,8 +228,9 @@ const ProjectCard = ({
             ))}
           </div>
 
+          {/* BOTONES */}
           {(demo || github) && (
-            <div className="mt-5 flex flex-wrap gap-2 lg:mt-6 lg:gap-3">
+            <div className="mt-4 flex flex-wrap gap-2 sm:mt-5 lg:mt-6 lg:gap-3">
               {demo && (
                 <a
                   href={demo}
@@ -219,12 +239,12 @@ const ProjectCard = ({
                   className="
                     inline-flex
                     items-center
-                    gap-2
-                    rounded-xl
+                    gap-1.5
+                    rounded-lg
                     bg-[#151515]
                     px-3
-                    py-2.5
-                    text-xs
+                    py-2
+                    text-[10px]
                     font-semibold
                     text-white
                     transition-all
@@ -233,12 +253,15 @@ const ProjectCard = ({
                     hover:shadow-lg
                     dark:bg-white
                     dark:text-black
+                    sm:rounded-xl
+                    sm:py-2.5
+                    sm:text-xs
                     lg:px-4
                     lg:py-3
                     lg:text-sm
                   "
                 >
-                  <FaExternalLinkAlt size={12} />
+                  <FaExternalLinkAlt size={11} />
                   {viewProjectText}
                 </a>
               )}
@@ -251,14 +274,14 @@ const ProjectCard = ({
                   className="
                     inline-flex
                     items-center
-                    gap-2
-                    rounded-xl
+                    gap-1.5
+                    rounded-lg
                     border
                     border-black/10
                     bg-white/40
                     px-3
-                    py-2.5
-                    text-xs
+                    py-2
+                    text-[10px]
                     font-semibold
                     text-[#151515]
                     transition-all
@@ -267,12 +290,15 @@ const ProjectCard = ({
                     dark:border-white/10
                     dark:bg-white/[0.05]
                     dark:text-white
+                    sm:rounded-xl
+                    sm:py-2.5
+                    sm:text-xs
                     lg:px-4
                     lg:py-3
                     lg:text-sm
                   "
                 >
-                  <FaGithub size={14} />
+                  <FaGithub size={13} />
                   GitHub
                 </a>
               )}

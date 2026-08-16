@@ -28,7 +28,6 @@ const EmailSection = () => {
       message: e.target.message.value,
     };
 
-    const JSONdata = JSON.stringify(data);
     const endpoint = "/api/send";
 
     const options = {
@@ -36,7 +35,7 @@ const EmailSection = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSONdata,
+      body: JSON.stringify(data),
     };
 
     try {
@@ -56,13 +55,13 @@ const EmailSection = () => {
 
   const inputStyles = `
     w-full
-    rounded-2xl
+    rounded-xl
     border
     border-black/10
     bg-white/60
-    px-4
-    py-3.5
-    text-sm
+    px-3
+    py-2.5
+    text-xs
     text-[#151515]
     outline-none
     backdrop-blur-md
@@ -79,21 +78,29 @@ const EmailSection = () => {
     dark:bg-white/[0.04]
     dark:text-white
     dark:placeholder:text-gray-500
+
+    sm:rounded-2xl
+    sm:px-4
+    sm:py-3.5
+    sm:text-sm
   `;
 
   const labelStyles = `
-    mb-2
+    mb-1.5
     block
-    text-sm
+    text-xs
     font-semibold
     text-[#151515]
     dark:text-white
+
+    sm:mb-2
+    sm:text-sm
   `;
 
   return (
     <section
       id="contact"
-      className="relative scroll-mt-20 py-16 sm:py-20"
+      className="relative scroll-mt-20 py-12 sm:py-20 lg:py-24"
     >
       {/* HEADER */}
       <motion.div
@@ -101,16 +108,18 @@ const EmailSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mx-auto mb-16 max-w-3xl text-center"
+        className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 lg:mb-16"
       >
         <p
           className="
-            mb-3
-            text-xs
+            mb-2
+            text-[10px]
             font-semibold
             uppercase
             tracking-[0.28em]
             text-blue-500
+            sm:mb-3
+            sm:text-xs
           "
         >
           {t.contactEyebrow}
@@ -118,12 +127,13 @@ const EmailSection = () => {
 
         <h2
           className="
-            text-4xl
+            text-3xl
             font-black
             tracking-[-0.03em]
             text-[#151515]
             dark:text-white
-            sm:text-5xl
+            sm:text-4xl
+            lg:text-5xl
           "
         >
           {t.contactTitle}
@@ -132,22 +142,25 @@ const EmailSection = () => {
         <p
           className="
             mx-auto
-            mt-4
+            mt-3
             max-w-2xl
-            text-base
-            leading-7
+            px-4
+            text-xs
+            leading-6
             text-gray-500
             dark:text-gray-400
+            sm:mt-4
+            sm:px-0
+            sm:text-base
+            sm:leading-7
           "
         >
-          ¿Tenés un proyecto, una idea o simplemente querés ponerte en contacto?
-          Escribime.
+          {t.contactIntro}
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-
-        {/* CONTACT INFO */}
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-8">
+        {/* INFO */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -156,14 +169,17 @@ const EmailSection = () => {
           className="
             glass
             relative
+            mx-2
             overflow-hidden
-            rounded-[30px]
-            p-7
-            sm:p-9
+            rounded-[20px]
+            p-4
+            sm:mx-0
+            sm:rounded-[30px]
+            sm:p-7
             lg:col-span-5
+            lg:p-9
           "
         >
-          {/* GLOW */}
           <div
             className="
               pointer-events-none
@@ -181,11 +197,12 @@ const EmailSection = () => {
           <div className="relative z-10">
             <p
               className="
-                text-sm
+                text-[10px]
                 font-medium
                 uppercase
                 tracking-[0.2em]
                 text-blue-500
+                sm:text-sm
               "
             >
               {t.contactWorkTogether}
@@ -193,14 +210,16 @@ const EmailSection = () => {
 
             <h3
               className="
-                mt-4
+                mt-3
                 max-w-md
-                text-3xl
+                text-2xl
                 font-black
                 tracking-[-0.03em]
                 text-[#151515]
                 dark:text-white
-                sm:text-4xl
+                sm:mt-4
+                sm:text-3xl
+                lg:text-4xl
               "
             >
               {t.contactSubtitle}
@@ -208,19 +227,22 @@ const EmailSection = () => {
 
             <p
               className="
-                mt-6
+                mt-4
                 max-w-md
-                text-base
-                leading-7
+                text-xs
+                leading-6
                 text-gray-600
                 dark:text-gray-400
+                sm:mt-6
+                sm:text-base
+                sm:leading-7
               "
             >
               {t.contactText}
             </p>
 
             {/* REDES */}
-            <div className="mt-8 flex gap-3">
+            <div className="mt-5 flex gap-2 sm:mt-8 sm:gap-3">
               <Link
                 href="https://github.com/leandrocalfin"
                 target="_blank"
@@ -228,11 +250,11 @@ const EmailSection = () => {
                 aria-label="GitHub"
                 className="
                   flex
-                  h-11
-                  w-11
+                  h-9
+                  w-9
                   items-center
                   justify-center
-                  rounded-xl
+                  rounded-lg
                   border
                   border-black/10
                   bg-white/40
@@ -244,9 +266,12 @@ const EmailSection = () => {
                   dark:border-white/10
                   dark:bg-white/[0.04]
                   dark:text-white
+                  sm:h-11
+                  sm:w-11
+                  sm:rounded-xl
                 "
               >
-                <FaGithub size={19} />
+                <FaGithub size={17} />
               </Link>
 
               <Link
@@ -256,11 +281,11 @@ const EmailSection = () => {
                 aria-label="LinkedIn"
                 className="
                   flex
-                  h-11
-                  w-11
+                  h-9
+                  w-9
                   items-center
                   justify-center
-                  rounded-xl
+                  rounded-lg
                   border
                   border-black/10
                   bg-white/40
@@ -272,9 +297,12 @@ const EmailSection = () => {
                   dark:border-white/10
                   dark:bg-white/[0.04]
                   dark:text-white
+                  sm:h-11
+                  sm:w-11
+                  sm:rounded-xl
                 "
               >
-                <FaLinkedin size={19} />
+                <FaLinkedin size={17} />
               </Link>
 
               <a
@@ -282,11 +310,11 @@ const EmailSection = () => {
                 aria-label="Email"
                 className="
                   flex
-                  h-11
-                  w-11
+                  h-9
+                  w-9
                   items-center
                   justify-center
-                  rounded-xl
+                  rounded-lg
                   border
                   border-black/10
                   bg-white/40
@@ -298,15 +326,18 @@ const EmailSection = () => {
                   dark:border-white/10
                   dark:bg-white/[0.04]
                   dark:text-white
+                  sm:h-11
+                  sm:w-11
+                  sm:rounded-xl
                 "
               >
-                <FaEnvelope size={17} />
+                <FaEnvelope size={16} />
               </a>
             </div>
           </div>
         </motion.div>
 
-        {/* FORM */}
+        {/* FORMULARIO */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -314,35 +345,43 @@ const EmailSection = () => {
           transition={{ duration: 0.6 }}
           className="
             glass
-            rounded-[30px]
-            p-6
-            sm:p-8
+            mx-2
+            rounded-[20px]
+            p-4
+            sm:mx-0
+            sm:rounded-[30px]
+            sm:p-6
             lg:col-span-7
+            lg:p-8
           "
         >
           {emailSubmitted ? (
             <div
               className="
                 flex
-                min-h-[420px]
+                min-h-[280px]
                 flex-col
                 items-center
                 justify-center
                 text-center
+                sm:min-h-[420px]
               "
             >
               <div
                 className="
                   flex
-                  h-16
-                  w-16
+                  h-12
+                  w-12
                   items-center
                   justify-center
                   rounded-full
                   bg-green-500/10
-                  text-3xl
+                  text-2xl
                   font-bold
                   text-green-500
+                  sm:h-16
+                  sm:w-16
+                  sm:text-3xl
                 "
               >
                 ✓
@@ -350,11 +389,13 @@ const EmailSection = () => {
 
               <h4
                 className="
-                  mt-5
-                  text-2xl
+                  mt-4
+                  text-xl
                   font-bold
                   text-[#151515]
                   dark:text-white
+                  sm:mt-5
+                  sm:text-2xl
                 "
               >
                 {t.messageSent}
@@ -362,11 +403,15 @@ const EmailSection = () => {
 
               <p
                 className="
-                  mt-3
+                  mt-2
                   max-w-md
-                  leading-7
+                  text-xs
+                  leading-6
                   text-gray-500
                   dark:text-gray-400
+                  sm:mt-3
+                  sm:text-base
+                  sm:leading-7
                 "
               >
                 {t.messageSentText}
@@ -376,13 +421,13 @@ const EmailSection = () => {
                 type="button"
                 onClick={() => setEmailSubmitted(false)}
                 className="
-                  mt-7
-                  rounded-xl
+                  mt-5
+                  rounded-lg
                   border
                   border-black/10
-                  px-4
-                  py-2.5
-                  text-sm
+                  px-3
+                  py-2
+                  text-xs
                   font-semibold
                   text-[#151515]
                   transition
@@ -390,9 +435,14 @@ const EmailSection = () => {
                   dark:border-white/10
                   dark:text-white
                   dark:hover:bg-white/[0.05]
+                  sm:mt-7
+                  sm:rounded-xl
+                  sm:px-4
+                  sm:py-2.5
+                  sm:text-sm
                 "
               >
-                Enviar otro mensaje
+                {t.sendAnotherMessage}
               </button>
             </div>
           ) : (
@@ -400,7 +450,7 @@ const EmailSection = () => {
               className="flex flex-col"
               onSubmit={handleSubmit}
             >
-              <div className="mb-5">
+              <div className="mb-4 sm:mb-5">
                 <label
                   htmlFor="name"
                   className={labelStyles}
@@ -418,7 +468,7 @@ const EmailSection = () => {
                 />
               </div>
 
-              <div className="mb-5">
+              <div className="mb-4 sm:mb-5">
                 <label
                   htmlFor="email"
                   className={labelStyles}
@@ -436,7 +486,7 @@ const EmailSection = () => {
                 />
               </div>
 
-              <div className="mb-6">
+              <div className="mb-5 sm:mb-6">
                 <label
                   htmlFor="message"
                   className={labelStyles}
@@ -448,7 +498,7 @@ const EmailSection = () => {
                   name="message"
                   id="message"
                   required
-                  rows={6}
+                  rows={5}
                   className={`${inputStyles} resize-none`}
                   placeholder={t.placeholderMessage}
                 />
@@ -464,11 +514,11 @@ const EmailSection = () => {
                   items-center
                   justify-center
                   gap-2
-                  rounded-2xl
+                  rounded-xl
                   bg-[#151515]
-                  px-6
-                  py-3.5
-                  text-sm
+                  px-5
+                  py-3
+                  text-xs
                   font-semibold
                   text-white
                   transition-all
@@ -479,13 +529,17 @@ const EmailSection = () => {
                   disabled:opacity-60
                   dark:bg-white
                   dark:text-black
+                  sm:rounded-2xl
+                  sm:px-6
+                  sm:py-3.5
+                  sm:text-sm
                 "
               >
-                {sending ? "Enviando..." : t.sendMessage}
+                {sending ? t.sendingMessage : t.sendMessage}
 
                 {!sending && (
                   <FaArrowRight
-                    size={13}
+                    size={12}
                     className="
                       transition-transform
                       duration-300

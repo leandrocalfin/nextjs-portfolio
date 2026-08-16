@@ -19,29 +19,30 @@ const HeroSection = () => {
     <section
       id="home"
       className="
-    relative
-    overflow-hidden
-    px-4
-    pb-10
-    pt-24
+        relative
+        overflow-hidden
+        px-4
+        pb-12
+        pt-24
 
-    sm:px-6
-    sm:pb-12
-    sm:pt-28
+        sm:px-6
+        sm:pb-14
+        sm:pt-28
 
-    md:flex
-    md:min-h-[650px]
-    md:items-center
-    md:px-8
-    md:py-24
+        md:flex
+        md:min-h-[650px]
+        md:items-center
+        md:px-8
+        md:py-24
 
-    lg:min-h-screen
-    lg:px-10
-  "
+        lg:min-h-screen
+        lg:px-10
+      "
     >
-      {/* GLOW */}
+      {/* GLOW IZQUIERDO */}
       <div className="glow -left-40 top-16" />
 
+      {/* GLOW DERECHO */}
       <div
         className="
           pointer-events-none
@@ -56,19 +57,20 @@ const HeroSection = () => {
         "
       />
 
+      {/* CONTENIDO */}
       <div className="relative z-10 mx-auto w-full max-w-6xl">
         <div
           className="
-              grid
-              grid-cols-12
-              items-center
-              gap-3
-              sm:gap-5
-              md:gap-8
-              lg:gap-16
-            "
-          >
-                    {/* TEXTO */}
+            grid
+            grid-cols-12
+            items-center
+            gap-3
+            sm:gap-5
+            md:gap-8
+            lg:gap-16
+          "
+        >
+          {/* TEXTO */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -83,7 +85,10 @@ const HeroSection = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              transition={{
+                delay: 0.2,
+                duration: 0.6,
+              }}
               className="
                 mb-4
                 inline-flex
@@ -98,18 +103,42 @@ const HeroSection = () => {
                 text-[10px]
                 text-gray-600
                 backdrop-blur-md
+
                 dark:border-white/10
                 dark:bg-white/5
                 dark:text-gray-300
+
                 sm:text-xs
+
                 md:px-4
                 md:py-2
                 md:text-sm
               "
             >
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+                <span
+                  className="
+                    absolute
+                    inline-flex
+                    h-full
+                    w-full
+                    animate-ping
+                    rounded-full
+                    bg-green-400
+                    opacity-75
+                  "
+                />
+
+                <span
+                  className="
+                    relative
+                    inline-flex
+                    h-2
+                    w-2
+                    rounded-full
+                    bg-green-500
+                  "
+                />
               </span>
 
               {t.heroAvailability}
@@ -124,7 +153,9 @@ const HeroSection = () => {
                 leading-[0.98]
                 tracking-[-0.04em]
                 text-[#151515]
+
                 dark:text-white
+
                 sm:text-3xl
                 md:text-4xl
                 lg:text-6xl
@@ -163,10 +194,14 @@ const HeroSection = () => {
                 text-[11px]
                 leading-5
                 text-gray-600
+
                 dark:text-gray-400
+
                 sm:text-xs
+
                 md:text-sm
                 md:leading-6
+
                 lg:text-xl
                 lg:leading-7
               "
@@ -188,10 +223,12 @@ const HeroSection = () => {
                 flex-wrap
                 items-center
                 gap-2
+
                 md:mt-8
                 md:gap-3
               "
             >
+              {/* CV */}
               <a
                 href="/CV_Leandro_Calfin.pdf"
                 download
@@ -208,11 +245,15 @@ const HeroSection = () => {
                   text-white
                   transition-all
                   duration-300
+
                   hover:-translate-y-1
                   hover:shadow-xl
+
                   dark:bg-white
                   dark:text-black
+
                   sm:text-xs
+
                   md:rounded-xl
                   md:px-5
                   md:py-3
@@ -220,9 +261,11 @@ const HeroSection = () => {
                 "
               >
                 <FaDownload size={11} />
+
                 {t.downloadCV}
               </a>
 
+              {/* GITHUB */}
               <a
                 href="https://github.com/leandrocalfin"
                 target="_blank"
@@ -239,8 +282,11 @@ const HeroSection = () => {
                   text-[#151515]
                   transition-all
                   duration-300
+
                   hover:-translate-y-1
+
                   dark:text-white
+
                   md:h-12
                   md:w-12
                   md:rounded-xl
@@ -249,6 +295,7 @@ const HeroSection = () => {
                 <FaGithub className="text-[15px] md:text-[20px]" />
               </a>
 
+              {/* EMAIL */}
               <a
                 href="mailto:lean.calfin@gmail.com"
                 aria-label="Email"
@@ -263,8 +310,11 @@ const HeroSection = () => {
                   text-[#151515]
                   transition-all
                   duration-300
+
                   hover:-translate-y-1
+
                   dark:text-white
+
                   md:h-12
                   md:w-12
                   md:rounded-xl
@@ -295,11 +345,13 @@ const HeroSection = () => {
               col-span-4
               flex
               justify-end
+
               sm:col-span-5
               md:col-span-5
             "
           >
             <div className="relative">
+              {/* GLOW FOTO */}
               <div
                 className="
                   absolute
@@ -308,11 +360,13 @@ const HeroSection = () => {
                   rounded-full
                   bg-blue-500/10
                   blur-2xl
+
                   md:-inset-8
                   md:blur-3xl
                 "
               />
 
+              {/* MARCO FOTO */}
               <div
                 className="
                   glass
@@ -322,12 +376,15 @@ const HeroSection = () => {
                   overflow-hidden
                   rounded-[22px]
                   p-1
+
                   sm:h-[210px]
                   sm:w-[150px]
+
                   md:h-[300px]
                   md:w-[250px]
                   md:rounded-[32px]
                   md:p-2
+
                   lg:h-[450px]
                   lg:w-[380px]
                 "
@@ -339,6 +396,7 @@ const HeroSection = () => {
                     w-full
                     overflow-hidden
                     rounded-[18px]
+
                     md:rounded-[26px]
                   "
                 >
@@ -358,13 +416,14 @@ const HeroSection = () => {
                       object-center
                       transition-transform
                       duration-700
+
                       hover:scale-105
                     "
                   />
                 </div>
               </div>
 
-              {/* UBICACION SOLO TABLET/DESKTOP */}
+              {/* UBICACION - TABLET Y DESKTOP */}
               <motion.div
                 animate={{
                   y: [0, -7, 0],
@@ -383,6 +442,7 @@ const HeroSection = () => {
                   rounded-2xl
                   px-5
                   py-4
+
                   md:block
                 "
               >
@@ -392,6 +452,7 @@ const HeroSection = () => {
                     uppercase
                     tracking-[0.2em]
                     text-gray-500
+
                     dark:text-gray-400
                   "
                 >
@@ -404,6 +465,7 @@ const HeroSection = () => {
                     text-sm
                     font-semibold
                     text-[#151515]
+
                     dark:text-white
                   "
                 >
@@ -446,13 +508,36 @@ const HeroSection = () => {
             uppercase
             tracking-[0.2em]
             text-gray-400
+
             lg:flex
           "
         >
           {t.scrollText}
+
           <FaArrowDown size={12} />
         </motion.a>
       </div>
+
+      {/* DEGRADADO INFERIOR */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          bottom-0
+          left-0
+          right-0
+          z-[1]
+          h-40
+
+          bg-gradient-to-b
+          from-transparent
+          via-[#f7f7f5]/60
+          to-[#f7f7f5]
+
+          dark:via-[#090909]/60
+          dark:to-[#090909]
+        "
+      />
     </section>
   );
 };
