@@ -94,7 +94,7 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
           className="
-            pt-8
+            pt-12
             mb-8
             flex
             justify-start
