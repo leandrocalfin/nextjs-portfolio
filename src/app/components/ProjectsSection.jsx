@@ -56,8 +56,50 @@ const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="relative scroll-mt-20 py-16 sm:py-20"
+      className="relative scroll-mt-20 pt-2 pb-8 sm:pt-3 sm:pb-10 lg:pt-2 lg:pb-10"
     >
+      {/* GLOW IZQUIERDO */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-24
+          top-40
+          h-48
+          w-48
+          rounded-full
+          bg-blue-500/15
+          blur-3xl
+
+          lg:-left-40
+          lg:top-1/4
+          lg:h-[500px]
+          lg:w-[500px]
+          lg:blur-[120px]
+        "
+      />
+
+      {/* GLOW DERECHO */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-24
+          top-72
+          h-48
+          w-48
+          rounded-full
+          bg-violet-500/10
+          blur-3xl
+
+          lg:-right-40
+          lg:bottom-1/4
+          lg:h-[450px]
+          lg:w-[450px]
+          lg:blur-[130px]
+        "
+      />
+
       {/* HEADER */}
       <motion.div
         initial={{ opacity: 0, y: 25 }}
@@ -66,31 +108,21 @@ const ProjectsSection = () => {
         transition={{ duration: 0.6 }}
         className="mx-auto mb-16 max-w-3xl text-center"
       >
-        <p
-          className="
-            mb-3
-            text-xs
-            font-semibold
-            uppercase
-            tracking-[0.28em]
-            text-blue-500
-          "
-        >
-          {t.projectsEyebrow}
-        </p>
-
         <h2
           className="
-            text-4xl
+            text-2xl
             font-black
             tracking-[-0.03em]
             text-[#151515]
             dark:text-white
-            sm:text-5xl
+            sm:text-3xl
+            lg:text-3xl
           "
         >
           {t.projectsTitle}
         </h2>
+
+        <div className="mx-auto mt-4 h-[3px] w-16 rounded-full bg-blue-500" />
 
         <p
           className="

@@ -42,8 +42,50 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="relative scroll-mt-20 py-12 sm:py-20 lg:py-24"
+      className="relative scroll-mt-20 pt-2 pb-8 sm:pt-3 sm:pb-10 lg:pt-2 lg:pb-10"
     >
+      {/* GLOW IZQUIERDO */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-24
+          top-24
+          h-48
+          w-48
+          rounded-full
+          bg-blue-500/15
+          blur-3xl
+
+          lg:-left-40
+          lg:top-16
+          lg:h-[500px]
+          lg:w-[500px]
+          lg:blur-[120px]
+        "
+      />
+
+      {/* GLOW DERECHO */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-24
+          top-40
+          h-48
+          w-48
+          rounded-full
+          bg-violet-500/10
+          blur-3xl
+
+          lg:-right-40
+          lg:top-1/3
+          lg:h-[450px]
+          lg:w-[450px]
+          lg:blur-[130px]
+        "
+      />
+
       {/* TITULO */}
       <motion.div
         initial={{ opacity: 0, y: 25 }}
@@ -52,17 +94,17 @@ const AboutSection = () => {
         transition={{ duration: 0.6 }}
         className="mx-auto mb-8 max-w-3xl text-center sm:mb-10 lg:mb-14"
       >
-        <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-blue-500 sm:text-xs">
-          {t.aboutEyebrow}
-        </p>
+        <div className="relative inline-block">
+          <h2 className="text-2xl font-black tracking-[-0.03em] text-[#151515] dark:text-white sm:text-3xl lg:text-3xl">
+            {t.aboutTitle}
+          </h2>
 
-        <h2 className="text-3xl font-black tracking-[-0.03em] text-[#151515] dark:text-white sm:text-4xl md:text-4xl lg:text-5xl">
-          {t.aboutTitle}
-        </h2>
+          <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-blue-500" />
+        </div>
       </motion.div>
 
       {/* ABOUT + CODE */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-6">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 lg:gap-6">
         {/* TEXTO */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
@@ -77,22 +119,23 @@ const AboutSection = () => {
             sm:mx-0
             sm:rounded-[28px]
             sm:p-5
-            lg:p-8
+            lg:col-span-3
+            lg:p-5
           "
         >
-          <p className="text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:text-sm sm:leading-7 lg:text-lg lg:leading-8">
+          <p className="text-justify text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:text-sm sm:leading-7 lg:text-sm lg:leading-6">
             {t.aboutText1}
           </p>
 
-          <p className="mt-3 text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-5 lg:text-lg lg:leading-8">
+          <p className="mt-3 text-justify text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
             {t.aboutText2}
           </p>
 
-          <p className="mt-3 text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-5 lg:text-lg lg:leading-8">
+          <p className="mt-3 text-justify text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
             {t.aboutText3}
           </p>
 
-          <p className="mt-3 text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-5 lg:text-lg lg:leading-8">
+          <p className="mt-3 text-justify text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
             {t.aboutText4}
           </p>
         </motion.div>
@@ -114,6 +157,7 @@ const AboutSection = () => {
             dark:border-white/10
             sm:mx-0
             sm:rounded-[28px]
+            lg:col-span-2
           "
         >
           <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-5 sm:py-4">
@@ -128,7 +172,7 @@ const AboutSection = () => {
             </span>
           </div>
 
-          <div className="overflow-x-auto p-4 font-mono text-[10px] leading-5 sm:p-5 sm:text-[12px] sm:leading-6 md:text-[11px] lg:p-8 lg:text-[15px] lg:leading-7">
+          <div className="overflow-x-auto p-4 font-mono text-[10px] leading-5 sm:p-5 sm:text-[12px] sm:leading-6 md:text-[11px] lg:p-5 lg:text-[13px] lg:leading-6">
             <p>
               <span className="text-purple-400">const</span>{" "}
               <span className="text-blue-300">developer</span>{" "}
@@ -210,10 +254,10 @@ const AboutSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.6 }}
-        className="mt-12 sm:mt-14 lg:mt-20"
+        className="mt-10 sm:mt-12 lg:mt-14"
       >
-        <div className="mb-6 text-center sm:mb-8 lg:mb-10">
-          <h3 className="text-2xl font-bold tracking-tight text-[#151515] dark:text-white lg:text-3xl">
+        <div className="mb-6 text-center sm:mb-8 lg:mb-8">
+          <h3 className="text-xl font-bold tracking-tight text-[#151515] dark:text-white lg:text-xl">
             {t.technologiesTitle}
           </h3>
 
@@ -234,32 +278,101 @@ const AboutSection = () => {
                 delay: index * 0.04,
               }}
               whileHover={{
-                y: -5,
-                scale: 1.02,
+                y: -6,
+                scale: 1.04,
               }}
               className="
                 glass
+                group
+                relative
                 flex
-                min-h-[76px]
+                min-h-[70px]
                 cursor-default
                 flex-col
                 items-center
                 justify-center
+                gap-1.5
+                overflow-hidden
                 rounded-xl
+                border
+                border-black/5
                 p-2
-                sm:min-h-[90px]
+                transition-colors
+                duration-300
+                hover:border-blue-500/40
+                dark:border-white/5
+                sm:min-h-[84px]
                 sm:rounded-2xl
                 sm:p-3
-                md:min-h-[100px]
-                lg:min-h-[120px]
-                lg:p-4
+                md:min-h-[92px]
+                lg:min-h-[92px]
               "
             >
-              <div className="mb-1.5 text-2xl sm:mb-2 sm:text-3xl lg:mb-3 lg:text-4xl">
+              {/* GLOW HOVER */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  -z-10
+                  rounded-xl
+                  bg-gradient-to-br
+                  from-blue-500/0
+                  via-transparent
+                  to-violet-500/0
+                  opacity-0
+                  transition-opacity
+                  duration-300
+                  group-hover:from-blue-500/20
+                  group-hover:to-violet-500/20
+                  group-hover:opacity-100
+                "
+              />
+
+              {/* ICONO EN CHIP */}
+              <div
+                className="
+                  flex
+                  h-8
+                  w-8
+                  items-center
+                  justify-center
+                  rounded-lg
+                  border
+                  border-black/5
+                  bg-white/50
+                  text-xl
+                  transition-all
+                  duration-300
+                  group-hover:scale-110
+                  group-hover:border-blue-500/40
+                  group-hover:shadow-[0_0_18px_rgba(59,130,246,0.25)]
+                  dark:border-white/10
+                  dark:bg-white/[0.04]
+                  sm:h-9
+                  sm:w-9
+                  sm:text-2xl
+                "
+              >
                 {tech.icon}
               </div>
 
-              <p className="text-[11px] font-semibold text-[#151515] dark:text-white sm:text-xs lg:text-sm">
+              <p
+                className="
+                  font-mono
+                  text-[10px]
+                  font-semibold
+                uppercase
+                  tracking-wide
+                  text-gray-700
+                  transition-colors
+                  duration-300
+                  group-hover:text-blue-500
+                  dark:text-gray-200
+                  dark:group-hover:text-blue-400
+                  sm:text-[11px]
+                "
+              >
                 {tech.name}
               </p>
             </motion.div>

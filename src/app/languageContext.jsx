@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const LanguageContext = createContext();
 
@@ -56,7 +56,7 @@ export const translations = {
     contactIntro:
       "¿Tenés un proyecto, una idea o simplemente querés ponerte en contacto? Escribime.",
     contactWorkTogether: "Trabajemos juntos",
-    contactSubtitle: "Contactame",
+    contactSubtitle: "Hablemos",
     contactText:
       "Estoy abierto a nuevas oportunidades y proyectos. Si tenés alguna consulta, propuesta de trabajo o simplemente querés ponerte en contacto, no dudes en escribirme. Te responderé a la brevedad.",
 
@@ -129,7 +129,7 @@ export const translations = {
     contactIntro:
       "Have a project, an idea, or simply want to get in touch? Send me a message.",
     contactWorkTogether: "Let's work together",
-    contactSubtitle: "Contact me",
+    contactSubtitle: "Let's talk",
     contactText:
       "I am open to new opportunities and projects. If you have a question, a job proposal, or simply want to get in touch, feel free to write to me. I will reply as soon as possible.",
 
@@ -152,8 +152,21 @@ export const translations = {
   },
 };
 
+const STORAGE_KEY = "portfolio-language";
+
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState("es");
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored === "es" || stored === "en") {
+      setLanguage(stored);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem(STORAGE_KEY, language);
+  }, [language]);
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "es" ? "en" : "es"));

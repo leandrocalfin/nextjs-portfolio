@@ -21,44 +21,135 @@ const HeroSection = () => {
       className="
         relative
         overflow-hidden
+        flex
+        max-md:min-h-[55svh]
+        flex-col
+        justify-center
         px-4
-        pb-12
-        pt-24
+        pt-14
+        pb-8
 
         sm:px-6
-        sm:pb-14
-        sm:pt-28
+        sm:pt-16
+        sm:pb-10
 
         md:flex
         md:min-h-[650px]
         md:items-center
         md:px-8
-        md:py-24
+        md:pt-16
+        md:pb-10
 
-        lg:min-h-screen
+        lg:min-h-[105svh]
         lg:px-10
       "
     >
       {/* GLOW IZQUIERDO */}
-      <div className="glow -left-40 top-16" />
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-24
+          top-10
+          h-48
+          w-48
+          rounded-full
+          bg-blue-500/15
+          blur-3xl
+
+          lg:-left-40
+          lg:top-16
+          lg:h-[500px]
+          lg:w-[500px]
+          lg:blur-[120px]
+        "
+      />
 
       {/* GLOW DERECHO */}
       <div
         className="
           pointer-events-none
           absolute
-          -right-40
-          bottom-0
-          h-[450px]
-          w-[450px]
+          -right-24
+          top-24
+          h-48
+          w-48
           rounded-full
           bg-violet-500/10
-          blur-[130px]
+          blur-3xl
+
+          lg:-right-40
+          lg:bottom-0
+          lg:h-[450px]
+          lg:w-[450px]
+          lg:blur-[130px]
         "
       />
 
       {/* CONTENIDO */}
       <div className="relative z-10 mx-auto w-full max-w-6xl">
+        {/* DISPONIBILIDAD - MOBILE */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="
+            pt-8
+            mb-8
+            flex
+            justify-start
+            md:hidden
+          "
+        >
+          <div
+            className="
+              inline-flex
+              items-center
+              gap-2
+              rounded-full
+              border
+              border-black/10
+              bg-white/50
+              px-3
+              py-1.5
+              text-[10px]
+              text-gray-600
+              backdrop-blur-md
+
+              dark:border-white/10
+              dark:bg-white/5
+              dark:text-gray-300
+            "
+          >
+            <span className="relative flex h-2 w-2">
+              <span
+                className="
+                  absolute
+                  inline-flex
+                  h-full
+                  w-full
+                  animate-ping
+                  rounded-full
+                  bg-green-400
+                  opacity-75
+                "
+              />
+              <span
+                className="
+                  relative
+                  inline-flex
+                  h-2
+                  w-2
+                  rounded-full
+                  bg-green-500
+                "
+              />
+            </span>
+
+            {t.heroAvailability}
+          </div>
+        </motion.div>
+
         <div
           className="
             grid
@@ -91,7 +182,8 @@ const HeroSection = () => {
               }}
               className="
                 mb-4
-                inline-flex
+                hidden
+                md:inline-flex
                 items-center
                 gap-2
                 rounded-full
@@ -158,15 +250,15 @@ const HeroSection = () => {
 
                 sm:text-3xl
                 md:text-4xl
-                lg:text-6xl
-                xl:text-7xl
+                lg:text-5xl
+                xl:text-6xl
               "
             >
               <span className="block">
                 {t.heroTitle}
               </span>
 
-              <span className="gradient-text mt-2 block">
+              <span className="gradient-text mt-4 block">
                 <TypeAnimation
                   key={t.heroSubtitle}
                   sequence={[
@@ -189,7 +281,7 @@ const HeroSection = () => {
                 duration: 0.6,
               }}
               className="
-                mt-4
+                mt-6
                 max-w-2xl
                 text-[11px]
                 leading-5
@@ -199,10 +291,11 @@ const HeroSection = () => {
 
                 sm:text-xs
 
+                md:mt-8
                 md:text-sm
                 md:leading-6
 
-                lg:text-xl
+                lg:text-lg
                 lg:leading-7
               "
             >
@@ -218,13 +311,13 @@ const HeroSection = () => {
                 duration: 0.6,
               }}
               className="
-                mt-5
+                mt-8
                 flex
                 flex-wrap
                 items-center
                 gap-2
 
-                md:mt-8
+                md:mt-10
                 md:gap-3
               "
             >
@@ -233,11 +326,18 @@ const HeroSection = () => {
                 href="/CV_Leandro_Calfin.pdf"
                 download
                 className="
+                  group
+                  relative
                   inline-flex
                   items-center
                   gap-1.5
+                  overflow-hidden
                   rounded-lg
-                  bg-[#151515]
+                  border
+                  border-blue-500/40
+                  bg-gradient-to-r
+                  from-blue-500
+                  to-violet-600
                   px-3
                   py-2
                   text-[10px]
@@ -247,10 +347,8 @@ const HeroSection = () => {
                   duration-300
 
                   hover:-translate-y-1
-                  hover:shadow-xl
-
-                  dark:bg-white
-                  dark:text-black
+                  hover:border-blue-400/60
+                  hover:shadow-[0_0_22px_rgba(99,102,241,0.5)]
 
                   sm:text-xs
 
@@ -260,9 +358,27 @@ const HeroSection = () => {
                   md:text-sm
                 "
               >
-                <FaDownload size={11} />
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    rounded-lg
+                    bg-gradient-to-br
+                    from-violet-500/0
+                    via-transparent
+                    to-white/20
+                    opacity-0
+                    transition-opacity
+                    duration-300
+                    group-hover:opacity-100
+                    md:rounded-xl
+                  "
+                />
 
-                {t.downloadCV}
+                <FaDownload size={11} className="relative" />
+
+                <span className="relative">{t.downloadCV}</span>
               </a>
 
               {/* GITHUB */}
@@ -385,8 +501,8 @@ const HeroSection = () => {
                   md:rounded-[32px]
                   md:p-2
 
-                  lg:h-[450px]
-                  lg:w-[380px]
+                  lg:h-[400px]
+                  lg:w-[340px]
                 "
               >
                 <div
@@ -475,69 +591,49 @@ const HeroSection = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* SCROLL SOLO DESKTOP */}
-        <motion.a
-          href="#about"
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            y: [0, 7, 0],
-          }}
-          transition={{
-            opacity: {
-              delay: 1,
-              duration: 0.5,
-            },
-            y: {
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-          }}
-          className="
-            absolute
-            -bottom-10
-            left-1/2
-            hidden
-            -translate-x-1/2
-            flex-col
-            items-center
-            gap-2
-            text-xs
-            uppercase
-            tracking-[0.2em]
-            text-gray-400
-
-            lg:flex
-          "
-        >
-          {t.scrollText}
-
-          <FaArrowDown size={12} />
-        </motion.a>
       </div>
 
-      {/* DEGRADADO INFERIOR */}
-      <div
+      {/* SCROLL - DESKTOP */}
+      <motion.a
+        href="#about"
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          y: [0, 7, 0],
+        }}
+        transition={{
+          opacity: {
+            delay: 1,
+            duration: 0.5,
+          },
+          y: {
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          },
+        }}
         className="
-          pointer-events-none
           absolute
-          bottom-0
-          left-0
-          right-0
-          z-[1]
-          h-40
+          bottom-8
+          left-1/2
+          hidden
+          -translate-x-1/2
+          flex-col
+          items-center
+          gap-2
+          text-xs
+          uppercase
+          tracking-[0.2em]
+          text-gray-400
+          dark:text-gray-500
 
-          bg-gradient-to-b
-          from-transparent
-          via-[#f7f7f5]/60
-          to-[#f7f7f5]
-
-          dark:via-[#090909]/60
-          dark:to-[#090909]
+          lg:flex
         "
-      />
+      >
+        {t.scrollText}
+
+        <FaArrowDown size={12} />
+      </motion.a>
     </section>
   );
 };

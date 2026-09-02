@@ -11,11 +11,16 @@ export default function Home() {
       className="
         min-h-screen
         overflow-hidden
-        bg-[#f7f7f5]
+        bg-gradient-to-b
+        from-[#f7f7f5]
+        via-[#f4f4ff]
+        to-[#fbfbfe]
         text-[#151515]
         transition-colors
         duration-300
-        dark:bg-[#090909]
+        dark:from-[#090909]
+        dark:via-[#0b0b12]
+        dark:to-[#0f0f17]
         dark:text-white
       "
     >

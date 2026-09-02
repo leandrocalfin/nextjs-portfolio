@@ -15,7 +15,7 @@ const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
 
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +26,8 @@ const EmailSection = () => {
       name: e.target.name.value,
       email: e.target.email.value,
       message: e.target.message.value,
+      language,
+      website: e.target.website.value,
     };
 
     const endpoint = "/api/send";
@@ -100,8 +102,50 @@ const EmailSection = () => {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-20 py-12 sm:py-20 lg:py-24"
+      className="relative scroll-mt-20 pt-2 pb-8 sm:pt-3 sm:pb-10 lg:pt-2 lg:pb-10"
     >
+      {/* GLOW IZQUIERDO */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -left-24
+          top-32
+          h-48
+          w-48
+          rounded-full
+          bg-blue-500/15
+          blur-3xl
+
+          lg:-left-40
+          lg:top-24
+          lg:h-[500px]
+          lg:w-[500px]
+          lg:blur-[120px]
+        "
+      />
+
+      {/* GLOW DERECHO */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -right-24
+          top-1/2
+          h-48
+          w-48
+          rounded-full
+          bg-violet-500/10
+          blur-3xl
+
+          lg:-right-40
+          lg:top-1/2
+          lg:h-[450px]
+          lg:w-[450px]
+          lg:blur-[130px]
+        "
+      />
+
       {/* HEADER */}
       <motion.div
         initial={{ opacity: 0, y: 25 }}
@@ -110,34 +154,23 @@ const EmailSection = () => {
         transition={{ duration: 0.6 }}
         className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 lg:mb-16"
       >
-        <p
-          className="
-            mb-2
-            text-[10px]
-            font-semibold
-            uppercase
-            tracking-[0.28em]
-            text-blue-500
-            sm:mb-3
-            sm:text-xs
-          "
-        >
-          {t.contactEyebrow}
-        </p>
+        <div className="relative inline-block">
+          <h2
+            className="
+              text-2xl
+              font-black
+              tracking-[-0.03em]
+              text-[#151515]
+              dark:text-white
+              sm:text-3xl
+              lg:text-3xl
+            "
+          >
+            {t.contactTitle}
+          </h2>
 
-        <h2
-          className="
-            text-3xl
-            font-black
-            tracking-[-0.03em]
-            text-[#151515]
-            dark:text-white
-            sm:text-4xl
-            lg:text-5xl
-          "
-        >
-          {t.contactTitle}
-        </h2>
+          <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-blue-500" />
+        </div>
 
         <p
           className="
@@ -177,7 +210,7 @@ const EmailSection = () => {
             sm:rounded-[30px]
             sm:p-7
             lg:col-span-5
-            lg:p-9
+            lg:p-7
           "
         >
           <div
@@ -212,14 +245,14 @@ const EmailSection = () => {
               className="
                 mt-3
                 max-w-md
-                text-2xl
+                text-lg
                 font-black
                 tracking-[-0.03em]
                 text-[#151515]
                 dark:text-white
                 sm:mt-4
-                sm:text-3xl
-                lg:text-4xl
+                sm:text-xl
+                lg:text-2xl
               "
             >
               {t.contactSubtitle}
@@ -352,7 +385,7 @@ const EmailSection = () => {
             sm:rounded-[30px]
             sm:p-6
             lg:col-span-7
-            lg:p-8
+            lg:p-6
           "
         >
           {emailSubmitted ? (
@@ -450,6 +483,21 @@ const EmailSection = () => {
               className="flex flex-col"
               onSubmit={handleSubmit}
             >
+              {/* Honeypot: hidden from humans, visible to bots. Must stay empty. */}
+              <div
+                className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden"
+                aria-hidden="true"
+              >
+                <label htmlFor="website">Website</label>
+                <input
+                  name="website"
+                  type="text"
+                  id="website"
+                  tabIndex="-1"
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="mb-4 sm:mb-5">
                 <label
                   htmlFor="name"
@@ -509,13 +557,19 @@ const EmailSection = () => {
                 disabled={sending}
                 className="
                   group
+                  relative
                   inline-flex
                   w-full
                   items-center
                   justify-center
+                  overflow-hidden
                   gap-2
                   rounded-xl
-                  bg-[#151515]
+                  border
+                  border-blue-500/40
+                  bg-gradient-to-r
+                  from-blue-500
+                  to-violet-600
                   px-5
                   py-3
                   text-xs
@@ -524,23 +578,43 @@ const EmailSection = () => {
                   transition-all
                   duration-300
                   hover:-translate-y-1
-                  hover:shadow-xl
+                  hover:border-blue-400/60
+                  hover:shadow-[0_0_22px_rgba(99,102,241,0.5)]
                   disabled:cursor-not-allowed
                   disabled:opacity-60
-                  dark:bg-white
-                  dark:text-black
                   sm:rounded-2xl
                   sm:px-6
                   sm:py-3.5
                   sm:text-sm
                 "
               >
-                {sending ? t.sendingMessage : t.sendMessage}
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    rounded-xl
+                    bg-gradient-to-br
+                    from-violet-500/0
+                    via-transparent
+                    to-white/20
+                    opacity-0
+                    transition-opacity
+                    duration-300
+                    group-hover:opacity-100
+                    sm:rounded-2xl
+                  "
+                />
+
+                <span className="relative">
+                  {sending ? t.sendingMessage : t.sendMessage}
+                </span>
 
                 {!sending && (
                   <FaArrowRight
                     size={12}
                     className="
+                      relative
                       transition-transform
                       duration-300
                       group-hover:translate-x-1

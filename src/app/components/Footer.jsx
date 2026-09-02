@@ -20,7 +20,7 @@ const Footer = () => {
         border-black/10
         bg-white/30
         px-5
-        py-10
+        py-6
         backdrop-blur-xl
         dark:border-white/10
         dark:bg-white/[0.02]
@@ -35,7 +35,7 @@ const Footer = () => {
             flex-col
             items-center
             justify-between
-            gap-8
+            gap-5
             md:flex-row
           "
         >
@@ -53,9 +53,9 @@ const Footer = () => {
             <Image
               src="/images/logo.png"
               alt="Leandro Calfin"
-              width={46}
-              height={46}
-              className="h-11 w-auto object-contain"
+              width={38}
+              height={38}
+              className="h-9 w-auto object-contain"
             />
 
             <div>
@@ -103,11 +103,11 @@ const Footer = () => {
               aria-label="GitHub"
               className="
                 flex
-                h-10
-                w-10
+                h-8
+                w-8
                 items-center
                 justify-center
-                rounded-xl
+                rounded-lg
                 border
                 border-black/10
                 text-[#151515]
@@ -119,7 +119,7 @@ const Footer = () => {
                 dark:text-white
               "
             >
-              <FaGithub size={17} />
+              <FaGithub size={14} />
             </a>
 
             <a
@@ -129,11 +129,11 @@ const Footer = () => {
               aria-label="LinkedIn"
               className="
                 flex
-                h-10
-                w-10
+                h-8
+                w-8
                 items-center
                 justify-center
-                rounded-xl
+                rounded-lg
                 border
                 border-black/10
                 text-[#151515]
@@ -145,7 +145,7 @@ const Footer = () => {
                 dark:text-white
               "
             >
-              <FaLinkedin size={17} />
+              <FaLinkedin size={14} />
             </a>
 
             <a
@@ -153,11 +153,11 @@ const Footer = () => {
               aria-label="Email"
               className="
                 flex
-                h-10
-                w-10
+                h-8
+                w-8
                 items-center
                 justify-center
-                rounded-xl
+                rounded-lg
                 border
                 border-black/10
                 text-[#151515]
@@ -169,7 +169,7 @@ const Footer = () => {
                 dark:text-white
               "
             >
-              <FaEnvelope size={16} />
+              <FaEnvelope size={13} />
             </a>
           </div>
         </div>

@@ -5,7 +5,30 @@ import Image from "next/image";
 import {
   FaGithub,
   FaExternalLinkAlt,
+  FaReact,
+  FaNodeJs,
 } from "react-icons/fa";
+import {
+  SiVite,
+  SiTailwindcss,
+  SiExpress,
+  SiMongodb,
+  SiCloudinary,
+  SiNextdotjs,
+  SiMysql,
+} from "react-icons/si";
+
+const techIcons = {
+  React: <FaReact className="text-cyan-400" />,
+  Vite: <SiVite className="text-purple-500" />,
+  Tailwind: <SiTailwindcss className="text-sky-400" />,
+  "Node.js": <FaNodeJs className="text-green-500" />,
+  Express: <SiExpress className="text-gray-700 dark:text-gray-200" />,
+  MongoDB: <SiMongodb className="text-green-600" />,
+  Cloudinary: <SiCloudinary className="text-sky-500" />,
+  "Next.js": <SiNextdotjs className="text-[#151515] dark:text-white" />,
+  MySQL: <SiMysql className="text-blue-400" />,
+};
 
 const ProjectCard = ({
   title,
@@ -23,15 +46,46 @@ const ProjectCard = ({
     <article
       className="
         glass
+        group
+        relative
         mx-2
         overflow-hidden
         rounded-[20px]
+        border
+        border-black/5
         p-2
+        transition-all
+        duration-300
+        hover:-translate-y-1
+        hover:border-blue-500/40
+        hover:shadow-2xl
+        dark:border-white/5
         sm:mx-0
         sm:rounded-[26px]
         sm:p-3
       "
     >
+      {/* GLOW HOVER */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          rounded-[20px]
+          bg-gradient-to-br
+          from-blue-500/0
+          via-transparent
+          to-violet-500/0
+          opacity-0
+          transition-opacity
+          duration-300
+          group-hover:from-blue-500/20
+          group-hover:to-violet-500/20
+          group-hover:opacity-100
+          sm:rounded-[26px]
+        "
+      />
+
       <div
         className={`
           grid
@@ -57,10 +111,10 @@ const ProjectCard = ({
               sm:h-[230px]
               sm:w-[230px]
               sm:rounded-[20px]
-              md:h-[210px]
-              md:w-[210px]
-              lg:h-[280px]
-              lg:w-[280px]
+              md:h-[170px]
+              md:w-[170px]
+              lg:h-[200px]
+              lg:w-[200px]
             "
           >
             {image ? (
@@ -70,8 +124,8 @@ const ProjectCard = ({
                 fill
                 sizes="
                   (max-width: 640px) 180px,
-                  (max-width: 1024px) 210px,
-                  280px
+                  (max-width: 1024px) 170px,
+                  200px
                 "
                 className="
                   object-contain
@@ -115,8 +169,8 @@ const ProjectCard = ({
             sm:px-4
             sm:py-4
             md:px-3
-            lg:px-6
-            lg:py-5
+            lg:px-5
+            lg:py-4
           "
         >
           {/* ESTADO */}
@@ -167,13 +221,13 @@ const ProjectCard = ({
           {/* TITULO */}
           <h3
             className="
-              text-xl
+              text-lg
               font-black
               tracking-[-0.03em]
               text-[#151515]
               dark:text-white
-              sm:text-2xl
-              lg:text-3xl
+              sm:text-xl
+              lg:text-xl
             "
           >
             {title}
@@ -189,20 +243,23 @@ const ProjectCard = ({
               dark:text-gray-400
               sm:text-sm
               sm:leading-6
-              lg:mt-4
-              lg:text-base
-              lg:leading-7
+              lg:mt-3
+              lg:text-sm
+              lg:leading-6
             "
           >
             {description}
           </p>
 
           {/* TECNOLOGIAS */}
-          <div className="mt-4 flex flex-wrap gap-1.5 sm:gap-2 lg:mt-5">
+          <div className="mt-3 flex flex-wrap gap-1.5 sm:gap-2 lg:mt-4">
             {technologies.map((tech) => (
               <span
                 key={tech}
                 className="
+                  inline-flex
+                  items-center
+                  gap-1.5
                   rounded-md
                   border
                   border-black/10
@@ -218,11 +275,12 @@ const ProjectCard = ({
                   sm:rounded-lg
                   sm:px-2.5
                   sm:text-[10px]
-                  lg:px-3
-                  lg:py-1.5
-                  lg:text-xs
+                  lg:px-2.5
+                  lg:py-1
+                  lg:text-[11px]
                 "
               >
+                {techIcons[tech]}
                 {tech}
               </span>
             ))}
@@ -230,7 +288,7 @@ const ProjectCard = ({
 
           {/* BOTONES */}
           {(demo || github) && (
-            <div className="mt-4 flex flex-wrap gap-2 sm:mt-5 lg:mt-6 lg:gap-3">
+            <div className="mt-3 flex flex-wrap gap-2 sm:mt-4 lg:mt-4 lg:gap-3">
               {demo && (
                 <a
                   href={demo}
@@ -256,9 +314,9 @@ const ProjectCard = ({
                     sm:rounded-xl
                     sm:py-2.5
                     sm:text-xs
-                    lg:px-4
-                    lg:py-3
-                    lg:text-sm
+                    lg:px-3.5
+                    lg:py-2.5
+                    lg:text-xs
                   "
                 >
                   <FaExternalLinkAlt size={11} />
@@ -293,9 +351,9 @@ const ProjectCard = ({
                     sm:rounded-xl
                     sm:py-2.5
                     sm:text-xs
-                    lg:px-4
-                    lg:py-3
-                    lg:text-sm
+                    lg:px-3.5
+                    lg:py-2.5
+                    lg:text-xs
                   "
                 >
                   <FaGithub size={13} />
