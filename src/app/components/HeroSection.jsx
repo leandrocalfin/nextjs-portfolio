@@ -263,11 +263,10 @@ const HeroSection = () => {
                   key={t.heroSubtitle}
                   sequence={[
                     t.heroSubtitle,
-                    2000,
                   ]}
                   wrapper="span"
                   speed={40}
-                  repeat={Infinity}
+                  cursor
                 />
               </span>
             </h1>
