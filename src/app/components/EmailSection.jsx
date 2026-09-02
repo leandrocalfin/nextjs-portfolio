@@ -115,13 +115,13 @@ const EmailSection = () => {
           w-48
           rounded-full
           bg-blue-500/15
-          blur-3xl
+          blur-2xl
 
           lg:-left-40
           lg:top-24
           lg:h-[500px]
           lg:w-[500px]
-          lg:blur-[120px]
+          lg:blur-[80px]
         "
       />
 
@@ -136,13 +136,13 @@ const EmailSection = () => {
           w-48
           rounded-full
           bg-violet-500/10
-          blur-3xl
+          blur-2xl
 
           lg:-right-40
           lg:top-1/2
           lg:h-[450px]
           lg:w-[450px]
-          lg:blur-[130px]
+          lg:blur-[90px]
         "
       />
 
@@ -223,7 +223,7 @@ const EmailSection = () => {
               w-64
               rounded-full
               bg-blue-500/10
-              blur-3xl
+              blur-2xl
             "
           />
 

@@ -55,13 +55,13 @@ const HeroSection = () => {
           w-48
           rounded-full
           bg-blue-500/15
-          blur-3xl
+          blur-2xl
 
           lg:-left-40
           lg:top-16
           lg:h-[500px]
           lg:w-[500px]
-          lg:blur-[120px]
+          lg:blur-[80px]
         "
       />
 
@@ -76,13 +76,13 @@ const HeroSection = () => {
           w-48
           rounded-full
           bg-violet-500/10
-          blur-3xl
+          blur-2xl
 
           lg:-right-40
           lg:bottom-0
           lg:h-[450px]
           lg:w-[450px]
-          lg:blur-[130px]
+          lg:blur-[90px]
         "
       />
 
@@ -475,10 +475,10 @@ const HeroSection = () => {
                   -z-10
                   rounded-full
                   bg-blue-500/10
-                  blur-2xl
+                  blur-xl
 
                   md:-inset-8
-                  md:blur-3xl
+                  md:blur-2xl
                 "
               />
 
