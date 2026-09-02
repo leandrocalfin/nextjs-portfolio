@@ -139,8 +139,8 @@ const Navbar = () => {
               <Image
                 src={
                   language === "es"
-                    ? "/images/arg.png"
-                    : "/images/usa.png"
+                    ? "/images/arg.webp"
+                    : "/images/usa.webp"
                 }
                 alt={language === "es" ? "Español" : "English"}
                 width={23}
@@ -219,8 +219,8 @@ const Navbar = () => {
               <Image
                 src={
                   language === "es"
-                    ? "/images/arg.png"
-                    : "/images/usa.png"
+                    ? "/images/arg.webp"
+                    : "/images/usa.webp"
                 }
                 alt={language === "es" ? "Español" : "English"}
                 width={21}

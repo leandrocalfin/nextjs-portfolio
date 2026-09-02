@@ -13,7 +13,7 @@ const ProjectsSection = () => {
       id: 1,
       title: t.photographyProjectTitle,
       description: t.photographyProjectDescription,
-      image: "/images/mb-fotografia.png",
+      image: "/images/mb-fotografia.webp",
 
       technologies: [
         "React",
@@ -36,7 +36,7 @@ const ProjectsSection = () => {
       id: 2,
       title: t.vetProjectTitle,
       description: t.vetProjectDescription,
-      image: "/images/veterinaria.png",
+      image: "/images/veterinaria.webp",
 
       technologies: [
         "React",

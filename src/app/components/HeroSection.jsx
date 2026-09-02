@@ -517,7 +517,7 @@ const HeroSection = () => {
                   "
                 >
                   <Image
-                    src="/images/miaFormal.jpg"
+                    src="/images/miaFormal.webp"
                     alt="Leandro Calfin"
                     fill
                     priority
