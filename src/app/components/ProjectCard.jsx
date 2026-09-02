@@ -102,8 +102,8 @@ const ProjectCard = ({
             className="
               group
               relative
-              h-[180px]
-              w-[180px]
+              h-[90px]
+              w-[90px]
               overflow-hidden
               rounded-[16px]
               bg-black/[0.03]
@@ -123,7 +123,7 @@ const ProjectCard = ({
                 alt={title}
                 fill
                 sizes="
-                  (max-width: 640px) 180px,
+                  (max-width: 640px) 90px,
                   (max-width: 1024px) 170px,
                   200px
                 "
