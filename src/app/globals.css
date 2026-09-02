@@ -17,7 +17,7 @@ body {
 }
 
 body {
-  background: #f7f7f5;
+  background: #fbfbfe;
   color: #151515;
   overflow-x: hidden;
   transition:
@@ -26,7 +26,7 @@ body {
 }
 
 .dark body {
-  background: #090909;
+  background: #0f0f17;
   color: #ffffff;
 }
 
