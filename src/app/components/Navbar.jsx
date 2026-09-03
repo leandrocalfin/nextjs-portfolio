@@ -88,8 +88,8 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* DESKTOP NAV */}
-          <div className="hidden items-center gap-1 md:flex">
+          {/* DESKTOP NAV - solo lg */}
+          <div className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -115,8 +115,8 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* DESKTOP CONTROLS */}
-          <div className="hidden items-center gap-2 md:flex">
+          {/* DESKTOP CONTROLS - solo lg */}
+          <div className="hidden items-center gap-2 lg:flex">
             {/* IDIOMA */}
             <button
               type="button"
@@ -195,8 +195,8 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* MOBILE CONTROLS */}
-          <div className="flex items-center gap-1 md:hidden">
+          {/* MOBILE + TABLET CONTROLS */}
+          <div className="flex items-center gap-1 lg:hidden">
             {/* IDIOMA */}
             <button
               type="button"
@@ -273,45 +273,44 @@ const Navbar = () => {
                   />
                 ))}
             </button>
-          </div>
 
-          {/* MENU HAMBURGUESA */}
-          <button
-            type="button"
-            onClick={() => setNavbarOpen(!navbarOpen)}
-            aria-label="Abrir menú"
-            className="
-              ml-1
-              flex
-              h-9
-              w-9
-              items-center
-              justify-center
-              rounded-lg
-              text-gray-700
-              transition-all
-              duration-300
-              hover:bg-black/5
-              dark:text-white
-              dark:hover:bg-white/10
-            "
-          >
-            {navbarOpen ? (
-              <XMarkIcon className="h-5 w-5" />
-            ) : (
-              <Bars3Icon className="h-5 w-5" />
-            )}
-          </button>
+            {/* MENU HAMBURGUESA */}
+            <button
+              type="button"
+              onClick={() => setNavbarOpen(!navbarOpen)}
+              aria-label="Abrir menú"
+              className="
+                flex
+                h-9
+                w-9
+                items-center
+                justify-center
+                rounded-lg
+                text-gray-700
+                transition-all
+                duration-300
+                hover:bg-black/5
+                dark:text-white
+                dark:hover:bg-white/10
+              "
+            >
+              {navbarOpen ? (
+                <XMarkIcon className="h-5 w-5" />
+              ) : (
+                <Bars3Icon className="h-5 w-5" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* DROPDOWN MENU - mobile + tablet */}
       <div
         className={`
           overflow-hidden
           transition-all
           duration-300
-          md:hidden
+          lg:hidden
           ${
             navbarOpen
               ? "max-h-72 opacity-100"
