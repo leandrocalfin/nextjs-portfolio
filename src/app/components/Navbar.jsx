@@ -302,61 +302,48 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </div>
 
-      {/* DROPDOWN MENU - mobile + tablet */}
-      <div
-        className={`
-          overflow-hidden
-          transition-all
-          duration-300
-          lg:hidden
-          ${
-            navbarOpen
-              ? "max-h-72 opacity-100"
-              : "max-h-0 opacity-0"
-          }
-        `}
-      >
+        {/* DROPDOWN MENU - mobile + tablet */}
         <div
-          className="
-            mx-3
-            mb-3
-            rounded-xl
-            border
-            border-black/10
-            bg-white
-            p-1
-            text-center
-            dark:border-white/10
-            dark:bg-[#111111]
-          "
+          className={`
+            overflow-hidden
+            transition-all
+            duration-300
+            lg:hidden
+            ${
+              navbarOpen
+                ? "max-h-72 opacity-100"
+                : "max-h-0 opacity-0"
+            }
+          `}
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              href={link.path}
-              onClick={closeMenu}
-              className="
-                block
-                rounded-xl
-                px-4
-                py-3
-                text-sm
-                font-medium
-                text-gray-600
-                transition-all
-                duration-300
-                hover:bg-black/5
-                hover:text-black
-                dark:text-gray-300
-                dark:hover:bg-white/10
-                dark:hover:text-white
-              "
-            >
-              {link.title}
-            </Link>
-          ))}
+          <div className="mx-3 mb-3 border-t border-black/10 pt-2 text-right dark:border-white/10">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                href={link.path}
+                onClick={closeMenu}
+                className="
+                  block
+                  rounded-xl
+                  px-4
+                  py-3
+                  text-sm
+                  font-medium
+                  text-gray-600
+                  transition-all
+                  duration-300
+                  hover:bg-black/5
+                  hover:text-black
+                  dark:text-gray-300
+                  dark:hover:bg-white/10
+                  dark:hover:text-white
+                "
+              >
+                {link.title}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
