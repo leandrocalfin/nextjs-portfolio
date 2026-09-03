@@ -273,87 +273,86 @@ const Navbar = () => {
                   />
                 ))}
             </button>
+          </div>
 
-            {/* MENU HAMBURGUESA */}
-            <button
-              type="button"
-              onClick={() => setNavbarOpen(!navbarOpen)}
-              aria-label="Abrir menú"
+          {/* MENU HAMBURGUESA */}
+          <button
+            type="button"
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            aria-label="Abrir menú"
+            className="
+              ml-1
+              flex
+              h-9
+              w-9
+              items-center
+              justify-center
+              rounded-lg
+              text-gray-700
+              transition-all
+              duration-300
+              hover:bg-black/5
+              dark:text-white
+              dark:hover:bg-white/10
+            "
+          >
+            {navbarOpen ? (
+              <XMarkIcon className="h-5 w-5" />
+            ) : (
+              <Bars3Icon className="h-5 w-5" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* MOBILE MENU */}
+      <div
+        className={`
+          overflow-hidden
+          transition-all
+          duration-300
+          md:hidden
+          ${
+            navbarOpen
+              ? "max-h-72 opacity-100"
+              : "max-h-0 opacity-0"
+          }
+        `}
+      >
+        <div
+          className="
+            mx-3
+            mb-3
+            border-t
+            border-black/10
+            dark:border-white/10
+          "
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              href={link.path}
+              onClick={closeMenu}
               className="
-                ml-1
-                flex
-                h-9
-                w-9
-                items-center
-                justify-center
-                rounded-lg
-                text-gray-700
+                block
+                rounded-xl
+                px-4
+                py-3
+                text-sm
+                font-medium
+                text-gray-600
                 transition-all
                 duration-300
                 hover:bg-black/5
-                dark:text-white
+                hover:text-black
+                dark:text-gray-300
                 dark:hover:bg-white/10
+                dark:hover:text-white
               "
             >
-              {navbarOpen ? (
-                <XMarkIcon className="h-5 w-5" />
-              ) : (
-                <Bars3Icon className="h-5 w-5" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* MOBILE MENU */}
-        <div
-          className={`
-            overflow-hidden
-            transition-all
-            duration-300
-            md:hidden
-            ${
-              navbarOpen
-                ? "max-h-72 opacity-100"
-                : "max-h-0 opacity-0"
-            }
-          `}
-        >
-          <div
-            className="
-              mx-3
-              mb-3
-              border-t
-              border-black/10
-              pt-3
-              dark:border-white/10
-            "
-          >
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                href={link.path}
-                onClick={closeMenu}
-                className="
-                  block
-                  rounded-xl
-                  px-4
-                  py-3
-                  text-sm
-                  font-medium
-                  text-gray-600
-                  transition-all
-                  duration-300
-                  hover:bg-black/5
-                  hover:text-black
-                  dark:text-gray-300
-                  dark:hover:bg-white/10
-                  dark:hover:text-white
-                "
-              >
-                {link.title}
-              </Link>
-            ))}
-          </div>
+              {link.title}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>

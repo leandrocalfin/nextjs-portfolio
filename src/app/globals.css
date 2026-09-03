@@ -4,7 +4,7 @@
 
 /* ================================
    BASE
-================================ */
+============================== */
 
 html {
   scroll-behavior: smooth;
@@ -33,7 +33,7 @@ body {
 
 /* ================================
    SELECTION
-================================ */
+============================== */
 
 ::selection {
   background: rgba(59, 130, 246, 0.25);
@@ -42,7 +42,7 @@ body {
 
 /* ================================
    SCROLLBAR
-================================ */
+============================== */
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -64,7 +64,7 @@ body {
 
 /* ================================
    GLASS
-================================ */
+============================== */
 
 .glass {
   background: rgba(255, 255, 255, 0.55);
@@ -88,7 +88,7 @@ body {
 
 /* ================================
    TEXT GRADIENT
-================================ */
+============================== */
 
 .gradient-text {
   background: linear-gradient(
@@ -106,7 +106,7 @@ body {
 
 /* ================================
    GLOW
-================================ */
+============================== */
 
 .glow {
   position: absolute;
@@ -130,8 +130,77 @@ body {
 
 /* ================================
    SECTIONS
-================================ */
+============================== */
 
 section {
   scroll-margin-top: 110px;
+}
+
+/* ================================
+   ANIMATIONS (reemplaza framer-motion)
+============================== */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-on-scroll.from-left {
+  transform: translateX(-30px);
+}
+
+.animate-on-scroll.from-left.is-visible {
+  transform: translateX(0);
+}
+
+.animate-on-scroll.from-right {
+  transform: translateX(30px);
+}
+
+.animate-on-scroll.from-right.is-visible {
+  transform: translateX(0);
+}
+
+.animate-on-scroll.scale-in {
+  transform: scale(0.9);
+}
+
+.animate-on-scroll.scale-in.is-visible {
+  transform: scale(1);
+}
+
+.animate-on-scroll.pop-in {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.animate-on-scroll.pop-in.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Hero animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(7px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
 }

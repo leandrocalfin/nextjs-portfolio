@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
@@ -14,6 +14,11 @@ import { useLanguage } from "../languageContext";
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section
@@ -89,17 +94,12 @@ const HeroSection = () => {
       {/* CONTENIDO */}
       <div className="relative z-10 mx-auto w-full max-w-6xl">
         {/* DISPONIBILIDAD - MOBILE */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="
-            pt-12
-            mb-8
-            flex
-            justify-start
-            md:hidden
-          "
+        <div
+          className={`
+            pt-12 mb-8 flex justify-start md:hidden
+            transition-opacity duration-500
+            ${mounted ? "opacity-100" : "opacity-0"}
+          `}
         >
           <div
             className="
@@ -145,10 +145,9 @@ const HeroSection = () => {
                 "
               />
             </span>
-
             {t.heroAvailability}
           </div>
-        </motion.div>
+        </div>
 
         <div
           className="
@@ -162,50 +161,23 @@ const HeroSection = () => {
           "
         >
           {/* TEXTO */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="
-              col-span-8
-              sm:col-span-7
-              md:col-span-7
-            "
+          <div
+            className={`
+              col-span-8 sm:col-span-7 md:col-span-7
+              transition-all duration-700 ease-out
+              ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+            `}
           >
             {/* DISPONIBILIDAD */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                delay: 0.2,
-                duration: 0.6,
-              }}
-              className="
-                mb-4
-                hidden
-                md:inline-flex
-                items-center
-                gap-2
-                rounded-full
-                border
-                border-black/10
-                bg-white/50
-                px-3
-                py-1.5
-                text-[10px]
-                text-gray-600
-                backdrop-blur-md
-
-                dark:border-white/10
-                dark:bg-white/5
-                dark:text-gray-300
-
-                sm:text-xs
-
-                md:px-4
-                md:py-2
-                md:text-sm
-              "
+            <div
+              className={`
+                mb-4 hidden md:inline-flex items-center gap-2 rounded-full
+                border border-black/10 bg-white/50 px-3 py-1.5 text-[10px] text-gray-600
+                dark:border-white/10 dark:bg-white/5 dark:text-gray-300
+                sm:text-xs md:px-4 md:py-2 md:text-sm
+                transition-opacity duration-500 delay-200
+                ${mounted ? "opacity-100" : "opacity-0"}
+              `}
             >
               <span className="relative flex h-2 w-2">
                 <span
@@ -234,7 +206,7 @@ const HeroSection = () => {
               </span>
 
               {t.heroAvailability}
-            </motion.div>
+            </div>
 
             {/* TITULO */}
             <h1
@@ -272,53 +244,28 @@ const HeroSection = () => {
             </h1>
 
             {/* DESCRIPCION */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.3,
-                duration: 0.6,
-              }}
-              className="
-                mt-6
-                max-w-2xl
-                text-[11px]
-                leading-5
-                text-gray-600
-
+            <p
+              className={`
+                mt-6 max-w-2xl text-[11px] leading-5 text-gray-600
                 dark:text-gray-400
-
                 sm:text-xs
-
-                md:mt-8
-                md:text-sm
-                md:leading-6
-
-                lg:text-lg
-                lg:leading-7
-              "
+                md:mt-8 md:text-sm md:leading-6
+                lg:text-lg lg:leading-7
+                transition-all duration-600 delay-300
+                ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
+              `}
             >
               {t.heroText}
-            </motion.p>
+            </p>
 
             {/* BOTONES */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.4,
-                duration: 0.6,
-              }}
-              className="
-                mt-8
-                flex
-                flex-wrap
-                items-center
-                gap-2
-
-                md:mt-10
-                md:gap-3
-              "
+            <div
+              className={`
+                mt-8 flex flex-wrap items-center gap-2
+                md:mt-10 md:gap-3
+                transition-all duration-600 delay-[400ms]
+                ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
+              `}
             >
               {/* CV */}
               <a
@@ -437,33 +384,17 @@ const HeroSection = () => {
               >
                 <FaEnvelope className="text-[14px] md:text-[18px]" />
               </a>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* FOTO */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              scale: 0.9,
-              x: 30,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              x: 0,
-            }}
-            transition={{
-              delay: 0.2,
-              duration: 0.8,
-            }}
-            className="
-              col-span-4
-              flex
-              justify-end
-
-              sm:col-span-5
-              md:col-span-5
-            "
+          <div
+            className={`
+              col-span-4 flex justify-end
+              sm:col-span-5 md:col-span-5
+              transition-all duration-800 delay-200
+              ${mounted ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-90 translate-x-8"}
+            `}
           >
             <div className="relative">
               {/* GLOW FOTO */}
@@ -539,15 +470,7 @@ const HeroSection = () => {
               </div>
 
               {/* UBICACION - TABLET Y DESKTOP */}
-              <motion.div
-                animate={{
-                  y: [0, -7, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+              <div
                 className="
                   glass
                   absolute
@@ -559,6 +482,7 @@ const HeroSection = () => {
                   py-4
 
                   md:block
+                  animate-float
                 "
               >
                 <p
@@ -586,53 +510,28 @@ const HeroSection = () => {
                 >
                   {t.heroLocation}
                 </p>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* SCROLL - DESKTOP */}
-      <motion.a
+      <a
         href="#about"
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          y: [0, 7, 0],
-        }}
-        transition={{
-          opacity: {
-            delay: 1,
-            duration: 0.5,
-          },
-          y: {
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
-        }}
-        className="
-          absolute
-          bottom-8
-          left-1/2
-          hidden
-          -translate-x-1/2
-          flex-col
-          items-center
-          gap-2
-          text-xs
-          uppercase
-          tracking-[0.2em]
-          text-gray-400
-          dark:text-gray-500
-
+        className={`
+          absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2
+          text-xs uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500
           lg:flex
-        "
+          animate-bounce-slow
+          transition-opacity duration-500 delay-1000
+          ${mounted ? "opacity-100" : "opacity-0"}
+        `}
       >
         {t.scrollText}
 
         <FaArrowDown size={12} />
-      </motion.a>
+      </a>
     </section>
   );
 };

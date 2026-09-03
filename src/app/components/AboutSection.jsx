@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { useInView } from "../useInView";
 import { useLanguage } from "../languageContext";
 
 import {
@@ -38,6 +38,10 @@ const technologies = [
 
 const AboutSection = () => {
   const { t } = useLanguage();
+  const title = useInView();
+  const textBlock = useInView();
+  const codeBlock = useInView();
+  const techs = useInView();
 
   return (
     <section
@@ -87,12 +91,9 @@ const AboutSection = () => {
       />
 
       {/* TITULO */}
-      <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
-        className="mx-auto mb-8 max-w-3xl text-center sm:mb-10 lg:mb-14"
+      <div
+        ref={title.ref}
+        className={`animate-on-scroll mx-auto mb-8 max-w-3xl text-center sm:mb-10 lg:mb-14 ${title.isVisible ? "is-visible" : ""}`}
       >
         <div className="relative inline-block">
           <h2 className="text-2xl font-black tracking-[-0.03em] text-[#151515] dark:text-white sm:text-3xl lg:text-3xl">
@@ -101,27 +102,20 @@ const AboutSection = () => {
 
           <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-blue-500" />
         </div>
-      </motion.div>
+      </div>
 
       {/* ABOUT + CODE */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 lg:gap-6">
         {/* TEXTO */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          className="
-            glass
-            mx-2
-            rounded-[20px]
-            p-4
-            sm:mx-0
-            sm:rounded-[28px]
-            sm:p-5
-            lg:col-span-3
-            lg:p-5
-          "
+        <div
+          ref={textBlock.ref}
+          className={`
+            animate-on-scroll from-left
+            glass mx-2 rounded-[20px] p-4
+            sm:mx-0 sm:rounded-[28px] sm:p-5
+            lg:col-span-3 lg:p-5
+            ${textBlock.isVisible ? "is-visible" : ""}
+          `}
         >
           <p className="text-justify text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:text-sm sm:leading-7 lg:text-sm lg:leading-6">
             {t.aboutText1}
@@ -138,27 +132,19 @@ const AboutSection = () => {
           <p className="mt-3 text-justify text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
             {t.aboutText4}
           </p>
-        </motion.div>
+        </div>
 
         {/* EDITOR */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          className="
-            mx-2
-            overflow-hidden
-            rounded-[20px]
-            border
-            border-black/10
-            bg-[#111111]
-            shadow-2xl
+        <div
+          ref={codeBlock.ref}
+          className={`
+            animate-on-scroll from-right
+            mx-2 overflow-hidden rounded-[20px] border border-black/10 bg-[#111111] shadow-2xl
             dark:border-white/10
-            sm:mx-0
-            sm:rounded-[28px]
+            sm:mx-0 sm:rounded-[28px]
             lg:col-span-2
-          "
+            ${codeBlock.isVisible ? "is-visible" : ""}
+          `}
         >
           <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-5 sm:py-4">
             <div className="flex items-center gap-2">
@@ -245,16 +231,13 @@ const AboutSection = () => {
               {"}"};
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* TECNOLOGIAS */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.6 }}
-        className="mt-10 sm:mt-12 lg:mt-14"
+      <div
+        ref={techs.ref}
+        className={`animate-on-scroll mt-10 sm:mt-12 lg:mt-14 ${techs.isVisible ? "is-visible" : ""}`}
       >
         <div className="mb-6 text-center sm:mb-8 lg:mb-8">
           <h3 className="text-xl font-bold tracking-tight text-[#151515] dark:text-white lg:text-xl">
@@ -268,19 +251,8 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-2 gap-2 px-2 sm:grid-cols-3 sm:gap-3 sm:px-0 md:grid-cols-5">
           {technologies.map((tech, index) => (
-            <motion.div
+            <div
               key={tech.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.04,
-              }}
-              whileHover={{
-                y: -6,
-                scale: 1.04,
-              }}
               className="
                 glass
                 group
@@ -297,10 +269,12 @@ const AboutSection = () => {
                 border
                 border-black/5
                 p-2
-                transition-colors
+                transition-all
                 duration-300
                 hover:border-blue-500/40
+                hover:-translate-y-1.5
                 dark:border-white/5
+                dark:group-hover:text-blue-400
                 sm:min-h-[84px]
                 sm:rounded-2xl
                 sm:p-3
@@ -375,10 +349,10 @@ const AboutSection = () => {
               >
                 {tech.name}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

@@ -17,6 +17,7 @@ import {
   SiNextdotjs,
   SiMysql,
 } from "react-icons/si";
+import { useInView } from "../useInView";
 
 const techIcons = {
   React: <FaReact className="text-cyan-400" />,
@@ -41,29 +42,22 @@ const ProjectCard = ({
   reverse = false,
   viewProjectText,
   previewText,
+  delay = 0,
 }) => {
+  const { ref, isVisible } = useInView();
+
   return (
     <article
-      className="
-        glass
-        group
-        relative
-        mx-2
-        overflow-hidden
-        rounded-[20px]
-        border
-        border-black/5
-        p-2
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:border-blue-500/40
-        hover:shadow-2xl
+      ref={ref}
+      style={{ transitionDelay: `${delay}s` }}
+      className={`
+        animate-on-scroll pop-in
+        glass group relative mx-2 overflow-hidden rounded-[20px] border border-black/5 p-2
+        transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-2xl
         dark:border-white/5
-        sm:mx-0
-        sm:rounded-[26px]
-        sm:p-3
-      "
+        sm:mx-0 sm:rounded-[26px] sm:p-3
+        ${isVisible ? "is-visible" : ""}
+      `}
     >
       {/* GLOW HOVER */}
       <div
@@ -170,7 +164,6 @@ const ProjectCard = ({
             sm:py-4
             md:px-3
             lg:px-5
-            lg:py-4
           "
         >
           {/* ESTADO */}
@@ -211,7 +204,8 @@ const ProjectCard = ({
                       ? "bg-green-500"
                       : "bg-yellow-500"
                   }
-                `}
+                `
+              }
               />
 
               {status}
@@ -219,151 +213,150 @@ const ProjectCard = ({
           )}
 
           {/* TITULO */}
-          <h3
-            className="
-              text-lg
-              font-black
-              tracking-[-0.03em]
-              text-[#151515]
-              dark:text-white
-              sm:text-xl
-              lg:text-xl
-            "
-          >
-            {title}
-          </h3>
+        <h3
+          className="
+            text-lg
+            font-black
+            tracking-[-0.03em]
+            text-[#151515]
+            dark:text-white
+            sm:text-xl
+            lg:text-xl
+          "
+        >
+          {title}
+        </h3>
 
-          {/* DESCRIPCION */}
-          <p
-            className="
-              mt-3
-              text-xs
-              leading-5
-              text-gray-600
-              dark:text-gray-400
-              sm:text-sm
-              sm:leading-6
-              lg:mt-3
-              lg:text-sm
-              lg:leading-6
-            "
-          >
-            {description}
-          </p>
+        {/* DESCRIPCION */}
+        <p
+          className="
+            mt-3
+            text-xs
+            leading-5
+            text-gray-600
+            dark:text-gray-400
+            sm:text-sm
+            sm:leading-6
+            lg:mt-3
+            lg:text-sm
+            lg:leading-6
+          "
+        >
+          {description}
+        </p>
 
-          {/* TECNOLOGIAS */}
-          <div className="mt-3 flex flex-wrap gap-1.5 sm:gap-2 lg:mt-4">
-            {technologies.map((tech) => (
-              <span
-                key={tech}
-                className="
-                  inline-flex
-                  items-center
-                  gap-1.5
-                  rounded-md
-                  border
-                  border-black/10
-                  bg-black/[0.03]
-                  px-2
-                  py-1
-                  text-[9px]
-                  font-medium
-                  text-gray-600
-                  dark:border-white/10
-                  dark:bg-white/[0.05]
-                  dark:text-gray-300
-                  sm:rounded-lg
-                  sm:px-2.5
-                  sm:text-[10px]
-                  lg:px-2.5
-                  lg:py-1
-                  lg:text-[11px]
-                "
-              >
-                {techIcons[tech]}
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* BOTONES */}
-          {(demo || github) && (
-            <div className="mt-3 flex flex-wrap gap-2 sm:mt-4 lg:mt-4 lg:gap-3">
-              {demo && (
-                <a
-                  href={demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    inline-flex
-                    items-center
-                    gap-1.5
-                    rounded-lg
-                    bg-[#151515]
-                    px-3
-                    py-2
-                    text-[10px]
-                    font-semibold
-                    text-white
-                    transition-all
-                    duration-300
-                    hover:-translate-y-1
-                    hover:shadow-lg
-                    dark:bg-white
-                    dark:text-black
-                    sm:rounded-xl
-                    sm:py-2.5
-                    sm:text-xs
-                    lg:px-3.5
-                    lg:py-2.5
-                    lg:text-xs
-                  "
-                >
-                  <FaExternalLinkAlt size={11} />
-                  {viewProjectText}
-                </a>
-              )}
-
-              {github && (
-                <a
-                  href={github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    inline-flex
-                    items-center
-                    gap-1.5
-                    rounded-lg
-                    border
-                    border-black/10
-                    bg-white/40
-                    px-3
-                    py-2
-                    text-[10px]
-                    font-semibold
-                    text-[#151515]
-                    transition-all
-                    duration-300
-                    hover:-translate-y-1
-                    dark:border-white/10
-                    dark:bg-white/[0.05]
-                    dark:text-white
-                    sm:rounded-xl
-                    sm:py-2.5
-                    sm:text-xs
-                    lg:px-3.5
-                    lg:py-2.5
-                    lg:text-xs
-                  "
-                >
-                  <FaGithub size={13} />
-                  GitHub
-                </a>
-              )}
-            </div>
-          )}
+        {/* TECNOLOGIAS */}
+        <div className="mt-3 flex flex-wrap gap-1.5 sm:gap-2 lg:mt-4">
+          {technologies.map((tech) => (
+            <span
+              key={tech}
+              className="
+                inline-flex
+                items-center
+                gap-1.5
+                rounded-md
+                border
+                border-black/10
+                bg-black/[0.03]
+                px-2
+                py-1
+                text-[9px]
+                font-medium
+                text-gray-600
+                dark:border-white/10
+                dark:bg-white/[0.05]
+                dark:text-gray-300
+                sm:rounded-lg
+                sm:px-2.5
+                sm:text-[10px]
+                lg:px-2.5
+                lg:py-1
+                lg:text-[11px]
+              "
+            >
+              {techIcons[tech]}
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
+      </div>
+
+      {/* BOTONES */}
+      {(demo || github) && (
+        <div className="mt-3 flex flex-wrap gap-2 sm:mt-4 lg:mt-4 lg:gap-3">
+          {demo && (
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex
+                items-center
+                gap-1.5
+                rounded-lg
+                bg-[#151515]
+                px-3
+                py-2
+                text-[10px]
+                font-semibold
+                text-white
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                dark:bg-white
+                dark:text-black
+                sm:rounded-xl
+                sm:py-2.5
+                sm:text-xs
+                lg:px-3.5
+                lg:py-2.5
+                lg:text-xs
+              "
+            >
+              <FaExternalLinkAlt size={11} />
+              {viewProjectText}
+            </a>
+          )}
+
+          {github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex
+                items-center
+                gap-1.5
+                rounded-lg
+                border
+                border-black/10
+                bg-white/40
+                px-3
+                py-2
+                text-[10px]
+                font-semibold
+                text-[#151515]
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                dark:border-white/10
+                dark:bg-white/[0.05]
+                dark:text-white
+                sm:rounded-xl
+                sm:py-2.5
+                sm:text-xs
+                lg:px-3.5
+                lg:py-2.5
+                lg:text-xs
+              "
+            >
+              <FaGithub size={13} />
+              GitHub
+            </a>
+          )}
+        </div>
+      )}
     </article>
   );
 };

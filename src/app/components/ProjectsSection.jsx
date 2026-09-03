@@ -1,12 +1,14 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import ProjectCard from "./ProjectCard";
+import { useInView } from "../useInView";
 import { useLanguage } from "../languageContext";
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
+  const header = useInView();
+  const projects = useInView();
 
   const projectsData = [
     {
@@ -101,12 +103,9 @@ const ProjectsSection = () => {
       />
 
       {/* HEADER */}
-      <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="mx-auto mb-16 max-w-3xl text-center"
+      <div
+        ref={header.ref}
+        className={`animate-on-scroll mx-auto mb-16 max-w-3xl text-center ${header.isVisible ? "is-visible" : ""}`}
       >
         <h2
           className="
@@ -137,37 +136,19 @@ const ProjectsSection = () => {
         >
           {t.projectsText}
         </p>
-      </motion.div>
+      </div>
 
       {/* PROJECTS */}
-      <div className="mx-auto max-w-5xl space-y-8">
+      <div ref={projects.ref} className={`mx-auto max-w-5xl space-y-8 ${projects.isVisible ? "" : ""}`}>
         {projectsData.map((project, index) => (
-          <motion.div
+          <ProjectCard
             key={project.id}
-            initial={{
-              opacity: 0,
-              y: 40,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.15,
-            }}
-            transition={{
-              duration: 0.6,
-              delay: index * 0.1,
-            }}
-          >
-            <ProjectCard
-              {...project}
-              reverse={index % 2 !== 0}
-              viewProjectText={t.viewProject}
-              previewText={t.previewSoon}
-            />
-          </motion.div>
+            {...project}
+            reverse={index % 2 !== 0}
+            viewProjectText={t.viewProject}
+            previewText={t.previewSoon}
+            delay={index * 0.1}
+          />
         ))}
       </div>
     </section>

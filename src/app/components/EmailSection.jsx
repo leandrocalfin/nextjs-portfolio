@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   FaEnvelope,
   FaGithub,
   FaLinkedin,
   FaArrowRight,
 } from "react-icons/fa";
+import { useInView } from "../useInView";
 import { useLanguage } from "../languageContext";
 
 const EmailSection = () => {
@@ -16,6 +16,10 @@ const EmailSection = () => {
   const [sending, setSending] = useState(false);
 
   const { t, language } = useLanguage();
+
+  const header = useInView();
+  const info = useInView();
+  const form = useInView();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,9 +70,6 @@ const EmailSection = () => {
     text-xs
     text-[#151515]
     outline-none
-    backdrop-blur-md
-    transition-all
-    duration-300
 
     placeholder:text-gray-400
 
@@ -147,12 +148,9 @@ const EmailSection = () => {
       />
 
       {/* HEADER */}
-      <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="mx-auto mb-8 max-w-3xl text-center sm:mb-12 lg:mb-16"
+      <div
+        ref={header.ref}
+        className={`animate-on-scroll mx-auto mb-8 max-w-3xl text-center sm:mb-12 lg:mb-16 ${header.isVisible ? "is-visible" : ""}`}
       >
         <div className="relative inline-block">
           <h2
@@ -171,47 +169,19 @@ const EmailSection = () => {
 
           <div className="mx-auto mt-3 h-[3px] w-16 rounded-full bg-blue-500" />
         </div>
-
-        <p
-          className="
-            mx-auto
-            mt-3
-            max-w-2xl
-            px-4
-            text-xs
-            leading-6
-            text-gray-500
-            dark:text-gray-400
-            sm:mt-4
-            sm:px-0
-            sm:text-base
-            sm:leading-7
-          "
-        >
-          {t.contactIntro}
-        </p>
-      </motion.div>
+      </div>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:gap-8">
         {/* INFO */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="
-            glass
-            relative
-            mx-2
-            overflow-hidden
-            rounded-[20px]
-            p-4
-            sm:mx-0
-            sm:rounded-[30px]
-            sm:p-7
-            lg:col-span-5
-            lg:p-7
-          "
+        <div
+          ref={info.ref}
+          className={`
+            animate-on-scroll from-left
+            glass relative mx-2 overflow-hidden rounded-[20px] p-4
+            sm:mx-0 sm:rounded-[30px] sm:p-7
+            lg:col-span-5 lg:p-7
+            ${info.isVisible ? "is-visible" : ""}
+          `}
         >
           <div
             className="
@@ -268,125 +238,23 @@ const EmailSection = () => {
                 dark:text-gray-400
                 sm:mt-6
                 sm:text-base
-                sm:leading-7
               "
             >
               {t.contactText}
             </p>
-
-            {/* REDES */}
-            <div className="mt-5 flex gap-2 sm:mt-8 sm:gap-3">
-              <Link
-                href="https://github.com/leandrocalfin"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="
-                  flex
-                  h-9
-                  w-9
-                  items-center
-                  justify-center
-                  rounded-lg
-                  border
-                  border-black/10
-                  bg-white/40
-                  text-[#151515]
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:border-blue-500/40
-                  dark:border-white/10
-                  dark:bg-white/[0.04]
-                  dark:text-white
-                  sm:h-11
-                  sm:w-11
-                  sm:rounded-xl
-                "
-              >
-                <FaGithub size={17} />
-              </Link>
-
-              <Link
-                href="https://www.linkedin.com/in/leandro-calfin-954b7b352/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="
-                  flex
-                  h-9
-                  w-9
-                  items-center
-                  justify-center
-                  rounded-lg
-                  border
-                  border-black/10
-                  bg-white/40
-                  text-[#151515]
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:border-blue-500/40
-                  dark:border-white/10
-                  dark:bg-white/[0.04]
-                  dark:text-white
-                  sm:h-11
-                  sm:w-11
-                  sm:rounded-xl
-                "
-              >
-                <FaLinkedin size={17} />
-              </Link>
-
-              <a
-                href="mailto:lean.calfin@gmail.com"
-                aria-label="Email"
-                className="
-                  flex
-                  h-9
-                  w-9
-                  items-center
-                  justify-center
-                  rounded-lg
-                  border
-                  border-black/10
-                  bg-white/40
-                  text-[#151515]
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:border-blue-500/40
-                  dark:border-white/10
-                  dark:bg-white/[0.04]
-                  dark:text-white
-                  sm:h-11
-                  sm:w-11
-                  sm:rounded-xl
-                "
-              >
-                <FaEnvelope size={16} />
-              </a>
-            </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* FORMULARIO */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="
-            glass
-            mx-2
-            rounded-[20px]
-            p-4
-            sm:mx-0
-            sm:rounded-[30px]
-            sm:p-6
-            lg:col-span-7
-            lg:p-6
-          "
+        <div
+          ref={form.ref}
+          className={`
+            animate-on-scroll from-right
+            glass mx-2 rounded-[20px] p-4
+            sm:mx-0 sm:rounded-[30px] sm:p-6
+            lg:col-span-7 lg:p-6
+            ${form.isVisible ? "is-visible" : ""}
+          `}
         >
           {emailSubmitted ? (
             <div
@@ -444,7 +312,6 @@ const EmailSection = () => {
                   dark:text-gray-400
                   sm:mt-3
                   sm:text-base
-                  sm:leading-7
                 "
               >
                 {t.messageSentText}
@@ -615,7 +482,7 @@ const EmailSection = () => {
                     size={12}
                     className="
                       relative
-                      transition-transform
+                      transform-transform
                       duration-300
                       group-hover:translate-x-1
                     "
@@ -624,7 +491,7 @@ const EmailSection = () => {
               </button>
             </form>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
