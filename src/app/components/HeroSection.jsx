@@ -62,6 +62,8 @@ const HeroSection = () => {
           bg-blue-500/15
           blur-2xl
 
+          hidden
+          lg:block
           lg:-left-40
           lg:top-16
           lg:h-[500px]
@@ -83,6 +85,8 @@ const HeroSection = () => {
           bg-violet-500/10
           blur-2xl
 
+          hidden
+          lg:block
           lg:-right-40
           lg:bottom-0
           lg:h-[450px]
@@ -114,7 +118,6 @@ const HeroSection = () => {
               py-1.5
               text-[10px]
               text-gray-600
-              backdrop-blur-md
 
               dark:border-white/10
               dark:bg-white/5
@@ -407,6 +410,8 @@ const HeroSection = () => {
                   bg-blue-500/10
                   blur-xl
 
+                  hidden
+                  md:block
                   md:-inset-8
                   md:blur-2xl
                 "
@@ -520,7 +525,7 @@ const HeroSection = () => {
       <a
         href="#about"
         className={`
-          absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2
+          absolute bottom-14 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2
           text-xs uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500
           lg:flex
           animate-bounce-slow

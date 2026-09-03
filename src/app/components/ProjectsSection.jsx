@@ -73,6 +73,8 @@ const ProjectsSection = () => {
           bg-blue-500/15
           blur-2xl
 
+          hidden
+          lg:block
           lg:-left-40
           lg:top-1/4
           lg:h-[500px]
@@ -94,6 +96,8 @@ const ProjectsSection = () => {
           bg-violet-500/10
           blur-2xl
 
+          hidden
+          lg:block
           lg:-right-40
           lg:bottom-1/4
           lg:h-[450px]

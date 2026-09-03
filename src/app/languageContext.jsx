@@ -16,8 +16,8 @@ export const translations = {
     heroText:
       "Enfocado en el desarrollo web y en la construcción de APIs REST.",
     heroAvailability: "Disponible para nuevos proyectos",
-    heroLocationLabel: "Ubicado en",
-    heroLocation: "Argentina",
+    heroLocationLabel: "Ubicado en la",
+    heroLocation: "Patagonia Argentina",
     scrollText: "Deslizar",
     downloadCV: "Descargar CV",
 

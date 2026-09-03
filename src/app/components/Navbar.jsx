@@ -79,7 +79,7 @@ const Navbar = () => {
             "
           >
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Leandro Calfin"
               width={60}
               height={60}

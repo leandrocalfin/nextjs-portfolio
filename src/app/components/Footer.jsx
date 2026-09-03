@@ -21,7 +21,7 @@ const Footer = () => {
         bg-white/30
         px-5
         py-6
-        backdrop-blur-xl
+        lg:backdrop-blur-xl
         dark:border-white/10
         dark:bg-white/[0.02]
         sm:px-8
@@ -51,7 +51,7 @@ const Footer = () => {
             "
           >
             <Image
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Leandro Calfin"
               width={38}
               height={38}

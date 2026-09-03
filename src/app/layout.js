@@ -38,7 +38,7 @@ export const metadata = {
     siteName: "Leandro Calfin Portfolio",
     images: [
       {
-        url: "/images/logo.png",
+        url: "/images/logo.webp",
         width: 1200,
         height: 630,
         alt: "Leandro Calfin - Portfolio",
@@ -50,7 +50,7 @@ export const metadata = {
     title: "Leandro Calfin | Desarrollador de Software",
     description:
       "Portfolio de Leandro Calfin, desarrollador de software full stack.",
-    images: ["/images/logo.png"],
+    images: ["/images/logo.webp"],
   },
   robots: {
     index: true,
@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
       "Desarrollador de software full stack. Portfolio de proyectos, tecnologías y contacto.",
     url: siteUrl,
     email: "mailto:lean.calfin@gmail.com",
-    image: `${siteUrl}/images/logo.png`,
+    image: `${siteUrl}/images/logo.webp`,
     sameAs: [
       "https://github.com/leandrocalfin",
       "https://www.linkedin.com/in/leandro-calfin-954b7b352/",

@@ -61,6 +61,8 @@ const AboutSection = () => {
           bg-blue-500/15
           blur-2xl
 
+          hidden
+          lg:block
           lg:-left-40
           lg:top-16
           lg:h-[500px]
@@ -82,6 +84,8 @@ const AboutSection = () => {
           bg-violet-500/10
           blur-2xl
 
+          hidden
+          lg:block
           lg:-right-40
           lg:top-1/3
           lg:h-[450px]

@@ -118,6 +118,8 @@ const EmailSection = () => {
           bg-blue-500/15
           blur-2xl
 
+          hidden
+          lg:block
           lg:-left-40
           lg:top-24
           lg:h-[500px]
@@ -139,6 +141,8 @@ const EmailSection = () => {
           bg-violet-500/10
           blur-2xl
 
+          hidden
+          lg:block
           lg:-right-40
           lg:top-1/2
           lg:h-[450px]
@@ -194,6 +198,9 @@ const EmailSection = () => {
               rounded-full
               bg-blue-500/10
               blur-2xl
+
+              hidden
+              lg:block
             "
           />
 
