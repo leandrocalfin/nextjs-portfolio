@@ -322,9 +322,14 @@ const Navbar = () => {
           className="
             mx-3
             mb-3
-            border-t
+            rounded-xl
+            border
             border-black/10
+            bg-white
+            p-1
+            text-center
             dark:border-white/10
+            dark:bg-[#111111]
           "
         >
           {navLinks.map((link) => (
