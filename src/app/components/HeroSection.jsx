@@ -166,7 +166,7 @@ const HeroSection = () => {
           {/* TEXTO */}
           <div
             className={`
-              col-span-7 sm:col-span-7 md:col-span-7
+              col-span-8 sm:col-span-7 md:col-span-7
               transition-all duration-700 ease-out
               ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
             `}
@@ -264,8 +264,7 @@ const HeroSection = () => {
             {/* BOTONES */}
             <div
               className={`
-                mt-8 flex flex-col items-start gap-3
-                sm:flex-row sm:items-center sm:gap-2
+                mt-8 flex flex-wrap items-center gap-2
                 md:mt-10 md:gap-3
                 transition-all duration-600 delay-[400ms]
                 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
@@ -331,66 +330,63 @@ const HeroSection = () => {
                 <span className="relative">{t.downloadCV}</span>
               </a>
 
-              {/* ICONOS - GitHub y Email */}
-              <div className="flex items-center gap-2">
-                {/* GITHUB */}
-                <a
-                  href="https://github.com/leandrocalfin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="
-                    glass
-                    flex
-                    h-9
-                    w-9
-                    items-center
-                    justify-center
-                    rounded-lg
-                    text-[#151515]
-                    transition-all
-                    duration-300
+              {/* GITHUB */}
+              <a
+                href="https://github.com/leandrocalfin"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="
+                  glass
+                  flex
+                  h-9
+                  w-9
+                  items-center
+                  justify-center
+                  rounded-lg
+                  text-[#151515]
+                  transition-all
+                  duration-300
 
-                    hover:-translate-y-1
+                  hover:-translate-y-1
 
-                    dark:text-white
+                  dark:text-white
 
-                    md:h-12
-                    md:w-12
-                    md:rounded-xl
-                  "
-                >
-                  <FaGithub className="text-[15px] md:text-[20px]" />
-                </a>
+                  md:h-12
+                  md:w-12
+                  md:rounded-xl
+                "
+              >
+                <FaGithub className="text-[15px] md:text-[20px]" />
+              </a>
 
-                {/* EMAIL */}
-                <a
-                  href="mailto:lean.calfin@gmail.com"
-                  aria-label="Email"
-                  className="
-                    glass
-                    flex
-                    h-9
-                    w-9
-                    items-center
-                    justify-center
-                    rounded-lg
-                    text-[#151515]
-                    transition-all
-                    duration-300
+              {/* EMAIL */}
+              <a
+                href="mailto:lean.calfin@gmail.com"
+                aria-label="Email"
+                className="
+                  glass
+                  flex
+                  h-9
+                  w-9
+                  items-center
+                  justify-center
+                  rounded-lg
+                  text-[#151515]
+                  transition-all
+                  duration-300
 
-                    hover:-translate-y-1
+                  hover:-translate-y-1
 
-                    dark:text-white
+                  dark:text-white
 
-                    md:h-12
-                    md:w-12
-                    md:rounded-xl
-                  "
-                >
-                  <FaEnvelope className="text-[14px] md:text-[18px]" />
-                </a>
-              </div>
+                  md:h-12
+                  md:w-12
+                  md:rounded-xl
+                "
+              >
+                <FaEnvelope className="text-[14px] md:text-[18px]" />
+              </a>
             </div>
           </div>
 
