@@ -9,7 +9,9 @@ export default function Home() {
   return (
     <main
       className="
+        flex
         min-h-screen
+        flex-col
         overflow-hidden
         bg-gradient-to-b
         from-[#f7f7f5]
@@ -24,14 +26,16 @@ export default function Home() {
         dark:text-white
       "
     >
-      <Navbar />
+      <div className="flex-1">
+        <Navbar />
 
-      <HeroSection />
+        <HeroSection />
 
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
-        <AboutSection />
-        <ProjectsSection />
-        <EmailSection />
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+          <AboutSection />
+          <ProjectsSection />
+          <EmailSection />
+        </div>
       </div>
 
       <Footer />

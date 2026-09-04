@@ -18,24 +18,23 @@ const Footer = () => {
       className="
         border-t
         border-black/10
-        bg-white/30
+        bg-[#fbfbfe]
         px-5
-        py-6
-        lg:backdrop-blur-xl
+        py-4
         dark:border-white/10
-        dark:bg-white/[0.02]
+        dark:bg-[#0f0f17]
         sm:px-8
         lg:px-10
       "
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto flex min-h-[64px] max-w-6xl flex-col justify-center">
         <div
           className="
             flex
             flex-col
             items-center
             justify-between
-            gap-5
+            gap-2
             md:flex-row
           "
         >
@@ -55,7 +54,7 @@ const Footer = () => {
               alt="Leandro Calfin"
               width={38}
               height={38}
-              className="h-9 w-auto object-contain"
+              className="h-7 w-auto object-contain"
             />
 
             <div>
@@ -103,8 +102,8 @@ const Footer = () => {
               aria-label="GitHub"
               className="
                 flex
-                h-8
-                w-8
+                h-7
+                w-7
                 items-center
                 justify-center
                 rounded-lg
@@ -119,7 +118,7 @@ const Footer = () => {
                 dark:text-white
               "
             >
-              <FaGithub size={14} />
+              <FaGithub size={13} />
             </a>
 
             <a
@@ -129,8 +128,8 @@ const Footer = () => {
               aria-label="LinkedIn"
               className="
                 flex
-                h-8
-                w-8
+                h-7
+                w-7
                 items-center
                 justify-center
                 rounded-lg
@@ -145,7 +144,7 @@ const Footer = () => {
                 dark:text-white
               "
             >
-              <FaLinkedin size={14} />
+              <FaLinkedin size={13} />
             </a>
 
             <a
@@ -153,8 +152,8 @@ const Footer = () => {
               aria-label="Email"
               className="
                 flex
-                h-8
-                w-8
+                h-7
+                w-7
                 items-center
                 justify-center
                 rounded-lg
@@ -169,7 +168,7 @@ const Footer = () => {
                 dark:text-white
               "
             >
-              <FaEnvelope size={13} />
+              <FaEnvelope size={12} />
             </a>
           </div>
         </div>

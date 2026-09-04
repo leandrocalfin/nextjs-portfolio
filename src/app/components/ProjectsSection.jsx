@@ -145,7 +145,7 @@ const ProjectsSection = () => {
       </div>
 
       {/* PROJECTS */}
-      <div ref={projects.ref} className={`mx-auto max-w-5xl space-y-8 ${projects.isVisible ? "" : ""}`}>
+      <div ref={projects.ref} className={`mx-auto max-w-5xl space-y-8 md:max-w-6xl lg:max-w-6xl ${projects.isVisible ? "" : ""}`}>
         {projectsData.map((project, index) => (
           <ProjectCard
             key={project.id}

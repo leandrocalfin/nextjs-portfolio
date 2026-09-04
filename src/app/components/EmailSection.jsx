@@ -7,6 +7,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaArrowRight,
+  FaDownload,
 } from "react-icons/fa";
 import { useInView } from "../useInView";
 import { useLanguage } from "../languageContext";
@@ -250,6 +251,127 @@ const EmailSection = () => {
             >
               {t.contactText}
             </p>
+
+            {/* BOTONES */}
+            <div className="mt-6 flex flex-col items-start gap-3 sm:mt-8">
+              <div className="flex items-center gap-2">
+                {/* GITHUB */}
+                <a
+                  href="https://github.com/leandrocalfin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="
+                    glass
+                    flex
+                    h-7
+                    w-7
+                    items-center
+                    justify-center
+                    rounded-lg
+                    text-[#151515]
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    dark:text-white
+                    sm:h-10
+                    sm:w-10
+                    sm:rounded-xl
+                  "
+                >
+                  <FaGithub size={13} />
+                </a>
+
+                {/* LINKEDIN */}
+                <a
+                  href="https://www.linkedin.com/in/leandro-calfin-954b7b352/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="
+                    glass
+                    flex
+                    h-7
+                    w-7
+                    items-center
+                    justify-center
+                    rounded-lg
+                    text-[#151515]
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    dark:text-white
+                    sm:h-10
+                    sm:w-10
+                    sm:rounded-xl
+                  "
+                >
+                  <FaLinkedin size={12} />
+                </a>
+
+                {/* EMAIL */}
+                <a
+                  href="mailto:lean.calfin@gmail.com"
+                  aria-label="Email"
+                  className="
+                    glass
+                    flex
+                    h-7
+                    w-7
+                    items-center
+                    justify-center
+                    rounded-lg
+                    text-[#151515]
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    dark:text-white
+                    sm:h-10
+                    sm:w-10
+                    sm:rounded-xl
+                  "
+                >
+                  <FaEnvelope size={12} />
+                </a>
+              </div>
+
+              {/* CV */}
+              <a
+                href="/CV_Leandro_Calfin.pdf"
+                download
+                className="
+                  group
+                  relative
+                  inline-flex
+                  items-center
+                  gap-1.5
+                  overflow-hidden
+                  rounded-lg
+                  border
+                  border-blue-500/40
+                  bg-gradient-to-r
+                  from-blue-500
+                  to-violet-600
+                  px-3
+                  py-1.5
+                  text-[10px]
+                  font-semibold
+                  text-white
+                  transition-all
+                  duration-300
+                  hover:-translate-y-1
+                  h-7
+                  sm:h-10
+                  sm:rounded-xl
+                  sm:px-4
+                  sm:py-2.5
+                  sm:text-sm
+                "
+              >
+                <FaDownload size={11} />
+                {t.downloadCV}
+              </a>
+            </div>
           </div>
         </div>
 
@@ -439,16 +561,16 @@ const EmailSection = () => {
                   justify-center
                   self-center
                   overflow-hidden
-                  gap-2
-                  rounded-xl
+                  gap-1.5
+                  rounded-lg
                   border
                   border-blue-500/40
                   bg-gradient-to-r
                   from-blue-500
                   to-violet-600
-                  px-4
-                  py-2
-                  text-xs
+                  px-3
+                  py-1.5
+                  text-[10px]
                   font-semibold
                   text-white
                   transition-all
@@ -458,11 +580,13 @@ const EmailSection = () => {
                   hover:shadow-[0_0_22px_rgba(99,102,241,0.5)]
                   disabled:cursor-not-allowed
                   disabled:opacity-60
+                  h-7
                   sm:w-full
                   sm:rounded-2xl
                   sm:px-6
                   sm:py-3.5
                   sm:text-sm
+                  sm:h-auto
                 "
               >
                 <div
@@ -489,7 +613,7 @@ const EmailSection = () => {
 
                 {!sending && (
                   <FaArrowRight
-                    size={12}
+                    size={10}
                     className="
                       relative
                       transform-transform

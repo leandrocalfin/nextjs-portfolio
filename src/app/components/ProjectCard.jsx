@@ -91,7 +91,7 @@ const ProjectCard = ({
         `}
       >
         {/* IMAGEN */}
-        <div className="flex w-full items-center justify-center py-1 sm:py-3">
+        <div className="flex w-full flex-col items-center justify-center py-1 sm:py-3">
           <div
             className="
               group
@@ -148,6 +148,89 @@ const ProjectCard = ({
               </div>
             )}
           </div>
+
+          {/* BOTONES */}
+          {(demo || github) && (
+            <div className="mt-3 mb-1 flex flex-wrap justify-center gap-2 sm:mt-4 sm:mb-2 sm:gap-3">
+              {demo && (
+                <a
+                  href={demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex
+                    items-center
+                    gap-1
+                    overflow-hidden
+                    rounded-lg
+                    border
+                    border-blue-500/40
+                    bg-gradient-to-r
+                    from-blue-500
+                    to-violet-600
+                    px-2.5
+                    py-1.5
+                    text-[9px]
+                    font-semibold
+                    text-white
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    hover:border-blue-400/60
+                    hover:shadow-[0_0_22px_rgba(99,102,241,0.5)]
+                    sm:rounded-xl
+                    sm:px-3
+                    sm:py-2.5
+                    sm:text-xs
+                    sm:gap-1.5
+                    lg:px-3.5
+                    lg:py-2.5
+                    lg:text-xs
+                  "
+                >
+                  <FaExternalLinkAlt size={9} />
+                  {viewProjectText}
+                </a>
+              )}
+
+              {github && (
+                <a
+                  href={github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    glass
+                    shadow-[0_8px_32px_rgba(0,0,0,0.06)]
+                    inline-flex
+                    items-center
+                    gap-1
+                    rounded-lg
+                    px-2.5
+                    py-1.5
+                    text-[9px]
+                    font-semibold
+                    text-[#151515]
+                    transition-all
+                    duration-300
+                    hover:-translate-y-1
+                    dark:text-white
+                    dark:shadow-[0_8px_32px_rgba(0,0,0,0.35)]
+                    sm:rounded-xl
+                    sm:px-3
+                    sm:py-2.5
+                    sm:text-xs
+                    sm:gap-1.5
+                    lg:px-3.5
+                    lg:py-2.5
+                    lg:text-xs
+                  "
+                >
+                  <FaGithub size={10} />
+                  GitHub
+                </a>
+              )}
+            </div>
+          )}
         </div>
 
         {/* INFORMACION */}
@@ -284,81 +367,6 @@ const ProjectCard = ({
       </div>
       </div>
 
-      {/* BOTONES */}
-      {(demo || github) && (
-        <div className="mt-3 flex flex-wrap gap-2 sm:mt-4 lg:mt-4 lg:gap-3">
-          {demo && (
-            <a
-              href={demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                inline-flex
-                items-center
-                gap-1.5
-                rounded-lg
-                bg-[#151515]
-                px-3
-                py-2
-                text-[10px]
-                font-semibold
-                text-white
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                dark:bg-white
-                dark:text-black
-                sm:rounded-xl
-                sm:py-2.5
-                sm:text-xs
-                lg:px-3.5
-                lg:py-2.5
-                lg:text-xs
-              "
-            >
-              <FaExternalLinkAlt size={11} />
-              {viewProjectText}
-            </a>
-          )}
-
-          {github && (
-            <a
-              href={github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                inline-flex
-                items-center
-                gap-1.5
-                rounded-lg
-                border
-                border-black/10
-                bg-white/40
-                px-3
-                py-2
-                text-[10px]
-                font-semibold
-                text-[#151515]
-                transition-all
-                duration-300
-                hover:-translate-y-1
-                dark:border-white/10
-                dark:bg-white/[0.05]
-                dark:text-white
-                sm:rounded-xl
-                sm:py-2.5
-                sm:text-xs
-                lg:px-3.5
-                lg:py-2.5
-                lg:text-xs
-              "
-            >
-              <FaGithub size={13} />
-              GitHub
-            </a>
-          )}
-        </div>
-      )}
     </article>
   );
 };
