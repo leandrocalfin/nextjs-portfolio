@@ -4,7 +4,8 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
+import { LuSun } from "react-icons/lu";
 import { useLanguage } from "../languageContext";
 import Image from "next/image";
 
@@ -103,10 +104,12 @@ const Navbar = () => {
                   text-gray-600
                   transition-all
                   duration-300
-                  hover:bg-black/5
+                  hover:bg-violet-500/[0.06]
+                  hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
                   hover:text-black
                   dark:text-gray-300
-                  dark:hover:bg-white/10
+                  dark:hover:bg-violet-400/10
+                  dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
                   dark:hover:text-white
                 "
               >
@@ -132,8 +135,10 @@ const Navbar = () => {
                 transition-all
                 duration-300
                 hover:scale-110
-                hover:bg-black/5
-                dark:hover:bg-white/10
+                hover:bg-violet-500/[0.06]
+                hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
+                dark:hover:bg-violet-400/10
+                dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
               "
             >
               <Image
@@ -164,8 +169,10 @@ const Navbar = () => {
                 transition-all
                 duration-300
                 hover:scale-110
-                hover:bg-black/5
-                dark:hover:bg-white/10
+                hover:bg-violet-500/[0.06]
+                hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
+                dark:hover:bg-violet-400/10
+                dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
               "
             >
               {mounted &&
@@ -173,22 +180,24 @@ const Navbar = () => {
                   <FaMoon
                     size={19}
                     className="
-                      text-indigo-500
+                      text-gray-600
                       transition-colors
                       duration-300
-                      hover:text-indigo-600
-                      dark:text-indigo-400
-                      dark:hover:text-indigo-300
+                      hover:text-gray-900
+                      dark:text-gray-300
+                      dark:hover:text-white
                     "
                   />
                 ) : (
-                  <FaSun
+                  <LuSun
                     size={20}
                     className="
-                      text-orange-500
+                      text-gray-600
                       transition-colors
                       duration-300
-                      hover:text-orange-600
+                      hover:text-gray-900
+                      dark:text-gray-300
+                      dark:hover:text-white
                     "
                   />
                 ))}
@@ -212,8 +221,10 @@ const Navbar = () => {
                 transition-all
                 duration-300
                 hover:scale-110
-                hover:bg-black/5
-                dark:hover:bg-white/10
+                hover:bg-violet-500/[0.06]
+                hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
+                dark:hover:bg-violet-400/10
+                dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
               "
             >
               <Image
@@ -244,8 +255,10 @@ const Navbar = () => {
                 transition-all
                 duration-300
                 hover:scale-110
-                hover:bg-black/5
-                dark:hover:bg-white/10
+                hover:bg-violet-500/[0.06]
+                hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
+                dark:hover:bg-violet-400/10
+                dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
               "
             >
               {mounted &&
@@ -253,22 +266,24 @@ const Navbar = () => {
                   <FaMoon
                     size={19}
                     className="
-                      text-indigo-500
+                      text-gray-600
                       transition-colors
                       duration-300
-                      hover:text-indigo-600
-                      dark:text-indigo-400
-                      dark:hover:text-indigo-300
+                      hover:text-gray-900
+                      dark:text-gray-300
+                      dark:hover:text-white
                     "
                   />
                 ) : (
-                  <FaSun
+                  <LuSun
                     size={20}
                     className="
-                      text-orange-500
+                      text-gray-600
                       transition-colors
                       duration-300
-                      hover:text-orange-600
+                      hover:text-gray-900
+                      dark:text-gray-300
+                      dark:hover:text-white
                     "
                   />
                 ))}
@@ -289,9 +304,11 @@ const Navbar = () => {
                 text-gray-700
                 transition-all
                 duration-300
-                hover:bg-black/5
+                hover:bg-violet-500/[0.06]
+                hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
                 dark:text-white
-                dark:hover:bg-white/10
+                dark:hover:bg-violet-400/10
+                dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
               "
             >
               {navbarOpen ? (
@@ -333,10 +350,12 @@ const Navbar = () => {
                   text-gray-600
                   transition-all
                   duration-300
-                  hover:bg-black/5
+                  hover:bg-violet-500/[0.06]
+                  hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
                   hover:text-black
                   dark:text-gray-300
-                  dark:hover:bg-white/10
+                  dark:hover:bg-violet-400/10
+                  dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
                   dark:hover:text-white
                 "
               >

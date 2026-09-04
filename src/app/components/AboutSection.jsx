@@ -121,19 +121,19 @@ const AboutSection = () => {
             ${textBlock.isVisible ? "is-visible" : ""}
           `}
         >
-          <p className="text-justify text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:text-sm sm:leading-7 lg:text-sm lg:leading-6">
+          <p className="text-justify text-xs leading-5 text-gray-600 dark:text-gray-400 sm:text-sm sm:leading-7 lg:text-sm lg:leading-6">
             {t.aboutText1}
           </p>
 
-          <p className="mt-3 text-justify text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
+          <p className="mt-2 text-justify text-xs leading-5 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
             {t.aboutText2}
           </p>
 
-          <p className="mt-3 text-justify text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
+          <p className="mt-2 text-justify text-xs leading-5 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
             {t.aboutText3}
           </p>
 
-          <p className="mt-3 text-justify text-[13px] leading-6 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
+          <p className="mt-2 text-justify text-xs leading-5 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
             {t.aboutText4}
           </p>
         </div>

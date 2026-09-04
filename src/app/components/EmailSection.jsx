@@ -73,14 +73,14 @@ const EmailSection = () => {
 
     placeholder:text-gray-400
 
-    focus:border-blue-500/50
-    focus:ring-4
-    focus:ring-blue-500/10
+    focus:border-violet-500/50
+    focus:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
 
     dark:border-white/10
     dark:bg-white/[0.04]
     dark:text-white
     dark:placeholder:text-gray-500
+    dark:focus:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
 
     sm:rounded-2xl
     sm:px-4
@@ -239,6 +239,7 @@ const EmailSection = () => {
               className="
                 mt-4
                 max-w-md
+                text-justify
                 text-xs
                 leading-6
                 text-gray-600
@@ -433,9 +434,10 @@ const EmailSection = () => {
                   group
                   relative
                   inline-flex
-                  w-full
+                  w-fit
                   items-center
                   justify-center
+                  self-center
                   overflow-hidden
                   gap-2
                   rounded-xl
@@ -444,8 +446,8 @@ const EmailSection = () => {
                   bg-gradient-to-r
                   from-blue-500
                   to-violet-600
-                  px-5
-                  py-3
+                  px-4
+                  py-2
                   text-xs
                   font-semibold
                   text-white
@@ -456,6 +458,7 @@ const EmailSection = () => {
                   hover:shadow-[0_0_22px_rgba(99,102,241,0.5)]
                   disabled:cursor-not-allowed
                   disabled:opacity-60
+                  sm:w-full
                   sm:rounded-2xl
                   sm:px-6
                   sm:py-3.5

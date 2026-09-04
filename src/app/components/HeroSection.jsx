@@ -233,7 +233,7 @@ const HeroSection = () => {
                 {t.heroTitle}
               </span>
 
-              <span className="gradient-text mt-4 block">
+              <span className="gradient-text mt-4 block text-[22px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                 <TypeAnimation
                   key={t.heroSubtitle}
                   sequence={[
@@ -249,7 +249,8 @@ const HeroSection = () => {
             {/* DESCRIPCION */}
             <p
               className={`
-                mt-6 max-w-2xl text-[11px] leading-5 text-gray-600
+                mt-6 max-w-2xl text-xs leading-5 text-gray-600 whitespace-pre-line
+                sm:whitespace-normal
                 dark:text-gray-400
                 sm:text-xs
                 md:mt-8 md:text-sm md:leading-6
@@ -264,7 +265,8 @@ const HeroSection = () => {
             {/* BOTONES */}
             <div
               className={`
-                mt-8 flex flex-wrap items-center gap-2
+                mt-8 flex flex-col items-start gap-3
+                sm:flex-row sm:items-center sm:gap-2
                 md:mt-10 md:gap-3
                 transition-all duration-600 delay-[400ms]
                 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
@@ -330,63 +332,74 @@ const HeroSection = () => {
                 <span className="relative">{t.downloadCV}</span>
               </a>
 
-              {/* GITHUB */}
-              <a
-                href="https://github.com/leandrocalfin"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="
-                  glass
-                  flex
-                  h-9
-                  w-9
-                  items-center
-                  justify-center
-                  rounded-lg
-                  text-[#151515]
-                  transition-all
-                  duration-300
+              {/* ICONOS */}
+              <div className="flex items-center gap-2">
+                {/* GITHUB */}
+                <a
+                  href="https://github.com/leandrocalfin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="
+                    glass
+                    flex
+                    h-9
+                    w-9
+                    items-center
+                    justify-center
+                    rounded-lg
+                    text-[#151515]
+                    transition-all
+                    duration-300
 
-                  hover:-translate-y-1
+                    hover:-translate-y-1
+                    hover:border-black/10
+                    hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
 
-                  dark:text-white
+                    dark:text-white
+                    dark:hover:border-white/15
+                    dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
 
-                  md:h-12
-                  md:w-12
-                  md:rounded-xl
-                "
-              >
-                <FaGithub className="text-[15px] md:text-[20px]" />
-              </a>
+                    md:h-12
+                    md:w-12
+                    md:rounded-xl
+                  "
+                >
+                  <FaGithub className="text-[15px] md:text-[20px]" />
+                </a>
 
-              {/* EMAIL */}
-              <a
-                href="mailto:lean.calfin@gmail.com"
-                aria-label="Email"
-                className="
-                  glass
-                  flex
-                  h-9
-                  w-9
-                  items-center
-                  justify-center
-                  rounded-lg
-                  text-[#151515]
-                  transition-all
-                  duration-300
+                {/* EMAIL */}
+                <a
+                  href="mailto:lean.calfin@gmail.com"
+                  aria-label="Email"
+                  className="
+                    glass
+                    flex
+                    h-9
+                    w-9
+                    items-center
+                    justify-center
+                    rounded-lg
+                    text-[#151515]
+                    transition-all
+                    duration-300
 
-                  hover:-translate-y-1
+                    hover:-translate-y-1
+                    hover:border-black/10
+                    hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
 
-                  dark:text-white
+                    dark:text-white
+                    dark:hover:border-white/15
+                    dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
 
-                  md:h-12
-                  md:w-12
-                  md:rounded-xl
-                "
-              >
-                <FaEnvelope className="text-[14px] md:text-[18px]" />
-              </a>
+                    md:h-12
+                    md:w-12
+                    md:rounded-xl
+                  "
+                >
+                  <FaEnvelope className="text-[14px] md:text-[18px]" />
+                </a>
+              </div>
             </div>
           </div>
 

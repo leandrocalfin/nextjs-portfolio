@@ -14,7 +14,7 @@ export const translations = {
     heroTitle: "Hola, soy Leandro Calfin.",
     heroSubtitle: "Estudiante avanzado en Desarrollo de Software.",
     heroText:
-      "Enfocado en el desarrollo web y en la construcción de APIs REST.",
+      "Enfocado en el desarrollo web\n y en la construcción de APIs REST.",
     heroAvailability: "Disponible para nuevos proyectos",
     heroLocationLabel: "Ubicado en la",
     heroLocation: "Patagonia Argentina",

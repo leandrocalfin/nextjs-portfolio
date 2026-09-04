@@ -53,8 +53,10 @@ const ProjectCard = ({
       className={`
         animate-on-scroll pop-in
         glass group relative mx-2 overflow-hidden rounded-[20px] border border-black/5 p-2
-        transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-2xl
+        transition-all duration-300 hover:-translate-y-1 hover:border-black/10 hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
         dark:border-white/5
+        dark:hover:border-white/15
+        dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
         sm:mx-0 sm:rounded-[26px] sm:p-3
         ${isVisible ? "is-visible" : ""}
       `}
@@ -73,9 +75,6 @@ const ProjectCard = ({
           opacity-0
           transition-opacity
           duration-300
-          group-hover:from-blue-500/20
-          group-hover:to-violet-500/20
-          group-hover:opacity-100
           sm:rounded-[26px]
         "
       />
@@ -84,14 +83,15 @@ const ProjectCard = ({
         className={`
           grid
           items-center
-          gap-4
+          gap-2
           md:grid-cols-2
+          md:gap-4
           lg:gap-6
           ${reverse ? "md:[&>*:first-child]:order-2" : ""}
         `}
       >
         {/* IMAGEN */}
-        <div className="flex w-full items-center justify-center py-2 sm:py-3">
+        <div className="flex w-full items-center justify-center py-1 sm:py-3">
           <div
             className="
               group
@@ -158,7 +158,7 @@ const ProjectCard = ({
             flex-col
             justify-center
             px-3
-            pb-4
+            pb-2
             pt-1
             sm:px-4
             sm:py-4
@@ -170,24 +170,25 @@ const ProjectCard = ({
           {status && (
             <div
               className="
-                mb-3
+                mb-2
                 inline-flex
                 w-fit
                 items-center
-                gap-2
+                gap-1.5
                 rounded-full
                 border
                 border-black/10
                 bg-white/50
-                px-2.5
-                py-1
-                text-[10px]
+                px-2
+                py-0.5
+                text-[9px]
                 font-medium
                 text-gray-600
                 dark:border-white/10
                 dark:bg-white/5
                 dark:text-gray-300
                 sm:mb-4
+                sm:gap-2
                 sm:px-3
                 sm:py-1.5
                 sm:text-xs
@@ -231,6 +232,7 @@ const ProjectCard = ({
         <p
           className="
             mt-3
+            text-justify
             text-xs
             leading-5
             text-gray-600

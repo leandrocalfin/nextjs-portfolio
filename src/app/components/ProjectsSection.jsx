@@ -132,10 +132,12 @@ const ProjectsSection = () => {
             mx-auto
             mt-4
             max-w-2xl
-            text-base
-            leading-7
+            text-xs
+            leading-5
             text-gray-500
             dark:text-gray-400
+            sm:text-base
+            sm:leading-7
           "
         >
           {t.projectsText}
