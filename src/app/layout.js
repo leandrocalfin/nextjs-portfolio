@@ -10,7 +10,7 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
   title: "Leandro Calfin | Desarrollador de Software - Full Stack Developer",
   description:
-    "Portfolio de Leandro Calfin, desarrollador de software full stack. Proyectos, tecnologías y contacto. Estudiante avanzado en desarrollo de software.",
+    "Desarrollo sitios web modernos y profesionales para empresas, profesionales y emprendimientos. Páginas personalizadas, adaptables a todos los dispositivos y pensadas para potenciar tu presencia online.",
   keywords: [
     "Leandro Calfin",
     "desarrollador",
@@ -34,7 +34,7 @@ export const metadata = {
     url: siteUrl,
     title: "Leandro Calfin | Desarrollador de Software - Full Stack Developer",
     description:
-      "Portfolio de Leandro Calfin, desarrollador de software full stack. Proyectos, tecnologías y contacto.",
+      "Desarrollo sitios web modernos y profesionales para empresas, profesionales y emprendimientos.",
     siteName: "Leandro Calfin Portfolio",
     images: [
       {
@@ -49,7 +49,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Leandro Calfin | Desarrollador de Software",
     description:
-      "Portfolio de Leandro Calfin, desarrollador de software full stack.",
+      "Desarrollo sitios web modernos y profesionales para empresas y emprendimientos.",
     images: ["/images/logo.webp"],
   },
   robots: {
@@ -75,7 +75,7 @@ export default function RootLayout({ children }) {
     name: "Leandro Calfin",
     jobTitle: "Desarrollador de Software - Full Stack Developer",
     description:
-      "Desarrollador de software full stack. Portfolio de proyectos, tecnologías y contacto.",
+      "Desarrollo sitios web modernos y profesionales para empresas, profesionales y emprendimientos.",
     url: siteUrl,
     email: "mailto:lean.calfin@gmail.com",
     image: `${siteUrl}/images/logo.webp`,
