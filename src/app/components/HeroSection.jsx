@@ -54,20 +54,24 @@ const HeroSection = () => {
         className="
           pointer-events-none
           absolute
-          -left-24
+          -left-16
           top-10
-          h-48
-          w-48
+          h-32
+          w-32
           rounded-full
-          bg-blue-500/15
-          blur-2xl
+          bg-blue-500/10
+          blur-xl
 
-          hidden
-          lg:block
+          sm:-left-24
+          sm:h-48
+          sm:w-48
+          sm:bg-blue-500/15
+
           lg:-left-40
           lg:top-16
           lg:h-[500px]
           lg:w-[500px]
+          lg:bg-blue-500/15
           lg:blur-[80px]
         "
       />
@@ -77,20 +81,24 @@ const HeroSection = () => {
         className="
           pointer-events-none
           absolute
-          -right-24
+          -right-16
           top-24
-          h-48
-          w-48
+          h-32
+          w-32
           rounded-full
-          bg-violet-500/10
-          blur-2xl
+          bg-violet-500/8
+          blur-xl
 
-          hidden
-          lg:block
+          sm:-right-24
+          sm:h-48
+          sm:w-48
+          sm:bg-violet-500/10
+
           lg:-right-40
           lg:bottom-0
           lg:h-[450px]
           lg:w-[450px]
+          lg:bg-violet-500/10
           lg:blur-[90px]
         "
       />
@@ -417,16 +425,18 @@ const HeroSection = () => {
               <div
                 className="
                   absolute
-                  -inset-4
+                  -inset-3
                   -z-10
                   rounded-full
-                  bg-blue-500/10
-                  blur-xl
+                  bg-blue-500/8
+                  blur-lg
 
-                  hidden
-                  md:block
-                  md:-inset-8
-                  md:blur-2xl
+                  md:-inset-6
+                  md:bg-blue-500/10
+                  md:blur-xl
+
+                  lg:-inset-8
+                  lg:blur-2xl
                 "
               />
 

@@ -65,20 +65,24 @@ const ProjectsSection = () => {
         className="
           pointer-events-none
           absolute
-          -left-24
+          -left-16
           top-40
-          h-48
-          w-48
+          h-32
+          w-32
           rounded-full
-          bg-blue-500/15
-          blur-2xl
+          bg-blue-500/10
+          blur-xl
 
-          hidden
-          lg:block
+          sm:-left-24
+          sm:h-48
+          sm:w-48
+          sm:bg-blue-500/15
+
           lg:-left-40
           lg:top-1/4
           lg:h-[500px]
           lg:w-[500px]
+          lg:bg-blue-500/15
           lg:blur-[80px]
         "
       />
@@ -88,20 +92,24 @@ const ProjectsSection = () => {
         className="
           pointer-events-none
           absolute
-          -right-24
+          -right-16
           top-72
-          h-48
-          w-48
+          h-32
+          w-32
           rounded-full
-          bg-violet-500/10
-          blur-2xl
+          bg-violet-500/8
+          blur-xl
 
-          hidden
-          lg:block
+          sm:-right-24
+          sm:h-48
+          sm:w-48
+          sm:bg-violet-500/10
+
           lg:-right-40
           lg:bottom-1/4
           lg:h-[450px]
           lg:w-[450px]
+          lg:bg-violet-500/10
           lg:blur-[90px]
         "
       />

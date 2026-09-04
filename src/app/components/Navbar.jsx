@@ -334,18 +334,18 @@ const Navbar = () => {
             }
           `}
         >
-          <div className="mx-3 mb-3 border-t border-black/10 pt-2 text-right dark:border-white/10">
-            {navLinks.map((link) => (
+          <div className="mx-3 mb-3 border-t border-black/10 pt-1.5 dark:border-white/10">
+            {navLinks.map((link, index) => (
               <Link
                 key={link.path}
                 href={link.path}
                 onClick={closeMenu}
-                className="
+                className={`
                   block
-                  rounded-xl
-                  px-4
-                  py-3
-                  text-sm
+                  text-center
+                  px-3
+                  py-2
+                  text-xs
                   font-medium
                   text-gray-600
                   transition-all
@@ -357,7 +357,11 @@ const Navbar = () => {
                   dark:hover:bg-violet-400/10
                   dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
                   dark:hover:text-white
-                "
+                  sm:px-4
+                  sm:py-3
+                  sm:text-sm
+                  ${index < navLinks.length - 1 ? "border-b border-black/5 dark:border-white/5" : ""}
+                `}
               >
                 {link.title}
               </Link>
