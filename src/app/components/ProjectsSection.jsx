@@ -38,7 +38,7 @@ const ProjectsSection = () => {
       id: 2,
       title: t.impProjectTitle,
       description: t.impProjectDescription,
-      image: "/images/imp-servicios.jpg",
+      image: "/images/logoImpServ.png",
 
       technologies: [
         "React",
