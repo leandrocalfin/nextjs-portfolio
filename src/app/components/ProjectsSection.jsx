@@ -36,6 +36,28 @@ const ProjectsSection = () => {
 
     {
       id: 2,
+      title: t.impProjectTitle,
+      description: t.impProjectDescription,
+      image: "/images/imp-servicios.jpg",
+
+      technologies: [
+        "React",
+        "Vite",
+        "Tailwind",
+        "React Router",
+        "Leaflet",
+        "Framer Motion",
+      ],
+
+      demo: "https://leandrocalfin.github.io/imp-servicios/",
+      github:
+        "https://github.com/leandrocalfin/imp-servicios",
+
+      status: t.finishedStatus,
+    },
+
+    {
+      id: 3,
       title: t.vetProjectTitle,
       description: t.vetProjectDescription,
       image: "/images/veterinaria.webp",

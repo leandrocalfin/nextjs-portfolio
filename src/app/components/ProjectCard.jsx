@@ -16,6 +16,9 @@ import {
   SiCloudinary,
   SiNextdotjs,
   SiMysql,
+  SiReactrouter,
+  SiLeaflet,
+  SiFramer,
 } from "react-icons/si";
 import { useInView } from "../useInView";
 
@@ -29,6 +32,9 @@ const techIcons = {
   Cloudinary: <SiCloudinary className="text-sky-500" />,
   "Next.js": <SiNextdotjs className="text-[#151515] dark:text-white" />,
   MySQL: <SiMysql className="text-blue-400" />,
+  "React Router": <SiReactrouter className="text-red-500" />,
+  Leaflet: <SiLeaflet className="text-green-600" />,
+  "Framer Motion": <SiFramer className="text-pink-500" />,
 };
 
 const ProjectCard = ({

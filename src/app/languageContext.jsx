@@ -51,6 +51,10 @@ export const translations = {
     vetProjectDescription:
       "Actualmente me encuentro desarrollando un sistema de gestión veterinaria diseñado para optimizar la administración de turnos, pacientes, historiales clínicos y procesos internos del establecimiento. El proyecto se está construyendo con React, Next.js, Node.js, Express y MySQL, con el objetivo de centralizar la información y agilizar la operatoria diaria de una clínica veterinaria. Próximamente será publicado en esta sección con su correspondiente detalle funcional, técnico y visual.",
 
+    impProjectTitle: "IMP Servicios SRL",
+    impProjectDescription:
+      "Sitio web institucional para IMP Servicios SRL: soldadura, fabricación, montaje, piping, arenado y pintura para la industria del petróleo, gas y el sector naval-portuario. Incluye galería por categorías, mapa de bases operativas y despliegue automático en GitHub Pages.",
+
     contactEyebrow: "03 — Contacto",
     contactTitle: "Contacto",
     contactIntro:
@@ -123,6 +127,10 @@ export const translations = {
     vetProjectTitle: "Veterinary Management System",
     vetProjectDescription:
       "I am currently developing a veterinary management system designed to optimize appointment scheduling, patient records, clinical histories, and internal operational processes. The project is being built with React, Next.js, Node.js, Express, and MySQL, with the goal of centralizing information and streamlining the daily operations of a veterinary clinic. It will be published in this section soon, along with its corresponding functional, technical, and visual details.",
+
+    impProjectTitle: "IMP Servicios SRL",
+    impProjectDescription:
+      "Corporate website for IMP Servicios SRL: welding, manufacturing, assembly, piping, sandblasting and painting for the oil, gas and naval-port industry. Includes gallery by categories, operations base map and automatic deployment to GitHub Pages.",
 
     contactEyebrow: "03 — Contact",
     contactTitle: "Contact",
