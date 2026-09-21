@@ -53,7 +53,7 @@ const ProjectsSection = () => {
       github:
         "https://github.com/leandrocalfin/imp-servicios",
 
-      status: t.finishedStatus,
+      status: t.projectStatus,
     },
 
     {
@@ -72,6 +72,27 @@ const ProjectsSection = () => {
 
       demo: null,
       github: null,
+
+      status: t.projectStatus,
+    },
+
+    {
+      id: 4,
+      title: t.psicopedagogaProjectTitle,
+      description: t.psicopedagogaProjectDescription,
+      image: "/images/logo-ES.png",
+
+      technologies: [
+        "React",
+        "Vite",
+        "Tailwind",
+        "Node.js",
+        "Express",
+      ],
+
+      demo: null,
+      github:
+        "https://github.com/leandrocalfin/Portfolio-Psicopedagoga",
 
       status: t.projectStatus,
     },
@@ -176,7 +197,7 @@ const ProjectsSection = () => {
 
       {/* PROJECTS */}
       <div ref={projects.ref} className={`mx-auto max-w-5xl space-y-8 md:max-w-6xl lg:max-w-6xl ${projects.isVisible ? "" : ""}`}>
-        {projectsData.map((project, index) => (
+        {[...projectsData].reverse().map((project, index) => (
           <ProjectCard
             key={project.id}
             {...project}

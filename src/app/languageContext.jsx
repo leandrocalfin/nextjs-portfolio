@@ -55,6 +55,10 @@ export const translations = {
     impProjectDescription:
       "Sitio web institucional para IMP Servicios SRL: soldadura, fabricación, montaje, piping, arenado y pintura para la industria del petróleo, gas y el sector naval-portuario. Incluye galería por categorías, mapa de bases operativas y despliegue automático en GitHub Pages.",
 
+    psicopedagogaProjectTitle: "Portfolio Psicopedagoga",
+    psicopedagogaProjectDescription:
+      "Sitio web profesional y administrable para psicopedagoga, con secciones de servicios, certificaciones, artículos y contacto. Incluye sistema de turnos opcional, anuncios y panel de administración para gestionar todo el contenido y la agenda.",
+
     contactEyebrow: "03 — Contacto",
     contactTitle: "Contacto",
     contactIntro:
@@ -131,6 +135,10 @@ export const translations = {
     impProjectTitle: "IMP Servicios SRL",
     impProjectDescription:
       "Corporate website for IMP Servicios SRL: welding, manufacturing, assembly, piping, sandblasting and painting for the oil, gas and naval-port industry. Includes gallery by categories, operations base map and automatic deployment to GitHub Pages.",
+
+    psicopedagogaProjectTitle: "Educational Psychologist Portfolio",
+    psicopedagogaProjectDescription:
+      "Professional and manageable website for an educational psychologist, with services, certifications, articles and contact sections. Includes optional appointment system, announcements and an admin panel to manage all content and scheduling.",
 
     contactEyebrow: "03 — Contact",
     contactTitle: "Contact",

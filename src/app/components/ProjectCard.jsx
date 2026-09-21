@@ -51,6 +51,7 @@ const ProjectCard = ({
   delay = 0,
 }) => {
   const { ref, isVisible } = useInView();
+  const isInProgress = status ? /proceso|progress/i.test(status) : !demo;
 
   return (
     <article
@@ -88,22 +89,23 @@ const ProjectCard = ({
       <div
         className={`
           grid
-          items-center
+          items-stretch
           gap-2
-          md:grid-cols-2
+          md:grid-cols-5
           md:gap-4
           lg:gap-6
           ${reverse ? "md:[&>*:first-child]:order-2" : ""}
         `}
       >
         {/* IMAGEN */}
-        <div className="flex w-full flex-col items-center justify-center py-1 sm:py-3">
+        <div className="flex w-full flex-col items-center justify-center py-1 sm:py-3 md:col-span-2">
           <div
             className="
               group
               relative
               h-[90px]
               w-[90px]
+              shrink-0
               overflow-hidden
               rounded-[16px]
               bg-black/[0.03]
@@ -111,10 +113,10 @@ const ProjectCard = ({
               sm:h-[230px]
               sm:w-[230px]
               sm:rounded-[20px]
-              md:h-[170px]
-              md:w-[170px]
-              lg:h-[200px]
-              lg:w-[200px]
+              md:h-[150px]
+              md:w-[150px]
+              lg:h-[170px]
+              lg:w-[170px]
             "
           >
             {image ? (
@@ -251,6 +253,7 @@ const ProjectCard = ({
             pt-1
             sm:px-4
             sm:py-4
+            md:col-span-3
             md:px-3
             lg:px-5
           "
@@ -290,9 +293,9 @@ const ProjectCard = ({
                   w-2
                   rounded-full
                   ${
-                    demo
-                      ? "bg-green-500"
-                      : "bg-yellow-500"
+                    isInProgress
+                      ? "bg-yellow-500"
+                      : "bg-green-500"
                   }
                 `
               }
