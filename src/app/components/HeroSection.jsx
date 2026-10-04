@@ -479,12 +479,7 @@ const HeroSection = () => {
                     alt="Leandro Calfin"
                     fill
                     priority
-                    sizes="
-                      (max-width: 640px) 115px,
-                      (max-width: 768px) 150px,
-                      (max-width: 1024px) 250px,
-                      380px
-                    "
+                    sizes="(max-width: 640px) 115px, (max-width: 768px) 150px, (max-width: 1024px) 250px, 380px"
                     className="
                       object-cover
                       object-center

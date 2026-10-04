@@ -124,11 +124,7 @@ const ProjectCard = ({
                 src={image}
                 alt={title}
                 fill
-                sizes="
-                  (max-width: 640px) 90px,
-                  (max-width: 1024px) 170px,
-                  200px
-                "
+                sizes="(max-width: 640px) 90px, (max-width: 1024px) 170px, 200px"
                 className="
                   object-contain
                   object-center
