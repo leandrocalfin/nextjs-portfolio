@@ -12,12 +12,62 @@ import Image from "next/image";
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const { theme, setTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = ["home", "about", "projects", "contact"];
+
+    const handleScroll = () => {
+      // Si estamos al final de la página, activar contacto
+      const nearBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 80;
+      if (nearBottom) {
+        setActiveSection("contact");
+        return;
+      }
+
+      // Si estamos arriba del todo, activar home
+      if (window.scrollY < 200) {
+        setActiveSection("home");
+        return;
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        // La sección se considera activa cuando cruza el centro del viewport
+        // (compensa el navbar fijo de arriba)
+        rootMargin: "-40% 0px -55% 0px",
+        threshold: 0,
+      }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -28,24 +78,78 @@ const Navbar = () => {
     setNavbarOpen(false);
   };
 
+  const scrollToSection = (id) => {
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      // Limpia / actualiza el hash sin provocar un salto brusco
+      window.history.pushState(null, "", "#home");
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 90; // compensa el navbar fijo
+      const y = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      window.history.pushState(null, "", `#${id}`);
+    }
+  };
+
+  const handleNavClick = (e, id) => {
+    if (e) e.preventDefault();
+    setActiveSection(id);
+    closeMenu();
+    // Dejar que el menú mobile se cierre antes de scrollear
+    requestAnimationFrame(() => scrollToSection(id));
+  };
+
   const navLinks = [
     {
+      id: "home",
       title: t.navHome,
       path: "#home",
     },
     {
+      id: "about",
       title: t.navAbout,
       path: "#about",
     },
     {
+      id: "projects",
       title: t.navProjects,
       path: "#projects",
     },
     {
+      id: "contact",
       title: t.navContact,
       path: "#contact",
     },
   ];
+
+  const getDesktopLinkClasses = (isActive) => `
+                  relative
+                  px-4
+                  py-2
+                  text-sm
+                  font-medium
+                  transition-colors
+                  duration-300
+                  ${
+                    isActive
+                      ? "text-black dark:text-white after:opacity-100"
+                      : "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white after:opacity-0 hover:after:opacity-100"
+                  }
+                  after:absolute
+                  after:bottom-1
+                  after:left-4
+                  after:right-4
+                  after:h-[2px]
+                  after:rounded-full
+                  after:bg-gradient-to-r
+                  after:from-blue-500
+                  after:to-violet-600
+                  after:transition-opacity
+                  after:duration-300
+                `;
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 md:pt-5">
@@ -70,7 +174,7 @@ const Navbar = () => {
           {/* LOGO */}
           <Link
             href="#home"
-            onClick={closeMenu}
+            onClick={(e) => handleNavClick(e, "home")}
             className="
               flex
               items-center
@@ -95,32 +199,9 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 href={link.path}
-                className="
-                  relative
-                  px-4
-                  py-2
-                  text-sm
-                  font-medium
-                  text-gray-600
-                  transition-colors
-                  duration-300
-                  hover:text-black
-                  dark:text-gray-300
-                  dark:hover:text-white
-                  after:absolute
-                  after:bottom-1
-                  after:left-4
-                  after:right-4
-                  after:h-[2px]
-                  after:rounded-full
-                  after:bg-gradient-to-r
-                  after:from-blue-500
-                  after:to-violet-600
-                  after:opacity-0
-                  after:transition-opacity
-                  after:duration-300
-                  hover:after:opacity-100
-                "
+                onClick={(e) => handleNavClick(e, link.id)}
+                aria-current={activeSection === link.id ? "true" : undefined}
+                className={getDesktopLinkClasses(activeSection === link.id)}
               >
                 {link.title}
               </Link>
@@ -344,33 +425,38 @@ const Navbar = () => {
           `}
         >
           <div className="mx-3 mb-3 border-t border-black/10 pt-1.5 dark:border-white/10">
-            {navLinks.map((link, index) => (
-              <Link
-                key={link.path}
-                href={link.path}
-                onClick={closeMenu}
-                className={`
+            {navLinks.map((link, index) => {
+              const isActive = activeSection === link.id;
+              return (
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  onClick={(e) => handleNavClick(e, link.id)}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`
                   block
                   text-center
                   px-3
                   py-2
                   text-xs
                   font-medium
-                  text-gray-600
                   transition-colors
                   duration-300
-                  hover:text-black
-                  dark:text-gray-300
-                  dark:hover:text-white
                   sm:px-4
                   sm:py-3
                   sm:text-sm
+                  ${
+                    isActive
+                      ? "text-black dark:text-white"
+                      : "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
+                  }
                   ${index < navLinks.length - 1 ? "border-b border-black/5 dark:border-white/5" : ""}
                 `}
-              >
-                {link.title}
-              </Link>
-            ))}
+                >
+                  {link.title}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
