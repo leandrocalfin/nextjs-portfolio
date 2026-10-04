@@ -12,9 +12,9 @@ export const translations = {
     navContact: "Contacto",
 
     heroTitle: "Hola, soy Leandro Calfin.",
-    heroSubtitle: "Estudiante avanzado en Desarrollo de Software.",
+    heroSubtitle: "Desarrollo de sitios web y landing pages.",
     heroText:
-      "Enfocado en el desarrollo web\n y en la construcción de APIs REST.",
+      "Para negocios y emprendedores,\n con foco en web moderna y APIs REST.",
     heroAvailability: "Disponible para nuevos proyectos",
     heroLocationLabel: "Ubicado en la",
     heroLocation: "Patagonia Argentina",
@@ -93,9 +93,9 @@ export const translations = {
     navContact: "Contact",
 
     heroTitle: "Hi, I'm Leandro Calfin.",
-    heroSubtitle: "Advanced Software Development Student.",
+    heroSubtitle: "Web and landing page developer.",
     heroText:
-      "Focused on web development and building REST APIs.",
+      "Building modern websites for businesses and entrepreneurs, plus REST APIs.",
     heroAvailability: "Available for new projects",
     heroLocationLabel: "Based in",
     heroLocation: "Argentina",
