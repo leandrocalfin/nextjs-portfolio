@@ -315,29 +315,19 @@ const AboutSection = () => {
                 "
               />
 
-              {/* ICONO EN CHIP */}
+              {/* LOGO SIN RECUADRO CON RESPLANDOR */}
               <div
                 className="
                   flex
-                  h-8
-                  w-8
                   items-center
                   justify-center
-                  rounded-lg
-                  border
-                  border-black/5
-                  bg-white/50
-                  text-xl
+                  text-3xl
                   transition-all
                   duration-300
-                  group-hover:scale-110
-                  group-hover:border-blue-500/40
-                  group-hover:shadow-[0_0_18px_rgba(59,130,246,0.25)]
-                  dark:border-white/10
-                  dark:bg-white/[0.04]
-                  sm:h-9
-                  sm:w-9
-                  sm:text-2xl
+                  drop-shadow-[0_0_10px_rgba(59,130,246,0.25)]
+                  group-hover:scale-125
+                  group-hover:drop-shadow-[0_0_18px_rgba(59,130,246,0.55)]
+                  sm:text-4xl
                 "
               >
                 {tech.icon}
@@ -346,7 +336,7 @@ const AboutSection = () => {
               <p
                 className="
                   font-mono
-                  text-[10px]
+                  text-xs
                   font-semibold
                 uppercase
                   tracking-wide
@@ -356,7 +346,7 @@ const AboutSection = () => {
                   group-hover:text-blue-500
                   dark:text-gray-200
                   dark:group-hover:text-blue-400
-                  sm:text-[11px]
+                  sm:text-[13px]
                 "
               >
                 {tech.name}

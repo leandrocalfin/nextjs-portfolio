@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
   FaEnvelope,
@@ -15,6 +15,12 @@ import { useLanguage } from "../languageContext";
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [formError, setFormError] = useState("");
+  const formStartRef = useRef(Date.now());
+  const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileWidgetId = useRef(null);
+  const turnstileRef = useRef(null);
 
   const { t, language } = useLanguage();
 
@@ -22,8 +28,89 @@ const EmailSection = () => {
   const info = useInView();
   const form = useInView();
 
+  useEffect(() => {
+    if (!turnstileSiteKey || emailSubmitted) return;
+    const renderWidget = () => {
+      if (!window.turnstile || !turnstileRef.current) return;
+      // Si el contenedor se remontó (ej. "enviar otro"), permite re-render
+      if (
+        turnstileRef.current.innerHTML !== "" &&
+        turnstileWidgetId.current !== null
+      )
+        return;
+      if (turnstileRef.current.innerHTML === "")
+        turnstileWidgetId.current = null;
+      if (turnstileWidgetId.current !== null) return;
+      try {
+        turnstileWidgetId.current = window.turnstile.render(
+          turnstileRef.current,
+          {
+            sitekey: turnstileSiteKey,
+            callback: (token) => setTurnstileToken(token),
+            "expired-callback": () => setTurnstileToken(""),
+            "error-callback": () => setTurnstileToken(""),
+            theme: "auto",
+          }
+        );
+      } catch {}
+    };
+    if (window.turnstile) {
+      renderWidget();
+      return;
+    }
+    let interval;
+    if (
+      !document.querySelector(
+        'script[src*="challenges.cloudflare.com/turnstile"]'
+      )
+    ) {
+      const s = document.createElement("script");
+      s.src =
+        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      s.async = true;
+      s.defer = true;
+      s.onload = renderWidget;
+      document.head.appendChild(s);
+    } else {
+      interval = setInterval(() => {
+        if (window.turnstile) {
+          clearInterval(interval);
+          renderWidget();
+        }
+      }, 300);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [turnstileSiteKey, emailSubmitted]);
+
+  const resetTurnstile = () => {
+    setTurnstileToken("");
+    try {
+      if (window.turnstile && turnstileWidgetId.current !== null) {
+        window.turnstile.reset(turnstileWidgetId.current);
+      }
+    } catch {}
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormError("");
+
+    // Cooldown cliente: evita doble envío / ráfagas (30s)
+    try {
+      const last = window.localStorage.getItem("contact-last-sent");
+      if (last && Date.now() - Number(last) < 30 * 1000) {
+        setFormError(t.cooldownError);
+        return;
+      }
+    } catch {}
+
+    // Turnstile obligatorio si hay sitekey configurada
+    if (turnstileSiteKey && !turnstileToken) {
+      setFormError(t.captchaRequired);
+      return;
+    }
 
     setSending(true);
 
@@ -33,6 +120,8 @@ const EmailSection = () => {
       message: e.target.message.value,
       language,
       website: e.target.website.value,
+      startedAt: formStartRef.current,
+      turnstileToken,
     };
 
     const endpoint = "/api/send";
@@ -52,9 +141,27 @@ const EmailSection = () => {
         console.log("Mensaje enviado.");
         setEmailSubmitted(true);
         e.target.reset();
+        formStartRef.current = Date.now();
+        resetTurnstile();
+        try {
+          window.localStorage.setItem("contact-last-sent", String(Date.now()));
+        } catch {}
+      } else if (response.status === 429) {
+        setFormError(t.rateLimitError);
+      } else if (response.status === 400) {
+        let isCaptcha = false;
+        try {
+          const j = await response.json();
+          isCaptcha = j?.error === "Invalid captcha";
+        } catch {}
+        setFormError(isCaptcha ? t.captchaError : t.genericSendError);
+        if (isCaptcha) resetTurnstile();
+      } else {
+        setFormError(t.genericSendError);
       }
     } catch (error) {
       console.error("Error al enviar mensaje:", error);
+      setFormError(t.genericSendError);
     } finally {
       setSending(false);
     }
@@ -457,7 +564,12 @@ const EmailSection = () => {
 
               <button
                 type="button"
-                onClick={() => setEmailSubmitted(false)}
+                onClick={() => {
+                  setEmailSubmitted(false);
+                  formStartRef.current = Date.now();
+                  turnstileWidgetId.current = null;
+                  setTurnstileToken("");
+                }}
                 className="
                   mt-5
                   rounded-lg
@@ -557,9 +669,15 @@ const EmailSection = () => {
                 />
               </div>
 
+              {turnstileSiteKey && (
+                <div className="mb-5 flex justify-center sm:mb-6">
+                  <div ref={turnstileRef} />
+                </div>
+              )}
+
               <button
                 type="submit"
-                disabled={sending}
+                disabled={sending || (turnstileSiteKey && !turnstileToken)}
                 className="
                   group
                   relative
@@ -631,6 +749,12 @@ const EmailSection = () => {
                   />
                 )}
               </button>
+
+              {formError && (
+                <p className="mt-3 text-center text-xs text-red-500 sm:text-sm">
+                  {formError}
+                </p>
+              )}
             </form>
           )}
         </div>

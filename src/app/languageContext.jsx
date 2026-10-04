@@ -12,7 +12,7 @@ export const translations = {
     navContact: "Contacto",
 
     heroTitle: "Hola, soy Leandro Calfin.",
-    heroSubtitle: "Desarrollo de sitios web y landing pages.",
+    heroSubtitle: "Desarrollador web especializado en sitios y landing pages.",
     heroText:
       "Para negocios y emprendedores,\n con foco en web moderna y APIs REST.",
     heroAvailability: "Disponible para nuevos proyectos",
@@ -76,6 +76,11 @@ export const translations = {
     placeholderMessage: "Escriba su mensaje...",
     sendMessage: "Enviar mensaje",
     sendingMessage: "Enviando...",
+    rateLimitError: "Demasiados mensajes. Esperá un rato antes de reintentar.",
+    cooldownError: "Esperá unos segundos antes de enviar otro mensaje.",
+    genericSendError: "No se pudo enviar. Intentá de nuevo.",
+    captchaRequired: "Completá la verificación anti-spam para enviar.",
+    captchaError: "Falló la verificación anti-spam. Intentá de nuevo.",
     messageSent: "Mensaje enviado correctamente.",
     messageSentText:
       "Gracias por contactarte. Te responderé lo antes posible.",
@@ -93,7 +98,7 @@ export const translations = {
     navContact: "Contact",
 
     heroTitle: "Hi, I'm Leandro Calfin.",
-    heroSubtitle: "Web and landing page developer.",
+    heroSubtitle: "Web developer specializing in websites and landing pages.",
     heroText:
       "Building modern websites for businesses and entrepreneurs, plus REST APIs.",
     heroAvailability: "Available for new projects",
@@ -157,6 +162,11 @@ export const translations = {
     placeholderMessage: "Write your message...",
     sendMessage: "Send message",
     sendingMessage: "Sending...",
+    rateLimitError: "Too many messages. Please wait a while before retrying.",
+    cooldownError: "Please wait a few seconds before sending again.",
+    genericSendError: "Could not send. Please try again.",
+    captchaRequired: "Please complete the anti-spam verification to send.",
+    captchaError: "Anti-spam verification failed. Please try again.",
     messageSent: "Message sent successfully.",
     messageSentText:
       "Thanks for reaching out. I’ll get back to you as soon as possible.",

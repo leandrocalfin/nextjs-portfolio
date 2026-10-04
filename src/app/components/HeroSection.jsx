@@ -241,7 +241,7 @@ const HeroSection = () => {
                 {t.heroTitle}
               </span>
 
-              <span className="gradient-text mt-4 block text-[22px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+              <span className="gradient-text mt-3 block text-[20px] leading-[1.05] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
                 <TypeAnimation
                   key={t.heroSubtitle}
                   sequence={[
