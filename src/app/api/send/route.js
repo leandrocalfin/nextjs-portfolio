@@ -193,9 +193,12 @@ export async function POST(req) {
     });
 
     console.log("Respuesta Resend:", data);
-    return NextResponse.json(data);
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error Resend:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: "No se pudo enviar el mensaje" },
+      { status: 500 }
+    );
   }
 }

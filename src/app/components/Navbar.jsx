@@ -96,21 +96,30 @@ const Navbar = () => {
                 key={link.path}
                 href={link.path}
                 className="
-                  rounded-xl
+                  relative
                   px-4
                   py-2
                   text-sm
                   font-medium
                   text-gray-600
-                  transition-all
+                  transition-colors
                   duration-300
-                  hover:bg-violet-500/[0.06]
-                  hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
                   hover:text-black
                   dark:text-gray-300
-                  dark:hover:bg-violet-400/10
-                  dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
                   dark:hover:text-white
+                  after:absolute
+                  after:bottom-1
+                  after:left-4
+                  after:right-4
+                  after:h-[2px]
+                  after:rounded-full
+                  after:bg-gradient-to-r
+                  after:from-blue-500
+                  after:to-violet-600
+                  after:opacity-0
+                  after:transition-opacity
+                  after:duration-300
+                  hover:after:opacity-100
                 "
               >
                 {link.title}
@@ -348,14 +357,10 @@ const Navbar = () => {
                   text-xs
                   font-medium
                   text-gray-600
-                  transition-all
+                  transition-colors
                   duration-300
-                  hover:bg-violet-500/[0.06]
-                  hover:shadow-[0_8px_30px_rgba(99,102,241,0.15)]
                   hover:text-black
                   dark:text-gray-300
-                  dark:hover:bg-violet-400/10
-                  dark:hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]
                   dark:hover:text-white
                   sm:px-4
                   sm:py-3
