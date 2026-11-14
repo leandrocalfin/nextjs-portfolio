@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { useInView } from "../useInView";
 import { useLanguage } from "../languageContext";
+import { bondStory } from "../fonts";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -352,17 +353,19 @@ const EmailSection = () => {
             </h3>
 
             <p
-              className="
+              className={`
+                ${bondStory.className}
                 mt-4
                 max-w-md
                 text-justify
-                text-xs
+                text-base
                 leading-6
-                text-gray-600
-                dark:text-gray-400
+                text-[#151515]
+                dark:text-white
                 sm:mt-6
-                sm:text-base
-              "
+                sm:text-lg
+                sm:leading-7
+              `}
             >
               {t.contactText}
             </p>

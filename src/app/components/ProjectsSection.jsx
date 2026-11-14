@@ -96,6 +96,27 @@ const ProjectsSection = () => {
 
       status: t.projectStatus,
     },
+
+    {
+      id: 5,
+      title: t.crybeProjectTitle,
+      description: t.crybeProjectDescription,
+      image: "/images/crybe.webp",
+
+      technologies: [
+        "Next.js",
+        "React",
+        "Tailwind",
+        "Supabase",
+        "Cloudflare Workers",
+        "Framer Motion",
+      ],
+
+      demo: "https://crybe-next.crybe.workers.dev/",
+      github: "https://github.com/leandrocalfin/crybe",
+
+      status: t.finishedStatus,
+    },
   ];
 
   return (
@@ -196,12 +217,11 @@ const ProjectsSection = () => {
       </div>
 
       {/* PROJECTS */}
-      <div ref={projects.ref} className={`mx-auto max-w-5xl space-y-8 md:max-w-6xl lg:max-w-6xl ${projects.isVisible ? "" : ""}`}>
+      <div ref={projects.ref} className="mx-auto grid max-w-5xl grid-cols-1 gap-4 px-2 sm:gap-6 sm:px-0 md:grid-cols-2 md:gap-5 md:px-0 lg:max-w-6xl lg:gap-6">
         {[...projectsData].reverse().map((project, index) => (
           <ProjectCard
             key={project.id}
             {...project}
-            reverse={index % 2 !== 0}
             viewProjectText={t.viewProject}
             previewText={t.previewSoon}
             delay={index * 0.1}

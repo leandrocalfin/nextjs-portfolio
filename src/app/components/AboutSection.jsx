@@ -3,6 +3,7 @@
 import React from "react";
 import { useInView } from "../useInView";
 import { useLanguage } from "../languageContext";
+import { bondStory } from "../fonts";
 
 import {
   FaHtml5,
@@ -13,14 +14,16 @@ import {
   FaGitAlt,
   FaGithub,
   FaBootstrap,
-} from "react-icons/fa";
+  FaGaugeHigh,
+} from "react-icons/fa6";
 
-import { SiMysql, SiExpress } from "react-icons/si";
+import { SiMysql, SiExpress, SiNextdotjs, SiSupabase, SiPostman } from "react-icons/si";
 
 const technologies = [
   { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
   { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
   { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
+  { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" /> },
   { name: "React", icon: <FaReact className="text-cyan-400" /> },
   { name: "Bootstrap", icon: <FaBootstrap className="text-purple-500" /> },
   { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
@@ -28,12 +31,15 @@ const technologies = [
     name: "Express",
     icon: <SiExpress className="text-gray-700 dark:text-gray-200" />,
   },
+  { name: "Supabase", icon: <SiSupabase className="text-[#3ECF8E]" /> },
   { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
   { name: "Git", icon: <FaGitAlt className="text-orange-600" /> },
   {
     name: "GitHub",
     icon: <FaGithub className="text-[#151515] dark:text-white" />,
   },
+  { name: "Postman", icon: <SiPostman className="text-[#FF6C37]" /> },
+  { name: "GTmetrix", icon: <FaGaugeHigh className="text-[#FF8A00]" /> },
 ];
 
 const AboutSection = () => {
@@ -123,25 +129,27 @@ const AboutSection = () => {
           ref={textBlock.ref}
           className={`
             animate-on-scroll from-left
-            glass mx-2 rounded-[20px] p-4
-            sm:mx-0 sm:rounded-[28px] sm:p-5
-            lg:col-span-3 lg:p-5
+            mx-2
+            sm:mx-0
+            lg:col-span-3
+            ${bondStory.className}
+            text-glow-black
             ${textBlock.isVisible ? "is-visible" : ""}
           `}
         >
-          <p className="text-justify text-xs leading-5 text-gray-600 dark:text-gray-400 sm:text-sm sm:leading-7 lg:text-sm lg:leading-6">
+          <p className="text-justify text-lg leading-7 text-[#151515] dark:text-white sm:text-xl sm:leading-9 lg:text-xl lg:leading-8">
             {t.aboutText1}
           </p>
 
-          <p className="mt-2 text-justify text-xs leading-5 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
+          <p className="mt-2 text-justify text-lg leading-7 text-[#151515] dark:text-white sm:mt-4 sm:text-xl sm:leading-9 lg:mt-4 lg:text-xl lg:leading-8">
             {t.aboutText2}
           </p>
 
-          <p className="mt-2 text-justify text-xs leading-5 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
+          <p className="mt-2 text-justify text-lg leading-7 text-[#151515] dark:text-white sm:mt-4 sm:text-xl sm:leading-9 lg:mt-4 lg:text-xl lg:leading-8">
             {t.aboutText3}
           </p>
 
-          <p className="mt-2 text-justify text-xs leading-5 text-gray-600 dark:text-gray-400 sm:mt-4 sm:text-sm sm:leading-7 lg:mt-4 lg:text-sm lg:leading-6">
+          <p className="mt-2 text-justify text-lg leading-7 text-[#151515] dark:text-white sm:mt-4 sm:text-xl sm:leading-9 lg:mt-4 lg:text-xl lg:leading-8">
             {t.aboutText4}
           </p>
         </div>
@@ -261,7 +269,7 @@ const AboutSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 px-2 sm:grid-cols-3 sm:gap-3 sm:px-0 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-2 px-2 sm:grid-cols-4 sm:gap-3 sm:px-0 md:grid-cols-7">
           {technologies.map((tech, index) => (
             <div
               key={tech.name}

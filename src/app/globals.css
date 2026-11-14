@@ -215,3 +215,12 @@ section {
 .animate-bounce-slow {
   animation: bounce-slow 2s ease-in-out infinite;
 }
+/* ================================
+   TEXT SHADOW (negro)
+============================== */
+
+.text-glow-black {
+  text-shadow:
+    0 0 12px rgba(0, 0, 0, 0.35),
+    0 0 32px rgba(0, 0, 0, 0.3);
+}

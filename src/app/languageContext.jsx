@@ -59,6 +59,10 @@ export const translations = {
     psicopedagogaProjectDescription:
       "Sitio web profesional y administrable para psicopedagoga, con secciones de servicios, certificaciones, artículos y contacto. Incluye sistema de turnos opcional, anuncios y panel de administración para gestionar todo el contenido y la agenda.",
 
+    crybeProjectTitle: "Centro CRYBE",
+    crybeProjectDescription:
+      "Sitio web institucional para el Centro de Rehabilitación y Bienestar Emocional (General Roca, Río Negro). One-page con secciones de Nosotros, Especialidades, Profesionales, alquiler de consultorios, recursos y contacto. Incluye panel de administración completo para editar textos, imágenes y contenidos sin tocar código, formulario de contacto con anti-bot y despliegue en Cloudflare Workers con Supabase como CMS.",
+
     contactEyebrow: "03 — Contacto",
     contactTitle: "Contacto",
     contactIntro:
@@ -66,7 +70,7 @@ export const translations = {
     contactWorkTogether: "Trabajemos juntos",
     contactSubtitle: "Hablemos",
     contactText:
-      "Estoy abierto a nuevas oportunidades y proyectos. Si tenés alguna consulta, propuesta de trabajo o simplemente querés ponerte en contacto, no dudes en escribirme. Te responderé a la brevedad.",
+      "Siempre estoy dispuesto a conocer nuevas personas, colaborar en proyectos y explorar oportunidades profesionales. Si tenés una propuesta, una consulta o simplemente querés conversar, podés escribirme. ¡Será un gusto conectar!",
 
     formName: "Nombre",
     formEmail: "Correo",
@@ -145,6 +149,10 @@ export const translations = {
     psicopedagogaProjectDescription:
       "Professional and manageable website for an educational psychologist, with services, certifications, articles and contact sections. Includes optional appointment system, announcements and an admin panel to manage all content and scheduling.",
 
+    crybeProjectTitle: "CRYBE Center",
+    crybeProjectDescription:
+      "Institutional website for the Rehabilitation and Emotional Wellbeing Center (General Roca, Río Negro). One-page with About Us, Specialties, Professionals, office rental, resources and contact sections. Includes a full admin panel to edit texts, images and content without touching code, a contact form with anti-bot protection and deployment on Cloudflare Workers with Supabase as CMS.",
+
     contactEyebrow: "03 — Contact",
     contactTitle: "Contact",
     contactIntro:
@@ -152,7 +160,7 @@ export const translations = {
     contactWorkTogether: "Let's work together",
     contactSubtitle: "Let's talk",
     contactText:
-      "I am open to new opportunities and projects. If you have a question, a job proposal, or simply want to get in touch, feel free to write to me. I will reply as soon as possible.",
+      "I'm always open to meeting new people, collaborating on projects and exploring professional opportunities. If you have a proposal, a question, or simply want to chat, feel free to write to me. It'll be a pleasure to connect!",
 
     formName: "Name",
     formEmail: "Email",
