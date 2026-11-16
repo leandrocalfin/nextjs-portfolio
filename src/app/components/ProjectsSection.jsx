@@ -90,7 +90,7 @@ const ProjectsSection = () => {
         "Express",
       ],
 
-      demo: null,
+      demo: "https://leandrocalfin.github.io/Portfolio-Psicopedagoga/",
       github:
         "https://github.com/leandrocalfin/Portfolio-Psicopedagoga",
 
