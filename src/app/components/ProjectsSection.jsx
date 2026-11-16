@@ -27,7 +27,7 @@ const ProjectsSection = () => {
         "Cloudinary",
       ],
 
-      demo: "https://mb-fotografia.vercel.app/",
+      demo: "https://leandrocalfin.github.io/Portfolio-Fotografo/",
       github:
         "https://github.com/leandrocalfin/Portfolio-Fotografo",
 
