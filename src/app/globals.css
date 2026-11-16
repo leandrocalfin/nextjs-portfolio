@@ -224,3 +224,52 @@ section {
     0 0 12px rgba(0, 0, 0, 0.35),
     0 0 32px rgba(0, 0, 0, 0.3);
 }
+
+
+/* ================================
+   WHATSAPP
+================================ */
+
+@keyframes whatsapp-pulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.65;
+  }
+
+  70% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+.whatsapp-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+
+  background-color: rgba(37, 211, 102, 0.35);
+
+  animation: whatsapp-pulse 2.2s ease-out infinite;
+
+  pointer-events: none;
+}
+
+.whatsapp-pulse-1 {
+  animation-delay: 0s;
+}
+
+.whatsapp-pulse-2 {
+  animation-delay: 1.1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-pulse {
+    animation: none;
+    opacity: 0;
+  }
+}

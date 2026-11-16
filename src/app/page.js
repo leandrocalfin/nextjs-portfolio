@@ -4,6 +4,7 @@ import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function Home() {
   return (
@@ -39,6 +40,8 @@ export default function Home() {
       </div>
 
       <Footer />
+
+      <WhatsAppButton />
     </main>
   );
 }
